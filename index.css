@@ -1,0 +1,22 @@
+circle {
+    color: black;
+}
+
+svg {
+    border: 1px solid blue;
+    padding: 0 20px;
+}
+
+input {
+    width: 20px;
+    text-align: center;
+}
+
+input::-webkit-inner-spin-button {
+    display: none;
+}
+
+#container {
+    margin: auto;
+    text-align: center;
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clicker Test</title>
+    <script src="https://d3js.org/d3.v5.js"></script>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div id="container">
+        <h1>Playables</h1>
+        <div>
+            <button onclick="decrement(`P`)">
+                -
+            </button>
+            <input id="P" type="number" value="40" min="0" onchange="monoPlayables()">
+            <button onclick="increment(`P`)">
+                +
+            </button>
+        </div>
+        <div>
+            <button onclick="decrement(`J`)">
+                -
+            </button>
+            <input id="J" type="number" value="3" min="0" onchange="monoPlayables()">
+            <button onclick="increment(`J`)">
+                +
+            </button>
+        </div>
+        <div>
+            <button onclick="decrement(`S`)">
+                -
+            </button>
+            <input id="S" type="number" value="3" min="0" onchange="monoPlayables()">
+            <button onclick="increment(`S`)">
+                +
+            </button>
+        </div>
+        <div>
+            <button onclick="decrement(`F`)">
+                -
+            </button>
+            <input id="F" type="number" value="3" min="0" onchange="monoPlayables()">
+            <button onclick="increment(`F`)">
+                +
+            </button>
+        </div>
+        <div>
+            <button onclick="decrement(`T`)">
+                -
+            </button>
+            <input id="T" type="number" value="3" min="0" onchange="monoPlayables()">
+            <button onclick="increment(`T`)">
+                +
+            </button>
+        </div>
+
+        <div id="graph"></div>
+        <div id="bar-chart"></div>
+    </div>
+</body>
+
+<script>
+    /*Init charts*/
+    monoPlayables()
+
+    function increment(selector) {
+        var inputField = document.getElementById(selector);
+        inputField.stepUp();
+        monoPlayables();
+    }
+
+    function decrement(selector) {
+        var inputField = document.getElementById(selector);
+        inputField.stepDown();
+        monoPlayables();
+    }
+
+    function monoPlayables() {
+        /*Remove old svg's*/
+        d3.select("#graph svg").remove();
+
+        /*Data Set*/
+        var primal = {
+            color: "navy",
+            count: document.getElementById('P').value * 7
+        },
+            justice = {
+                color: "green",
+                count: document.getElementById('J').value * 7
+            },
+            time = {
+                color: "gold",
+                count: document.getElementById('T').value * 7
+            },
+            shadow = {
+                color: "rebeccapurple",
+                count: document.getElementById('S').value * 7
+            },
+            fire = {
+                color: "firebrick",
+                count: document.getElementById('F').value * 7
+            }
+        /*Chart Settings*/
+        var barW = 40;
+        var barOff = 20;
+        /*Insert Data => Graph*/
+        //  the data that powers the bar chart, a simple array of numeric values
+        var chartdata = [primal, justice, time, shadow, fire];
+
+        //  the size of the overall svg element
+        var height = 300,
+            width = 250,
+
+            //  the width of each bar and the offset between each bar
+            barWidth = 40,
+            barOffset = 10;
+
+
+        d3.select('#graph').append('svg')
+            .attr('width', width)
+            .attr('height', height)
+            .style('background', 'snow')
+            .selectAll('rect').data(chartdata)
+            .enter().append('rect')
+            .attr('width', barWidth)
+            .attr('height', function (data) {
+                return data.count;
+            })
+            .attr('x', function (data, i) {
+                return i * (barWidth + barOffset);
+            })
+            .attr('y', function (data) {
+                return height - data.count;
+            })
+            .style('fill', function (data) {
+                return data.color
+            });
+    }
+
+</script>
+
+</html>
