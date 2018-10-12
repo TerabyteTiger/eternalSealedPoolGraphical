@@ -12,56 +12,100 @@
 
 <body>
     <div id="container">
-        <h1>Playables</h1>
-        <div>
-            <button onclick="decrement(`P`)">
-                -
-            </button>
-            <input id="P" type="number" value="40" min="0" onchange="monoPlayables()">
-            <button onclick="increment(`P`)">
-                +
-            </button>
-        </div>
-        <div>
-            <button onclick="decrement(`J`)">
-                -
-            </button>
-            <input id="J" type="number" value="3" min="0" onchange="monoPlayables()">
-            <button onclick="increment(`J`)">
-                +
-            </button>
-        </div>
-        <div>
-            <button onclick="decrement(`S`)">
-                -
-            </button>
-            <input id="S" type="number" value="3" min="0" onchange="monoPlayables()">
-            <button onclick="increment(`S`)">
-                +
-            </button>
-        </div>
-        <div>
-            <button onclick="decrement(`F`)">
-                -
-            </button>
-            <input id="F" type="number" value="3" min="0" onchange="monoPlayables()">
-            <button onclick="increment(`F`)">
-                +
-            </button>
-        </div>
-        <div>
-            <button onclick="decrement(`T`)">
-                -
-            </button>
-            <input id="T" type="number" value="3" min="0" onchange="monoPlayables()">
-            <button onclick="increment(`T`)">
-                +
-            </button>
-        </div>
-
-        <div id="graph"></div>
-        <div id="bar-chart"></div>
+        <table>
+            <tr>
+                <td colspan="2">
+                    <h1>Playables</h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Primal:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="decrement(`P`)">
+                            -
+                        </button>
+                        <input id="P" type="number" value="40" min="0" onchange="monoPlayables()">
+                        <button onclick="increment(`P`)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Justice:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="decrement(`J`)">
+                            -
+                        </button>
+                        <input id="J" type="number" value="3" min="0" onchange="monoPlayables()">
+                        <button onclick="increment(`J`)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Shadow:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="decrement(`S`)">
+                            -
+                        </button>
+                        <input id="S" type="number" value="3" min="0" onchange="monoPlayables()">
+                        <button onclick="increment(`S`)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Fire:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="decrement(`F`)">
+                            -
+                        </button>
+                        <input id="F" type="number" value="3" min="0" onchange="monoPlayables()">
+                        <button onclick="increment(`F`)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Time:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="decrement(`T`)">
+                            -
+                        </button>
+                        <input id="T" type="number" value="3" min="0" onchange="monoPlayables()">
+                        <button onclick="increment(`T`)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div id="bestMono"></div>
+                </td>
+            </tr>
+        </table>
     </div>
+    <div id="graph"></div>
 </body>
 
 <script>
@@ -87,39 +131,40 @@
         /*Data Set*/
         var primal = {
             color: "navy",
-            count: document.getElementById('P').value * 7
+            count: document.getElementById('P').value * 2,
+            name: "Primal"
         },
             justice = {
                 color: "green",
-                count: document.getElementById('J').value * 7
+                count: document.getElementById('J').value * 2,
+                name: "Justice"
             },
             time = {
                 color: "gold",
-                count: document.getElementById('T').value * 7
+                count: document.getElementById('T').value * 2,
+                name: "Time"
             },
             shadow = {
                 color: "rebeccapurple",
-                count: document.getElementById('S').value * 7
+                count: document.getElementById('S').value * 2,
+                name: "Shadow"
             },
             fire = {
                 color: "firebrick",
-                count: document.getElementById('F').value * 7
+                count: document.getElementById('F').value * 2,
+                name: "Fire"
             }
         /*Chart Settings*/
-        var barW = 40;
-        var barOff = 20;
-        /*Insert Data => Graph*/
+        //  the size of the overall svg element
+        var height = 100
+        var width = 80
+
+        //  the width of each bar and the offset between each bar
+        var barWidth = 10
+        var barOffset = 5
         //  the data that powers the bar chart, a simple array of numeric values
         var chartdata = [primal, justice, time, shadow, fire];
-
-        //  the size of the overall svg element
-        var height = 300,
-            width = 250,
-
-            //  the width of each bar and the offset between each bar
-            barWidth = 40,
-            barOffset = 10;
-
+        /*Insert Data => Graph*/
 
         d3.select('#graph').append('svg')
             .attr('width', width)
@@ -140,6 +185,16 @@
             .style('fill', function (data) {
                 return data.color
             });
+
+        //Set recommended 
+        var bestCount = chartdata.reduce((max, objectIn) => Math.max(objectIn.count, max), 0) / 2
+        var bestMono = ""
+        for (var i = 0; i < chartdata.length; i++) {
+            if (chartdata[i].count == bestCount * 2) {
+                bestMono = chartdata[i].name
+            }
+        }
+        document.getElementById("bestMono").innerHTML = "Best: " + bestMono
     }
 
 </script>
