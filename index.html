@@ -12,6 +12,7 @@
 
 <body>
     <div id="container">
+        <!-- Mono Color Playable -->
         <table>
             <tr>
                 <td colspan="2">
@@ -103,30 +104,218 @@
                     <div id="bestMono"></div>
                 </td>
             </tr>
+            <tr>
+                <td colspan="2">
+                    <div id="monoplayablegraph"></div>
+                </td>
+            </tr>
         </table>
+        <!-- Dual Color Playable -->
+        <table>
+            <tr>
+                <td colspan="2">
+                    <h1>Duals</h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Hooru:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="decrement(`JP`)">
+                            -
+                        </button>
+                        <input id="JP" type="number" value="40" min="0" onchange="dualPlayables()">
+                        <button onclick="increment(`JP`)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Argenport:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="decrement(`JS`)">
+                            -
+                        </button>
+                        <input id="JS" type="number" value="3" min="0" onchange="dualPlayables()">
+                        <button onclick="increment(`JS`)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Combrei:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="decrement(`JT`)">
+                            -
+                        </button>
+                        <input id="JT" type="number" value="3" min="0" onchange="dualPlayables()">
+                        <button onclick="increment(`JT`)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Rakano:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="decrement(`JF`)">
+                            -
+                        </button>
+                        <input id="JF" type="number" value="3" min="0" onchange="dualPlayables()">
+                        <button onclick="increment(`JF`)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Praxis:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="decrement(`FT`)">
+                            -
+                        </button>
+                        <input id="FT" type="number" value="3" min="0" onchange="dualPlayables()">
+                        <button onclick="increment(`FT`)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Skycrag:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="decrement(`FP`)">
+                            -
+                        </button>
+                        <input id="FP" type="number" value="40" min="0" onchange="dualPlayables()">
+                        <button onclick="increment(`FP`)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Stonescar:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="decrement(`FS`)">
+                            -
+                        </button>
+                        <input id="FS" type="number" value="3" min="0" onchange="dualPlayables()">
+                        <button onclick="increment(`FS`)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Xenan:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="decrement(`ST`)">
+                            -
+                        </button>
+                        <input id="ST" type="number" value="3" min="0" onchange="dualPlayables()">
+                        <button onclick="increment(`ST`)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Feln:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="decrement(`PS`)">
+                            -
+                        </button>
+                        <input id="PS" type="number" value="3" min="0" onchange="dualPlayables()">
+                        <button onclick="increment(`PS`)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Elysian:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="decrement(`PT`)">
+                            -
+                        </button>
+                        <input id="PT" type="number" value="3" min="0" onchange="dualPlayables()">
+                        <button onclick="increment(`PT`)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div id="bestDual"></div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div id="dualplayablegraph"></div>
+                </td>
+            </tr>
+        </table>
+
     </div>
-    <div id="graph"></div>
+
+
 </body>
 
 <script>
     /*Init charts*/
     monoPlayables()
+    dualPlayables()
 
     function increment(selector) {
         var inputField = document.getElementById(selector);
         inputField.stepUp();
         monoPlayables();
+        dualPlayables();
     }
 
     function decrement(selector) {
         var inputField = document.getElementById(selector);
         inputField.stepDown();
         monoPlayables();
+        dualPlayables();
     }
 
     function monoPlayables() {
         /*Remove old svg's*/
-        d3.select("#graph svg").remove();
+        d3.select("#monoplayablegraph svg").remove();
 
         /*Data Set*/
         var primal = {
@@ -166,7 +355,7 @@
         var chartdata = [primal, justice, time, shadow, fire];
         /*Insert Data => Graph*/
 
-        d3.select('#graph').append('svg')
+        d3.select('#monoplayablegraph').append('svg')
             .attr('width', width)
             .attr('height', height)
             .style('background', 'snow')
@@ -194,7 +383,108 @@
                 bestMono = chartdata[i].name
             }
         }
-        document.getElementById("bestMono").innerHTML = "Best: " + bestMono
+        document.getElementById("bestMono").innerHTML = "<b>Best: </b>" + bestMono
+    }
+
+    function dualPlayables() {
+        /*Remove old svg's*/
+        d3.select("#dualplayablegraph svg").remove();
+
+        /*Data Set*/
+        var hooru = {
+            color: "teal",
+            count: eval(document.getElementById('JP').value) + eval(document.getElementById('J').value) + eval(document.getElementById('P').value),
+            name: "Hooru"
+        },
+            argenport = {
+                color: "olive",
+                count: eval(document.getElementById('JS').value) + eval(document.getElementById('J').value) + eval(document.getElementById('S').value),
+                name: "Argenport"
+            },
+            combrei = {
+                color: "yellowgreen",
+                count: eval(document.getElementById('JT').value) + eval(document.getElementById('J').value) + eval(document.getElementById('T').value),
+                name: "Combrei"
+            },
+            rakano = {
+                color: "maroon",
+                count: eval(document.getElementById('JF').value) + eval(document.getElementById('J').value) + eval(document.getElementById('F').value),
+                name: "Rakano"
+            },
+            praxis = {
+                color: "goldenrod",
+                count: eval(document.getElementById('FT').value) + eval(document.getElementById('F').value) + eval(document.getElementById('T').value),
+                name: "Praxis"
+            },
+            skycrag = {
+                color: "crimson",
+                count: eval(document.getElementById('FP').value) + eval(document.getElementById('F').value) + eval(document.getElementById('P').value),
+                name: "Skycrag"
+            },
+            stonescar = {
+                color: "mediumvioletred",
+                count: eval(document.getElementById('FS').value) + eval(document.getElementById('F').value) + eval(document.getElementById('S').value),
+                name: "Stonescar"
+            },
+            xenan = {
+                color: "peachpuff",
+                count: eval(document.getElementById('ST').value) + eval(document.getElementById('S').value) + eval(document.getElementById('T').value),
+                name: "Xenan"
+            },
+            feln = {
+                color: "indigo",
+                count: eval(document.getElementById('PS').value) + eval(document.getElementById('P').value) + eval(document.getElementById('S').value),
+                name: "Feln"
+            },
+            elysian = {
+                color: "powderblue",
+                count: eval(document.getElementById('PT').value) + eval(document.getElementById('P').value) + eval(document.getElementById('T').value),
+                name: "Elysian"
+            }
+        /*Chart Settings*/
+        //  the size of the overall svg element
+        var height = 100
+        var width = 160
+
+        //  the width of each bar and the offset between each bar
+        var barWidth = 10
+        var barOffset = 5
+
+
+        //  the data that powers the bar chart, a simple array of numeric values
+        var chartdata = [hooru, argenport, combrei, rakano, praxis, skycrag, stonescar, xenan, feln, elysian];
+
+
+        /*Insert Data => Graph*/
+        d3.select('#dualplayablegraph').append('svg')
+            .attr('width', width)
+            .attr('height', height)
+            .style('background', 'snow')
+            .selectAll('rect').data(chartdata)
+            .enter().append('rect')
+            .attr('width', barWidth)
+            .attr('height', function (data) {
+                return data.count;
+            })
+            .attr('x', function (data, i) {
+                return i * (barWidth + barOffset);
+            })
+            .attr('y', function (data) {
+                return height - data.count;
+            })
+            .style('fill', function (data) {
+                return data.color
+            });
+
+        //Set recommended 
+        var bestCount = chartdata.reduce((max, objectIn) => Math.max(objectIn.count, max), 0) / 2
+        var bestDual = ""
+        for (var i = 0; i < chartdata.length; i++) {
+            if (chartdata[i].count == bestCount * 2) {
+                bestDual = chartdata[i].name
+            }
+        }
+        document.getElementById("bestDual").innerHTML = "<b>Best: </b>" + bestDual
     }
 
 </script>
