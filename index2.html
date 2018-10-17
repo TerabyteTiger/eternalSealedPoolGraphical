@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index2.html</title>
+    <!-- D3 CDN -->
+    <script src="https://d3js.org/d3.v5.js"></script>
+    <!-- Chart.js CDN-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div id="container">
+        <!-- Testing Chart.js -->
+        <div class="chart-size-m">
+            <canvas id="myChart"></canvas>
+        </div>
+        <!-- Mono Color Playable -->
+        <table>
+            <tr>
+                <td colspan="2">
+                    <h1>Playables</h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Primal:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="monoDecrement(`P`, 1)">
+                            -
+                        </button>
+                        <input id="P" type="number" value="10" min="0" onchange="monoPlayables(`P`, 1)">
+                        <button onclick="monoIncrement(`P`, 1)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Justice:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="monoDecrement(`J`, 3)">
+                            -
+                        </button>
+                        <input id="J" type="number" value="3" min="0" onchange="monoPlayables(`J`, 3)">
+                        <button onclick="monoIncrement(`J`, 3)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Shadow:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="monoDecrement(`S`, 4)">
+                            -
+                        </button>
+                        <input id="S" type="number" value="3" min="0" onchange="monoPlayables(`S`, 4)">
+                        <button onclick="monoIncrement(`S`, 4)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Fire:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="monoDecrement(`F`, 0)">
+                            -
+                        </button>
+                        <input id="F" type="number" value="3" min="0" onchange="monoPlayables(`F`, 0)">
+                        <button onclick="monoIncrement(`F`, 0)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Time:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="monoDecrement(`T`, 2)">
+                            -
+                        </button>
+                        <input id="T" type="number" value="3" min="0" onchange="monoPlayables(`T`, 2)">
+                        <button onclick="monoIncrement(`T`, 2)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div id="bestMono"></div>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Mono Color Removal -->
+        <table>
+            <tr>
+                <td colspan="2">
+                    <h1>Playables</h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Primal:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="monoDecrement(`P`, 1)">
+                            -
+                        </button>
+                        <input id="P" type="number" value="10" min="0" onchange="monoPlayables()">
+                        <button onclick="monoIncrement(`P`, 1)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Justice:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="monoDecrement(`J`, 3)">
+                            -
+                        </button>
+                        <input id="J" type="number" value="3" min="0" onchange="monoPlayables()">
+                        <button onclick="monoIncrement(`J`, 3)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Shadow:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="monoDecrement(`S`, 4)">
+                            -
+                        </button>
+                        <input id="S" type="number" value="3" min="0" onchange="monoPlayables()">
+                        <button onclick="monoIncrement(`S`, 4)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Fire:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="monoDecrement(`F`, 0)">
+                            -
+                        </button>
+                        <input id="F" type="number" value="3" min="0" onchange="monoPlayables()">
+                        <button onclick="monoIncrement(`F`, 0)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Time:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="monoDecrement(`T`, 2)">
+                            -
+                        </button>
+                        <input id="T" type="number" value="3" min="0" onchange="monoPlayables()">
+                        <button onclick="monoIncrement(`T`, 2)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div id="bestMono"></div>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+
+</body>
+
+<script>
+
+
+    // Data
+    var primal = {
+        color: "navy",
+        count: document.getElementById('P').value,
+        name: "Primal"
+    },
+        justice = {
+            color: "green",
+            count: document.getElementById('J').value,
+            name: "Justice"
+        },
+        time = {
+            color: "gold",
+            count: document.getElementById('T').value,
+            name: "Time"
+        },
+        shadow = {
+            color: "rebeccapurple",
+            count: document.getElementById('S').value,
+            name: "Shadow"
+        },
+        fire = {
+            color: "firebrick",
+            count: document.getElementById('F').value,
+            name: "Fire"
+        }
+    //  the data that powers the chart (legacy for D3; May not need? )
+    var chartdata = [primal, justice, time, shadow, fire];
+
+    // Set Recommended 
+    var bestCount = chartdata.reduce((max, objectIn) => Math.max(objectIn.count, max), 0)
+    var bestMono = ""
+    for (var i = 0; i < chartdata.length; i++) {
+        if (chartdata[i].count == bestCount) {
+            bestMono = chartdata[i].name
+        }
+    }
+    document.getElementById("bestMono").innerHTML = "<b>Best: </b>" + bestMono
+
+    // Chart.js Test 
+    var ctx = document.getElementById("myChart");
+    console.log(ctx)
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ["F", "P", "T", "J", "S"],
+            datasets: [{
+                label: '',
+                data: [fire.count, primal.count, time.count, justice.count, shadow.count],
+                backgroundColor: [
+                    'rgba(255,99,132,0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+
+    function monoIncrement(selector, indicator) {
+        var inputField = document.getElementById(selector);
+        inputField.stepUp();
+        myChart.data.datasets[0].data[indicator] = inputField.value
+        myChart.update()
+        monoRec()
+    }
+
+    function monoDecrement(selector, indicator) {
+        var inputField = document.getElementById(selector);
+        inputField.stepDown();
+        myChart.data.datasets[0].data[indicator] = inputField.value
+        myChart.update()
+        monoRec()
+    }
+
+    function monoPlayables(selector, indicator) {
+        var inputField = document.getElementById(selector);
+        myChart.data.datasets[0].data[indicator] = inputField.value
+        myChart.update()
+        monoRec()
+    }
+
+    function monoRec() {
+        var primal = {
+            count: document.getElementById('P').value,
+            name: "Primal"
+        },
+            justice = {
+                count: document.getElementById('J').value,
+                name: "Justice"
+            },
+            time = {
+                count: document.getElementById('T').value,
+                name: "Time"
+            },
+            shadow = {
+                count: document.getElementById('S').value,
+                name: "Shadow"
+            },
+            fire = {
+                count: document.getElementById('F').value,
+                name: "Fire"
+            }
+        //  the data that powers the chart (legacy for D3; May not need? )
+        var chartdata = [primal, justice, time, shadow, fire];
+        var bestCount = chartdata.reduce((max, objectIn) => Math.max(objectIn.count, max), 0)
+        var bestMono = ""
+        for (var i = 0; i < chartdata.length; i++) {
+            if (chartdata[i].count == bestCount) {
+                bestMono = chartdata[i].name
+            }
+        }
+        document.getElementById("bestMono").innerHTML = "<b>Best: </b>" + bestMono
+
+    }
+</script>
+
+</html>

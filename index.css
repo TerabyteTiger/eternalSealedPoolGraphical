@@ -1,14 +1,5 @@
-circle {
-    color: black;
-}
-
-svg {
-    border: 1px solid blue;
-    padding: 0 20px;
-}
-
 input {
-    width: 20px;
+    width: 30px;
     text-align: center;
 }
 
@@ -19,4 +10,9 @@ input::-webkit-inner-spin-button {
 #container {
     margin: auto;
     text-align: center;
+}
+
+.chart-size-m {
+    width: 400px;
+    height: 200px;
 }

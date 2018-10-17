@@ -6,12 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Clicker Test</title>
+    <!-- D3 CDN -->
     <script src="https://d3js.org/d3.v5.js"></script>
+    <!-- Chart.js CDN-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
     <link rel="stylesheet" href="./index.css">
 </head>
 
 <body>
     <div id="container">
+        <!-- Testing Chart.js -->
+        <canvas id="myChart" width="400" height="400"></canvas>
         <!-- Mono Color Playable -->
         <table>
             <tr>
@@ -289,15 +294,20 @@
             </tr>
         </table>
 
+
     </div>
 
 
 </body>
 
 <script>
-    /*Init charts*/
+
+
+
+    // Init charts
     monoPlayables()
     dualPlayables()
+
 
     function increment(selector) {
         var inputField = document.getElementById(selector);
@@ -314,68 +324,36 @@
     }
 
     function monoPlayables() {
-        /*Remove old svg's*/
-        d3.select("#monoplayablegraph svg").remove();
-
-        /*Data Set*/
+        // Data
         var primal = {
             color: "navy",
-            count: document.getElementById('P').value * 2,
+            count: document.getElementById('P').value,
             name: "Primal"
         },
             justice = {
                 color: "green",
-                count: document.getElementById('J').value * 2,
+                count: document.getElementById('J').value,
                 name: "Justice"
             },
             time = {
                 color: "gold",
-                count: document.getElementById('T').value * 2,
+                count: document.getElementById('T').value,
                 name: "Time"
             },
             shadow = {
                 color: "rebeccapurple",
-                count: document.getElementById('S').value * 2,
+                count: document.getElementById('S').value,
                 name: "Shadow"
             },
             fire = {
                 color: "firebrick",
-                count: document.getElementById('F').value * 2,
+                count: document.getElementById('F').value,
                 name: "Fire"
             }
-        /*Chart Settings*/
-        //  the size of the overall svg element
-        var height = 100
-        var width = 80
-
-        //  the width of each bar and the offset between each bar
-        var barWidth = 10
-        var barOffset = 5
-        //  the data that powers the bar chart, a simple array of numeric values
+        //  the data that powers the chart (legacy for D3; May not need? )
         var chartdata = [primal, justice, time, shadow, fire];
-        /*Insert Data => Graph*/
 
-        d3.select('#monoplayablegraph').append('svg')
-            .attr('width', width)
-            .attr('height', height)
-            .style('background', 'snow')
-            .selectAll('rect').data(chartdata)
-            .enter().append('rect')
-            .attr('width', barWidth)
-            .attr('height', function (data) {
-                return data.count;
-            })
-            .attr('x', function (data, i) {
-                return i * (barWidth + barOffset);
-            })
-            .attr('y', function (data) {
-                return height - data.count;
-            })
-            .style('fill', function (data) {
-                return data.color
-            });
-
-        //Set recommended 
+        // Set recommended 
         var bestCount = chartdata.reduce((max, objectIn) => Math.max(objectIn.count, max), 0) / 2
         var bestMono = ""
         for (var i = 0; i < chartdata.length; i++) {
@@ -384,6 +362,43 @@
             }
         }
         document.getElementById("bestMono").innerHTML = "<b>Best: </b>" + bestMono
+
+        // Chart.js Test 
+        var ctx = document.getElementById("myChart");
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["Fire", "Primal", "Time", "Justice", "Shadow"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [fire.count, primal.count, time.count, justice.count, shadow.count],
+                    backgroundColor: [
+                        fire.color,
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
     }
 
     function dualPlayables() {
