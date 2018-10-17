@@ -117,7 +117,7 @@
         <table>
             <tr>
                 <td colspan="2">
-                    <h1>Playables</h1>
+                    <h1>Removal</h1>
                 </td>
             </tr>
             <tr>
@@ -126,11 +126,11 @@
                 </td>
                 <td>
                     <div>
-                        <button onclick="monoDecrement(`P`, 1)">
+                        <button onclick="removalDecrement(`Pr`, 1)">
                             -
                         </button>
-                        <input id="P" type="number" value="10" min="0" onchange="monoPlayables()">
-                        <button onclick="monoIncrement(`P`, 1)">
+                        <input id="Pr" type="number" value="10" min="0" onchange="removalPlayables()">
+                        <button onclick="removalIncrement(`Pr`, 1)">
                             +
                         </button>
                     </div>
@@ -142,11 +142,11 @@
                 </td>
                 <td>
                     <div>
-                        <button onclick="monoDecrement(`J`, 3)">
+                        <button onclick="removalDecrement(`Jr`, 3)">
                             -
                         </button>
-                        <input id="J" type="number" value="3" min="0" onchange="monoPlayables()">
-                        <button onclick="monoIncrement(`J`, 3)">
+                        <input id="Jr" type="number" value="3" min="0" onchange="removalPlayables()">
+                        <button onclick="removalIncrement(`Jr`, 3)">
                             +
                         </button>
                     </div>
@@ -158,11 +158,11 @@
                 </td>
                 <td>
                     <div>
-                        <button onclick="monoDecrement(`S`, 4)">
+                        <button onclick="removalDecrement(`Sr`, 4)">
                             -
                         </button>
-                        <input id="S" type="number" value="3" min="0" onchange="monoPlayables()">
-                        <button onclick="monoIncrement(`S`, 4)">
+                        <input id="Sr" type="number" value="3" min="0" onchange="removalPlayables()">
+                        <button onclick="removalIncrement(`Sr`, 4)">
                             +
                         </button>
                     </div>
@@ -174,11 +174,11 @@
                 </td>
                 <td>
                     <div>
-                        <button onclick="monoDecrement(`F`, 0)">
+                        <button onclick="removalDecrement(`Fr`, 0)">
                             -
                         </button>
-                        <input id="F" type="number" value="3" min="0" onchange="monoPlayables()">
-                        <button onclick="monoIncrement(`F`, 0)">
+                        <input id="Fr" type="number" value="3" min="0" onchange="removalPlayables()">
+                        <button onclick="removalIncrement(`Fr`, 0)">
                             +
                         </button>
                     </div>
@@ -190,11 +190,11 @@
                 </td>
                 <td>
                     <div>
-                        <button onclick="monoDecrement(`T`, 2)">
+                        <button onclick="removalDecrement(`Tr`, 2)">
                             -
                         </button>
-                        <input id="T" type="number" value="3" min="0" onchange="monoPlayables()">
-                        <button onclick="monoIncrement(`T`, 2)">
+                        <input id="Tr" type="number" value="3" min="0" onchange="removalPlayables()">
+                        <button onclick="removalIncrement(`Tr`, 2)">
                             +
                         </button>
                     </div>
@@ -202,7 +202,7 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <div id="bestMono"></div>
+                    <div id="bestRemoval"></div>
                 </td>
             </tr>
         </table>
@@ -213,89 +213,105 @@
 </body>
 
 <script>
-
-
-    // Data
+    // Variables
     var primal = {
-        color: "navy",
         count: document.getElementById('P').value,
+        removal: document.getElementById('Pr').value,
         name: "Primal"
     },
         justice = {
-            color: "green",
             count: document.getElementById('J').value,
+            removal: document.getElementById('Jr').value,
             name: "Justice"
         },
         time = {
-            color: "gold",
             count: document.getElementById('T').value,
+            removal: document.getElementById('Tr').value,
             name: "Time"
         },
         shadow = {
-            color: "rebeccapurple",
             count: document.getElementById('S').value,
+            removal: document.getElementById('Sr').value,
             name: "Shadow"
         },
         fire = {
-            color: "firebrick",
             count: document.getElementById('F').value,
+            removal: document.getElementById('Fr').value,
             name: "Fire"
         }
-    //  the data that powers the chart (legacy for D3; May not need? )
-    var chartdata = [primal, justice, time, shadow, fire];
+    var ctx = document.getElementById("myChart");
+    var myChart
 
-    // Set Recommended 
-    var bestCount = chartdata.reduce((max, objectIn) => Math.max(objectIn.count, max), 0)
-    var bestMono = ""
-    for (var i = 0; i < chartdata.length; i++) {
-        if (chartdata[i].count == bestCount) {
-            bestMono = chartdata[i].name
-        }
-    }
-    document.getElementById("bestMono").innerHTML = "<b>Best: </b>" + bestMono
+    // Init
+    monoRec()
+    initialize()
 
     // Chart.js Test 
-    var ctx = document.getElementById("myChart");
-    console.log(ctx)
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ["F", "P", "T", "J", "S"],
-            datasets: [{
-                label: '',
-                data: [fire.count, primal.count, time.count, justice.count, shadow.count],
-                backgroundColor: [
-                    'rgba(255,99,132,0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            legend: {
-                display: false
-            },
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
+    function initialize() {
+
+        myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["F", "P", "T", "J", "S"],
+                datasets: [{
+                    label: 'Count',
+                    data: [fire.count, primal.count, time.count, justice.count, shadow.count],
+                    backgroundColor: [
+                        'rgba(255,99,132,0.4)',
+                        'rgba(54, 162, 235, 0.4)',
+                        'rgba(255, 206, 86, 0.4)',
+                        'rgba(75, 192, 192, 0.4)',
+                        'rgba(153, 102, 255, 0.4)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                },
+                {
+                    label: 'Removal',
+                    data: [fire.removal, primal.removal, time.removal, justice.removal, shadow.removal],
+                    backgroundColor: [
+                        'rgba(255,99,132,0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
                 }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                scales: {
+                    xAxes: [{
+                        stacked: true,
+                    }],
+                    yAxes: [{
+                        stacked: true,
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
             }
-        }
-    });
+        });
+    }
 
-
+    // Mono Playable Functions
     function monoIncrement(selector, indicator) {
         var inputField = document.getElementById(selector);
         inputField.stepUp();
@@ -319,30 +335,49 @@
         monoRec()
     }
 
+    // Mono Removal Functions
+    function removalIncrement(selector, indicator) {
+        var inputField = document.getElementById(selector);
+        inputField.stepUp();
+        myChart.data.datasets[1].data[indicator] = inputField.value
+        myChart.update()
+        monoRec()
+    }
+
+    function removalDecrement(selector, indicator) {
+        var inputField = document.getElementById(selector);
+        inputField.stepDown();
+        myChart.data.datasets[1].data[indicator] = inputField.value
+        myChart.update()
+        monoRec()
+    }
+
+    function removalPlayables(selector, indicator) {
+        var inputField = document.getElementById(selector);
+        myChart.data.datasets[0].data[indicator] = inputField.value
+        myChart.update()
+        monoRec()
+    }
+
+    // Recommended Functions
     function monoRec() {
-        var primal = {
-            count: document.getElementById('P').value,
-            name: "Primal"
-        },
-            justice = {
-                count: document.getElementById('J').value,
-                name: "Justice"
-            },
-            time = {
-                count: document.getElementById('T').value,
-                name: "Time"
-            },
-            shadow = {
-                count: document.getElementById('S').value,
-                name: "Shadow"
-            },
-            fire = {
-                count: document.getElementById('F').value,
-                name: "Fire"
-            }
+        // Playables
+        primal.count = document.getElementById('P').value
+        justice.count = document.getElementById('J').value
+        time.count = document.getElementById('T').value
+        shadow.count = document.getElementById('S').value
+        fire.count = document.getElementById('F').value
+
+        // Removal
+        primal.removal = document.getElementById('Pr').value
+        justice.removal = document.getElementById('Jr').value
+        time.removal = document.getElementById('Tr').value
+        shadow.removal = document.getElementById('Sr').value
+        fire.removal = document.getElementById('Fr').value
+
         //  the data that powers the chart (legacy for D3; May not need? )
         var chartdata = [primal, justice, time, shadow, fire];
-        var bestCount = chartdata.reduce((max, objectIn) => Math.max(objectIn.count, max), 0)
+        var bestCount = chartdata.reduce((max, objectIn) => Math.max(objectIn.count + objectIn.removal, max), 0)
         var bestMono = ""
         for (var i = 0; i < chartdata.length; i++) {
             if (chartdata[i].count == bestCount) {
@@ -350,7 +385,6 @@
             }
         }
         document.getElementById("bestMono").innerHTML = "<b>Best: </b>" + bestMono
-
     }
 </script>
 
