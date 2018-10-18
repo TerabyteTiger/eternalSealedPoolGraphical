@@ -27,59 +27,70 @@ var primal = {
     rakano = {
         count: document.getElementById("FJ").value,
         removal: document.getElementById("FJr").value,
-        name: "Rakano"
+        name: "Rakano",
+        rec: 0
     },
     argenport = {
         count: document.getElementById("JS").value,
         removal: document.getElementById("JSr").value,
-        name: "Argenport"
+        name: "Argenport",
+        rec: 0
     },
     hooru = {
         count: document.getElementById("JP").value,
         removal: document.getElementById("JPr").value,
-        name: "Hooru"
+        name: "Hooru",
+        rec: 0
     },
     combrei = {
         count: document.getElementById("JT").value,
         removal: document.getElementById("JTr").value,
-        name: "Combrei"
+        name: "Combrei",
+        rec: 0
     },
     stonescar = {
         count: document.getElementById("FS").value,
         removal: document.getElementById("FSr").value,
-        name: "Stonescar"
+        name: "Stonescar",
+        rec: 0
     },
     skycrag = {
         count: document.getElementById("FP").value,
         removal: document.getElementById("FPr").value,
-        name: "Skycrag"
+        name: "Skycrag",
+        rec: 0
     },
     praxis = {
         count: document.getElementById("FT").value,
         removal: document.getElementById("FTr").value,
-        name: "Praxis"
+        name: "Praxis",
+        rec: 0
     },
     feln = {
         count: document.getElementById("PS").value,
         removal: document.getElementById("PSr").value,
-        name: "Feln"
+        name: "Feln",
+        rec: 0
     },
     xenan = {
         count: document.getElementById("ST").value,
         removal: document.getElementById("STr").value,
-        name: "Xenan"
+        name: "Xenan",
+        rec: 0
     },
     elysian = {
         count: document.getElementById("PT").value,
         removal: document.getElementById("PTr").value,
-        name: "Elysian"
+        name: "Elysian",
+        rec: 0
     };
 var ctx = document.getElementById("myChart");
 var ctx2 = document.getElementById("dualChart");
-var myChart, dualChart, bestCount, bestMono, bestRemoval;
+var myChart, dualChart, bestCount, bestMono, bestRemoval, bestDual;
 
 // Init
 monoRec();
+dualRec();
 initialize();
 
 // Chart.js Test
@@ -181,7 +192,7 @@ function initialize() {
             ],
             datasets: [
                 {
-                    label: "Playables",
+                    label: "Playables - Mono 1",
                     data: [
                         fire.count,
                         justice.count,
@@ -221,7 +232,7 @@ function initialize() {
                     borderWidth: 1
                 },
                 {
-                    label: "Playables",
+                    label: "Playable - Mono 2",
                     data: [
                         fire.count,
                         justice.count,
@@ -235,16 +246,16 @@ function initialize() {
                         primal.count
                     ],
                     backgroundColor: [
-                        "rgba(75, 192, 192, 0.2)" /*G*/,
-                        "rgba(153, 102, 255, 0.2)" /*B*/,
-                        "rgba(54, 162, 235, 0.2)" /*U*/,
-                        "rgba(255, 206, 86, 0.2)" /*W*/,
-                        "rgba(153, 102, 255, 0.2)" /*B*/,
-                        "rgba(54, 162, 235, 0.2)" /*U*/,
-                        "rgba(255, 206, 86, 0.2)" /*W*/,
-                        "rgba(54, 162, 235, 0.2)" /*U*/,
-                        "rgba(255, 206, 86, 0.2)" /*W*/,
-                        "rgba(255, 206, 86, 0.2)" /*W*/
+                        "rgba(75, 192, 192, 0.4)" /*G*/,
+                        "rgba(153, 102, 255,0.4)" /*B*/,
+                        "rgba(54, 162, 235, 0.4)" /*U*/,
+                        "rgba(255, 206, 86, 0.4)" /*W*/,
+                        "rgba(153, 102, 255,0.4)" /*B*/,
+                        "rgba(54, 162, 235, 0.4)" /*U*/,
+                        "rgba(255, 206, 86, 0.4)" /*W*/,
+                        "rgba(54, 162, 235, 0.4)" /*U*/,
+                        "rgba(255, 206, 86, 0.4)" /*W*/,
+                        "rgba(255, 206, 86, 0.4)" /*W*/
                     ],
                     borderColor: [
                         "rgba(75, 192, 192, 1)" /*G*/,
@@ -257,6 +268,86 @@ function initialize() {
                         "rgba(54, 162, 235, 1)" /*U*/,
                         "rgba(255, 206, 86, 1)" /*W*/,
                         "rgba(255, 206, 86,12)" /*W*/
+                    ],
+                    borderWidth: 1
+                },
+                {
+                    label: "Playables - Dual",
+                    data: [
+                        rakano.count,
+                        argenport.count,
+                        hooru.count,
+                        combrei.count,
+                        stonescar.count,
+                        skycrag.count,
+                        praxis.count,
+                        feln.count,
+                        xenan.count,
+                        elysian.count
+                    ],
+                    backgroundColor: [
+                        "rgba(75, 75, 75, 0.4)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.4)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.4)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.4)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.4)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.4)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.4)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.4)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.4)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.4)" /*Gray*/
+                    ],
+                    borderColor: [
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/
+                    ],
+                    borderWidth: 1
+                },
+                {
+                    label: "Removal - Dual",
+                    data: [
+                        rakano.removal,
+                        argenport.removal,
+                        hooru.removal,
+                        combrei.removal,
+                        stonescar.removal,
+                        skycrag.removal,
+                        praxis.removal,
+                        feln.removal,
+                        xenan.removal,
+                        elysian.removal
+                    ],
+                    backgroundColor: [
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/
+                    ],
+                    borderColor: [
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/
                     ],
                     borderWidth: 1
                 }
@@ -328,9 +419,57 @@ function removalDecrement(selector, indicator) {
 
 function removalPlayables(selector, indicator) {
     var inputField = document.getElementById(selector);
-    myChart.data.datasets[0].data[indicator] = inputField.value;
+    myChart.data.datasets[1].data[indicator] = inputField.value;
     myChart.update();
     monoRec();
+}
+
+// Dual Playable Functions
+function dualIncrement(selector, indicator) {
+    var inputField = document.getElementById(selector);
+    inputField.stepUp();
+    dualChart.data.datasets[2].data[indicator] = inputField.value;
+    dualChart.update();
+    dualRec();
+}
+
+function dualDecrement(selector, indicator) {
+    var inputField = document.getElementById(selector);
+    inputField.stepDown();
+    dualChart.data.datasets[2].data[indicator] = inputField.value;
+    dualChart.update();
+    dualRec();
+}
+
+function dualPlayables(selector, indicator) {
+    var inputField = document.getElementById(selector);
+    dualChart.data.datasets[2].data[indicator] = inputField.value;
+    dualChart.update();
+    dualRec();
+}
+
+// Dual Removal Functions
+function dualRemovalIncrement(selector, indicator) {
+    var inputField = document.getElementById(selector);
+    inputField.stepUp();
+    dualChart.data.datasets[3].data[indicator] = inputField.value;
+    dualChart.update();
+    dualRec();
+}
+
+function dualRemovalDecrement(selector, indicator) {
+    var inputField = document.getElementById(selector);
+    inputField.stepDown();
+    dualChart.data.datasets[3].data[indicator] = inputField.value;
+    dualChart.update();
+    dualRec();
+}
+
+function dualRemovalPlayables(selector, indicator) {
+    var inputField = document.getElementById(selector);
+    dualChart.data.datasets[3].data[indicator] = inputField.value;
+    dualChart.update();
+    dualRec();
 }
 
 // Recommended Functions
@@ -367,4 +506,104 @@ function monoRec() {
     }
     document.getElementById("bestMono").innerHTML = "<b>Best: </b>" + bestMono;
     return bestMono;
+}
+
+function dualRec() {
+    // Set Recs
+    rakano.rec =
+        eval(document.getElementById("FJ").value) +
+        eval(document.getElementById("J").value) +
+        eval(document.getElementById("F").value) +
+        eval(document.getElementById("FJr").value) +
+        eval(document.getElementById("Jr").value) +
+        eval(document.getElementById("Fr").value);
+    argenport.rec =
+        eval(document.getElementById("JS").value) +
+        eval(document.getElementById("J").value) +
+        eval(document.getElementById("S").value) +
+        eval(document.getElementById("JSr").value) +
+        eval(document.getElementById("Jr").value) +
+        eval(document.getElementById("Sr").value);
+    hooru.rec =
+        eval(document.getElementById("JP").value) +
+        eval(document.getElementById("J").value) +
+        eval(document.getElementById("P").value) +
+        eval(document.getElementById("JPr").value) +
+        eval(document.getElementById("Jr").value) +
+        eval(document.getElementById("Pr").value);
+    combrei.rec =
+        eval(document.getElementById("JT").value) +
+        eval(document.getElementById("J").value) +
+        eval(document.getElementById("T").value) +
+        eval(document.getElementById("JTr").value) +
+        eval(document.getElementById("Jr").value) +
+        eval(document.getElementById("Tr").value);
+    stonescar.rec =
+        eval(document.getElementById("FS").value) +
+        eval(document.getElementById("F").value) +
+        eval(document.getElementById("S").value) +
+        eval(document.getElementById("FSr").value) +
+        eval(document.getElementById("Fr").value) +
+        eval(document.getElementById("Sr").value);
+    skycrag.rec =
+        eval(document.getElementById("FP").value) +
+        eval(document.getElementById("F").value) +
+        eval(document.getElementById("P").value) +
+        eval(document.getElementById("FPr").value) +
+        eval(document.getElementById("Fr").value) +
+        eval(document.getElementById("Pr").value);
+    praxis.rec =
+        eval(document.getElementById("FT").value) +
+        eval(document.getElementById("F").value) +
+        eval(document.getElementById("T").value) +
+        eval(document.getElementById("FTr").value) +
+        eval(document.getElementById("Fr").value) +
+        eval(document.getElementById("Tr").value);
+    feln.rec =
+        eval(document.getElementById("PS").value) +
+        eval(document.getElementById("S").value) +
+        eval(document.getElementById("P").value) +
+        eval(document.getElementById("PSr").value) +
+        eval(document.getElementById("Sr").value) +
+        eval(document.getElementById("Pr").value);
+    xenan.rec =
+        eval(document.getElementById("ST").value) +
+        eval(document.getElementById("S").value) +
+        eval(document.getElementById("T").value) +
+        eval(document.getElementById("STr").value) +
+        eval(document.getElementById("Sr").value) +
+        eval(document.getElementById("Tr").value);
+    elysian.rec =
+        eval(document.getElementById("PT").value) +
+        eval(document.getElementById("P").value) +
+        eval(document.getElementById("T").value) +
+        eval(document.getElementById("PTr").value) +
+        eval(document.getElementById("Pr").value) +
+        eval(document.getElementById("Tr").value);
+
+    //  the data that powers the chart (legacy for D3; May not need? )
+    chartdata = [
+        rakano,
+        argenport,
+        hooru,
+        combrei,
+        stonescar,
+        skycrag,
+        praxis,
+        feln,
+        xenan,
+        elysian
+    ];
+    bestCount = chartdata.reduce(
+        (max, objectIn) => Math.max(eval(objectIn.rec), max),
+        0
+    );
+    bestDual = "";
+    for (var i = 0; i < chartdata.length; i++) {
+        if (eval(chartdata[i].rec) == bestCount) {
+            bestDual = chartdata[i].name;
+        }
+    }
+    document.getElementById("bestDual").innerHTML = "<b>Best: </b>" + bestDual;
+    return bestDual;
 }
