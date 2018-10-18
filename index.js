@@ -245,16 +245,16 @@ function initialize() {
                 {
                     label: "Playable - Mono 2",
                     data: [
-                        fire.count,
                         justice.count,
-                        justice.count,
-                        justice.count,
-                        fire.count,
-                        fire.count,
-                        fire.count,
                         shadow.count,
+                        primal.count,
+                        time.count,
                         shadow.count,
-                        primal.count
+                        primal.count,
+                        time.count,
+                        primal.count,
+                        time.count,
+                        time.count
                     ],
                     backgroundColor: [
                         "rgba(75, 192, 192, 0.4)" /*G*/,
@@ -515,6 +515,7 @@ function monoIncrement(selector, indicator) {
     myChart.data.datasets[0].data[indicator] = inputField.value;
     myChart.update();
     monoRec();
+    monoUpdateDual(selector);
 }
 
 function monoDecrement(selector, indicator) {
@@ -523,6 +524,7 @@ function monoDecrement(selector, indicator) {
     myChart.data.datasets[0].data[indicator] = inputField.value;
     myChart.update();
     monoRec();
+    monoUpdateDual(selector);
 }
 
 function monoPlayables(selector, indicator) {
@@ -530,6 +532,7 @@ function monoPlayables(selector, indicator) {
     myChart.data.datasets[0].data[indicator] = inputField.value;
     myChart.update();
     monoRec();
+    monoUpdateDual(selector);
 }
 
 // Mono Removal Functions
@@ -539,6 +542,7 @@ function removalIncrement(selector, indicator) {
     myChart.data.datasets[1].data[indicator] = inputField.value;
     myChart.update();
     monoRec();
+    monoUpdateDual(selector);
 }
 
 function removalDecrement(selector, indicator) {
@@ -547,6 +551,7 @@ function removalDecrement(selector, indicator) {
     myChart.data.datasets[1].data[indicator] = inputField.value;
     myChart.update();
     monoRec();
+    monoUpdateDual(selector);
 }
 
 function removalPlayables(selector, indicator) {
@@ -554,6 +559,7 @@ function removalPlayables(selector, indicator) {
     myChart.data.datasets[1].data[indicator] = inputField.value;
     myChart.update();
     monoRec();
+    monoUpdateDual(selector);
 }
 
 // Dual Playable Functions
@@ -821,4 +827,51 @@ function dualRec() {
 
 function fixRec() {
     return "to be continued";
+}
+
+function monoUpdateDual(selector) {
+    if (selector[0] == "F") {
+        var inOne = document.getElementById(selector[0]);
+        var inOneR = document.getElementById(selector[0] + "r");
+        var total = eval(inOne.value) + eval(inOneR.value);
+        dualChart.data.datasets[0].data[0] = total;
+        dualChart.data.datasets[0].data[4] = total;
+        dualChart.data.datasets[0].data[5] = total;
+        dualChart.data.datasets[0].data[6] = total;
+    } else if (selector[0] == "J") {
+        var inOne = document.getElementById(selector[0]);
+        var inOneR = document.getElementById(selector[0] + "r");
+        var total = eval(inOne.value) + eval(inOneR.value);
+        dualChart.data.datasets[0].data[1] = total;
+        dualChart.data.datasets[0].data[2] = total;
+        dualChart.data.datasets[0].data[3] = total;
+        dualChart.data.datasets[1].data[0] = total;
+    } else if (selector[0] == "T") {
+        var inOne = document.getElementById(selector[0]);
+        var inOneR = document.getElementById(selector[0] + "r");
+        var total = eval(inOne.value) + eval(inOneR.value);
+        dualChart.data.datasets[1].data[3] = total;
+        dualChart.data.datasets[1].data[6] = total;
+        dualChart.data.datasets[1].data[8] = total;
+        dualChart.data.datasets[1].data[9] = total;
+    } else if (selector[0] == "S") {
+        var inOne = document.getElementById(selector[0]);
+        var inOneR = document.getElementById(selector[0] + "r");
+        var total = eval(inOne.value) + eval(inOneR.value);
+        dualChart.data.datasets[0].data[7] = total;
+        dualChart.data.datasets[0].data[8] = total;
+        dualChart.data.datasets[2].data[1] = total;
+        dualChart.data.datasets[2].data[4] = total;
+    } else if (selector[0] == "P") {
+        var inOne = document.getElementById(selector[0]);
+        var inOneR = document.getElementById(selector[0] + "r");
+        var total = eval(inOne.value) + eval(inOneR.value);
+        dualChart.data.datasets[0].data[9] = total;
+        dualChart.data.datasets[1].data[7] = total;
+        dualChart.data.datasets[1].data[5] = total;
+        dualChart.data.datasets[1].data[2] = total;
+    } else {
+        console.log("ERROR UPDATING DUAL CHART");
+    }
+    dualChart.update();
 }
