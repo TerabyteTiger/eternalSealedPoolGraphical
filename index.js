@@ -391,16 +391,16 @@ function initialize() {
         type: "bar",
         data: {
             labels: [
-                "FJ",
-                "JS",
-                "JP",
-                "JT",
-                "FS",
-                "FP",
-                "FT",
-                "PS",
-                "ST",
-                "PT"
+                "Rakano",
+                "Argenport",
+                "Hooru",
+                "Combrei",
+                "Stonescar",
+                "Skycrag",
+                "Praxis",
+                "Feln",
+                "Xenan",
+                "Elysian"
             ],
             datasets: [
                 {
@@ -559,23 +559,48 @@ function removalPlayables(selector, indicator) {
 // Dual Playable Functions
 function dualIncrement(selector, indicator) {
     var inputField = document.getElementById(selector);
+    var inOne = document.getElementById(selector[0]);
+    var inTwo = document.getElementById(selector[1]);
+    var inOneR = document.getElementById(selector[0] + "r");
+    var inTwoR = document.getElementById(selector[1] + "r");
+
     inputField.stepUp();
     dualChart.data.datasets[2].data[indicator] = inputField.value;
+    dualChart.data.datasets[0].data[indicator] =
+        eval(inOne.value) + eval(inOneR.value);
+    dualChart.data.datasets[1].data[indicator] =
+        eval(inTwo.value) + eval(inTwoR.value);
     dualChart.update();
     dualRec();
 }
 
 function dualDecrement(selector, indicator) {
     var inputField = document.getElementById(selector);
+    var inOne = document.getElementById(selector[0]);
+    var inTwo = document.getElementById(selector[1]);
+    var inOneR = document.getElementById(selector[0] + "r");
+    var inTwoR = document.getElementById(selector[1] + "r");
     inputField.stepDown();
     dualChart.data.datasets[2].data[indicator] = inputField.value;
+    dualChart.data.datasets[0].data[indicator] =
+        eval(inOne.value) + eval(inOneR.value);
+    dualChart.data.datasets[1].data[indicator] =
+        eval(inTwo.value) + eval(inTwoR.value);
     dualChart.update();
     dualRec();
 }
 
 function dualPlayables(selector, indicator) {
     var inputField = document.getElementById(selector);
+    var inOne = document.getElementById(selector[0]);
+    var inTwo = document.getElementById(selector[1]);
+    var inOneR = document.getElementById(selector[0] + "r");
+    var inTwoR = document.getElementById(selector[1] + "r");
     dualChart.data.datasets[2].data[indicator] = inputField.value;
+    dualChart.data.datasets[0].data[indicator] =
+        eval(inOne.value) + eval(inOneR.value);
+    dualChart.data.datasets[1].data[indicator] =
+        eval(inTwo.value) + eval(inTwoR.value);
     dualChart.update();
     dualRec();
 }
@@ -583,23 +608,50 @@ function dualPlayables(selector, indicator) {
 // Dual Removal Functions
 function dualRemovalIncrement(selector, indicator) {
     var inputField = document.getElementById(selector);
+    var inOne = document.getElementById(selector[0]);
+    var inTwo = document.getElementById(selector[1]);
+    var inOneR = document.getElementById(selector[0] + "r");
+    var inTwoR = document.getElementById(selector[1] + "r");
     inputField.stepUp();
     dualChart.data.datasets[3].data[indicator] = inputField.value;
+    dualChart.data.datasets[0].data[indicator] =
+        eval(inOne.value) + eval(inOneR.value);
+    dualChart.data.datasets[1].data[indicator] =
+        eval(inTwo.value) + eval(inTwoR.value);
+
     dualChart.update();
     dualRec();
 }
 
 function dualRemovalDecrement(selector, indicator) {
     var inputField = document.getElementById(selector);
+    var inOne = document.getElementById(selector[0]);
+    var inTwo = document.getElementById(selector[1]);
+    var inOneR = document.getElementById(selector[0] + "r");
+    var inTwoR = document.getElementById(selector[1] + "r");
     inputField.stepDown();
     dualChart.data.datasets[3].data[indicator] = inputField.value;
+    dualChart.data.datasets[0].data[indicator] =
+        eval(inOne.value) + eval(inOneR.value);
+    dualChart.data.datasets[1].data[indicator] =
+        eval(inTwo.value) + eval(inTwoR.value);
+
     dualChart.update();
     dualRec();
 }
 
 function dualRemovalPlayables(selector, indicator) {
     var inputField = document.getElementById(selector);
+    var inOne = document.getElementById(selector[0]);
+    var inTwo = document.getElementById(selector[1]);
+    var inOneR = document.getElementById(selector[0] + "r");
+    var inTwoR = document.getElementById(selector[1] + "r");
     dualChart.data.datasets[3].data[indicator] = inputField.value;
+    dualChart.data.datasets[0].data[indicator] =
+        eval(inOne.value) + eval(inOneR.value);
+    dualChart.data.datasets[1].data[indicator] =
+        eval(inTwo.value) + eval(inTwoR.value);
+
     dualChart.update();
     dualRec();
 }
@@ -609,6 +661,7 @@ function fixRemovalIncrement(selector, indicator) {
     var inputField = document.getElementById(selector);
     inputField.stepUp();
     fixChart.data.datasets[0].data[indicator] = inputField.value * 0.5;
+    fixChart.data.datasets[1].data[indicator] = inputField.value * 0.5;
     fixChart.update();
     fixRec();
 }
@@ -617,6 +670,7 @@ function fixRemovalDecrement(selector, indicator) {
     var inputField = document.getElementById(selector);
     inputField.stepDown();
     fixChart.data.datasets[0].data[indicator] = inputField.value * 0.5;
+    fixChart.data.datasets[1].data[indicator] = inputField.value * 0.5;
     fixChart.update();
     fixRec();
 }
@@ -624,6 +678,7 @@ function fixRemovalDecrement(selector, indicator) {
 function fixRemovalPlayables(selector, indicator) {
     var inputField = document.getElementById(selector);
     fixChart.data.datasets[0].data[indicator] = inputField.value * 0.5;
+    fixChart.data.datasets[1].data[indicator] = inputField.value * 0.5;
     fixChart.update();
     fixRec();
 }
