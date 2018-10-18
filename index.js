@@ -28,65 +28,76 @@ var primal = {
         count: document.getElementById("FJ").value,
         removal: document.getElementById("FJr").value,
         name: "Rakano",
-        rec: 0
+        rec: 0,
+        fix: document.getElementById("FJf").value
     },
     argenport = {
         count: document.getElementById("JS").value,
         removal: document.getElementById("JSr").value,
         name: "Argenport",
-        rec: 0
+        rec: 0,
+        fix: document.getElementById("JSf").value
     },
     hooru = {
         count: document.getElementById("JP").value,
         removal: document.getElementById("JPr").value,
         name: "Hooru",
-        rec: 0
+        rec: 0,
+        fix: document.getElementById("JPf").value
     },
     combrei = {
         count: document.getElementById("JT").value,
         removal: document.getElementById("JTr").value,
         name: "Combrei",
-        rec: 0
+        rec: 0,
+        fix: document.getElementById("JTf").value
     },
     stonescar = {
         count: document.getElementById("FS").value,
         removal: document.getElementById("FSr").value,
         name: "Stonescar",
-        rec: 0
+        rec: 0,
+        fix: document.getElementById("FSf").value
     },
     skycrag = {
         count: document.getElementById("FP").value,
         removal: document.getElementById("FPr").value,
         name: "Skycrag",
-        rec: 0
+        rec: 0,
+        fix: document.getElementById("FPf").value
     },
     praxis = {
         count: document.getElementById("FT").value,
         removal: document.getElementById("FTr").value,
         name: "Praxis",
-        rec: 0
+        rec: 0,
+        fix: document.getElementById("FTf").value
     },
     feln = {
         count: document.getElementById("PS").value,
         removal: document.getElementById("PSr").value,
         name: "Feln",
-        rec: 0
+        rec: 0,
+        fix: document.getElementById("PSf").value
     },
     xenan = {
         count: document.getElementById("ST").value,
         removal: document.getElementById("STr").value,
         name: "Xenan",
-        rec: 0
+        rec: 0,
+        fix: document.getElementById("STf").value
     },
     elysian = {
         count: document.getElementById("PT").value,
         removal: document.getElementById("PTr").value,
         name: "Elysian",
-        rec: 0
+        rec: 0,
+        fix: document.getElementById("PTf").value
     };
 var ctx = document.getElementById("myChart");
 var ctx2 = document.getElementById("dualChart");
-var myChart, dualChart, bestCount, bestMono, bestRemoval, bestDual;
+var ctx3 = document.getElementById("fixChart");
+var myChart, dualChart, bestCount, bestMono, bestRemoval, bestDual, fixingChart;
 
 // Init
 monoRec();
@@ -179,16 +190,16 @@ function initialize() {
         type: "bar",
         data: {
             labels: [
-                "FJ",
-                "JS",
-                "JP",
-                "JT",
-                "FS",
-                "FP",
-                "FT",
-                "PS",
-                "ST",
-                "PT"
+                "Rakano",
+                "Argenport",
+                "Hooru",
+                "Combrei",
+                "Stonescar",
+                "Skycrag",
+                "Praxis",
+                "Feln",
+                "Xenan",
+                "Elysian"
             ],
             datasets: [
                 {
@@ -374,6 +385,127 @@ function initialize() {
             }
         }
     });
+
+    /********** FIXING TABLE **********************/
+    fixChart = new Chart(ctx3, {
+        type: "bar",
+        data: {
+            labels: [
+                "FJ",
+                "JS",
+                "JP",
+                "JT",
+                "FS",
+                "FP",
+                "FT",
+                "PS",
+                "ST",
+                "PT"
+            ],
+            datasets: [
+                {
+                    label: "Fixing",
+                    data: [
+                        rakano.fix * 0.5,
+                        argenport.fix * 0.5,
+                        hooru.fix * 0.5,
+                        combrei.fix * 0.5,
+                        stonescar.fix * 0.5,
+                        skycrag.fix * 0.5,
+                        praxis.fix * 0.5,
+                        feln.fix * 0.5,
+                        xenan.fix * 0.5,
+                        elysian.fix * 0.5
+                    ],
+                    backgroundColor: [
+                        "rgba(255,99,132,0.4)",
+                        "rgba(75, 192, 192, 0.4)",
+                        "rgba(75, 192, 192, 0.4)",
+                        "rgba(75, 192, 192, 0.4)",
+                        "rgba(255,99,132,0.4)",
+                        "rgba(255,99,132,0.4)",
+                        "rgba(255,99,132,0.4)",
+                        "rgba(153, 102, 255, 0.4)",
+                        "rgba(153, 102, 255, 0.4)",
+                        "rgba(54, 162, 235, 0.4)"
+                    ],
+                    borderColor: [
+                        "rgba(255,99,132,1)",
+                        "rgba(75, 192, 192, 1)",
+                        "rgba(75, 192, 192, 1)",
+                        "rgba(75, 192, 192, 1)",
+                        "rgba(255,99,132,1)",
+                        "rgba(255,99,132,1)",
+                        "rgba(255,99,132,1)",
+                        "rgba(153, 102, 255, 1)",
+                        "rgba(153, 102, 255, 1)",
+                        "rgba(54, 162, 235,14)"
+                    ],
+                    borderWidth: 1
+                },
+                {
+                    label: "Fixing",
+                    data: [
+                        rakano.fix * 0.5,
+                        argenport.fix * 0.5,
+                        hooru.fix * 0.5,
+                        combrei.fix * 0.5,
+                        stonescar.fix * 0.5,
+                        skycrag.fix * 0.5,
+                        praxis.fix * 0.5,
+                        feln.fix * 0.5,
+                        xenan.fix * 0.5,
+                        elysian.fix * 0.5
+                    ],
+                    backgroundColor: [
+                        "rgba(75, 192, 192, 0.4)" /*G*/,
+                        "rgba(153, 102, 255,0.4)" /*B*/,
+                        "rgba(54, 162, 235, 0.4)" /*U*/,
+                        "rgba(255, 206, 86, 0.4)" /*W*/,
+                        "rgba(153, 102, 255,0.4)" /*B*/,
+                        "rgba(54, 162, 235, 0.4)" /*U*/,
+                        "rgba(255, 206, 86, 0.4)" /*W*/,
+                        "rgba(54, 162, 235, 0.4)" /*U*/,
+                        "rgba(255, 206, 86, 0.4)" /*W*/,
+                        "rgba(255, 206, 86, 0.4)" /*W*/
+                    ],
+                    borderColor: [
+                        "rgba(75, 192, 192, 1)" /*G*/,
+                        "rgba(153, 102, 255, 1)" /*B*/,
+                        "rgba(54, 162, 235, 1)" /*U*/,
+                        "rgba(255, 206, 86, 1)" /*W*/,
+                        "rgba(153, 102, 255, 1)" /*B*/,
+                        "rgba(54, 162, 235, 1)" /*U*/,
+                        "rgba(255, 206, 86, 1)" /*W*/,
+                        "rgba(54, 162, 235, 1)" /*U*/,
+                        "rgba(255, 206, 86, 1)" /*W*/,
+                        "rgba(255, 206, 86,12)" /*W*/
+                    ],
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            scales: {
+                xAxes: [
+                    {
+                        stacked: true
+                    }
+                ],
+                yAxes: [
+                    {
+                        stacked: true,
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }
+                ]
+            }
+        }
+    });
 }
 
 // Mono Playable Functions
@@ -470,6 +602,30 @@ function dualRemovalPlayables(selector, indicator) {
     dualChart.data.datasets[3].data[indicator] = inputField.value;
     dualChart.update();
     dualRec();
+}
+
+// Dual Fixing Functions
+function fixRemovalIncrement(selector, indicator) {
+    var inputField = document.getElementById(selector);
+    inputField.stepUp();
+    fixChart.data.datasets[0].data[indicator] = inputField.value * 0.5;
+    fixChart.update();
+    fixRec();
+}
+
+function fixRemovalDecrement(selector, indicator) {
+    var inputField = document.getElementById(selector);
+    inputField.stepDown();
+    fixChart.data.datasets[0].data[indicator] = inputField.value * 0.5;
+    fixChart.update();
+    fixRec();
+}
+
+function fixRemovalPlayables(selector, indicator) {
+    var inputField = document.getElementById(selector);
+    fixChart.data.datasets[0].data[indicator] = inputField.value * 0.5;
+    fixChart.update();
+    fixRec();
 }
 
 // Recommended Functions
@@ -606,4 +762,8 @@ function dualRec() {
     }
     document.getElementById("bestDual").innerHTML = "<b>Best: </b>" + bestDual;
     return bestDual;
+}
+
+function fixRec() {
+    return "to be continued";
 }
