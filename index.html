@@ -13,10 +13,16 @@
 
 <body>
     <div id="container">
-        <!-- Testing Chart.js -->
+        <!-- Mono Chart -->
         <div class="chart-size-m">
             <canvas id="myChart"></canvas>
         </div>
+
+        <!-- Dual Chart -->
+        <div class="chart-size-m">
+            <canvas id="dualChart"></canvas>
+        </div>
+
         <!-- Mono Color Playable -->
         <table>
             <tr>
@@ -205,6 +211,179 @@
             </tr>
         </table>
 
+        <!-- Dual Color Playables -->
+        <table>
+            <tr>
+                <td colspan="2">
+                    <h1>Dual Playables</h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Rakano:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="removalDecrement(`FJ`, 1)">
+                            -
+                        </button>
+                        <input id="FJ" type="number" value="10" min="0" onchange="removalPlayables()">
+                        <button onclick="removalIncrement(`FJ`, 1)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Argenport:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="removalDecrement(`JS`, 3)">
+                            -
+                        </button>
+                        <input id="JS" type="number" value="3" min="0" onchange="removalPlayables()">
+                        <button onclick="removalIncrement(`JS`, 3)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Hooru:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="removalDecrement(`JP`, 4)">
+                            -
+                        </button>
+                        <input id="JP" type="number" value="3" min="0" onchange="removalPlayables()">
+                        <button onclick="removalIncrement(`JP`, 4)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Combrei:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="removalDecrement(`JT`, 0)">
+                            -
+                        </button>
+                        <input id="JT" type="number" value="3" min="0" onchange="removalPlayables()">
+                        <button onclick="removalIncrement(`JT`, 0)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Stonescar:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="removalDecrement(`FS`, 2)">
+                            -
+                        </button>
+                        <input id="FS" type="number" value="3" min="0" onchange="removalPlayables()">
+                        <button onclick="removalIncrement(`FS`, 2)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Skycrag:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="removalDecrement(`FP`, 1)">
+                            -
+                        </button>
+                        <input id="FP" type="number" value="10" min="0" onchange="removalPlayables()">
+                        <button onclick="removalIncrement(`FP`, 1)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Praxis:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="removalDecrement(`FT`, 3)">
+                            -
+                        </button>
+                        <input id="FT" type="number" value="3" min="0" onchange="removalPlayables()">
+                        <button onclick="removalIncrement(`FT`, 3)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Feln:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="removalDecrement(`PS`, 4)">
+                            -
+                        </button>
+                        <input id="PS" type="number" value="3" min="0" onchange="removalPlayables()">
+                        <button onclick="removalIncrement(`PS`, 4)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Xenan:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="removalDecrement(`ST`, 0)">
+                            -
+                        </button>
+                        <input id="ST" type="number" value="3" min="0" onchange="removalPlayables()">
+                        <button onclick="removalIncrement(`ST`, 0)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Elysian:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="removalDecrement(`PT`, 2)">
+                            -
+                        </button>
+                        <input id="PT" type="number" value="3" min="0" onchange="removalPlayables()">
+                        <button onclick="removalIncrement(`PT`, 2)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div id="bestDual"></div>
+                </td>
+            </tr>
+        </table>
     </div>
 
 
@@ -238,7 +417,8 @@
             name: "Fire"
         }
     var ctx = document.getElementById("myChart");
-    var myChart
+    var ctx2 = document.getElementById("dualChart");
+    var myChart, dualChart, bestCount, bestMono, bestRemoval
 
     // Init
     monoRec()
@@ -247,10 +427,11 @@
     // Chart.js Test 
     function initialize() {
 
+        /********** MONO TABLE ************************/
         myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ["F", "P", "T", "J", "S"],
+                labels: ["Fire", "Primal", "Time", "Justice", "Shadow"],
                 datasets: [{
                     label: 'Count',
                     data: [fire.count, primal.count, time.count, justice.count, shadow.count],
@@ -274,11 +455,11 @@
                     label: 'Removal',
                     data: [fire.removal, primal.removal, time.removal, justice.removal, shadow.removal],
                     backgroundColor: [
-                        'rgba(255,99,132,0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)'
+                        'rgba(255,99,132,0.2)', /*R*/
+                        'rgba(54, 162, 235, 0.2)', /*U*/
+                        'rgba(255, 206, 86, 0.2)', /*W*/
+                        'rgba(75, 192, 192, 0.2)', /*G*/
+                        'rgba(153, 102, 255, 0.2)' /*B*/
                     ],
                     borderColor: [
                         'rgba(255,99,132,1)',
@@ -307,6 +488,88 @@
                 }
             }
         });
+        /********** DUAL TABLE ************************/
+        dualChart = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ["FJ", "JS", "JP", "JT", "FS", "FP", "FT", "SP", "ST", "PT"],
+                datasets: [{
+                    label: 'Playables',
+                    data: [fire.count, justice.count, justice.count, justice.count, fire.count, fire.count, fire.count, shadow.count, shadow.count, primal.count],
+                    backgroundColor: [
+                        'rgba(255,99,132,0.4)',
+                        'rgba(75, 192, 192, 0.4)',
+                        'rgba(75, 192, 192, 0.4)',
+                        'rgba(75, 192, 192, 0.4)',
+                        'rgba(255,99,132,0.4)',
+                        'rgba(255,99,132,0.4)',
+                        'rgba(255,99,132,0.4)',
+                        'rgba(153, 102, 255, 0.4)',
+                        'rgba(153, 102, 255, 0.4)',
+                        'rgba(54, 162, 235, 0.4)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255,99,132,1)',
+                        'rgba(255,99,132,1)',
+                        'rgba(255,99,132,1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(54, 162, 235,14)'
+                    ],
+                    borderWidth: 1
+                },
+                {
+                    label: 'Playables',
+                    data: [fire.count, justice.count, justice.count, justice.count, fire.count, fire.count, fire.count, shadow.count, shadow.count, primal.count],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)', /*G*/
+                        'rgba(153, 102, 255, 0.2)', /*B*/
+                        'rgba(54, 162, 235, 0.2)', /*U*/
+                        'rgba(255, 206, 86, 0.2)', /*W*/
+                        'rgba(153, 102, 255, 0.2)', /*B*/
+                        'rgba(54, 162, 235, 0.2)', /*U*/
+                        'rgba(255, 206, 86, 0.2)', /*W*/
+                        'rgba(54, 162, 235, 0.2)', /*U*/
+                        'rgba(255, 206, 86, 0.2)', /*W*/
+                        'rgba(255, 206, 86, 0.2)' /*W*/
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)', /*G*/
+                        'rgba(153, 102, 255, 1)', /*B*/
+                        'rgba(54, 162, 235, 1)', /*U*/
+                        'rgba(255, 206, 86, 1)', /*W*/
+                        'rgba(153, 102, 255, 1)', /*B*/
+                        'rgba(54, 162, 235, 1)', /*U*/
+                        'rgba(255, 206, 86, 1)', /*W*/
+                        'rgba(54, 162, 235, 1)', /*U*/
+                        'rgba(255, 206, 86, 1)', /*W*/
+                        'rgba(255, 206, 86,12)' /*W*/
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                scales: {
+                    xAxes: [{
+                        stacked: true,
+                    }],
+                    yAxes: [{
+                        stacked: true,
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
     }
 
     // Mono Playable Functions
@@ -374,15 +637,16 @@
         fire.removal = document.getElementById('Fr').value
 
         //  the data that powers the chart (legacy for D3; May not need? )
-        var chartdata = [primal, justice, time, shadow, fire];
-        var bestCount = chartdata.reduce((max, objectIn) => Math.max(objectIn.count + objectIn.removal, max), 0)
-        var bestMono = ""
+        chartdata = [primal, justice, time, shadow, fire];
+        bestCount = chartdata.reduce((max, objectIn) => Math.max(eval(objectIn.count) + eval(objectIn.removal), max), 0)
+        bestMono = ""
         for (var i = 0; i < chartdata.length; i++) {
-            if (chartdata[i].count == bestCount) {
+            if (eval(chartdata[i].count) + eval(chartdata[i].removal) == bestCount) {
                 bestMono = chartdata[i].name
             }
         }
         document.getElementById("bestMono").innerHTML = "<b>Best: </b>" + bestMono
+        return bestMono
     }
 </script>
 
