@@ -1,14 +1,5 @@
-circle {
-    color: black;
-}
-
-svg {
-    border: 1px solid blue;
-    padding: 0 20px;
-}
-
 input {
-    width: 20px;
+    width: 30px;
     text-align: center;
 }
 
@@ -19,4 +10,110 @@ input::-webkit-inner-spin-button {
 #container {
     margin: auto;
     text-align: center;
+}
+
+.chart-size-m {
+    width: 400px;
+    height: 200px;
+}
+body {
+    margin: 0;
+}
+
+h1,
+h2 {
+    margin: auto;
+    padding: 5px auto;
+}
+/*Grid*/
+#container {
+    display: grid;
+    grid-template-columns: 20px 1fr 1fr 1fr 20px;
+    grid-template-rows: 50px repeat(5, auto) 20px;
+    grid-template-areas:
+        "header header header header header"
+        ". monoTitle monoTitle monoDataTitle ."
+        ". monoData1 monoData2 monoChart ."
+        ". dualTitle dualTitle dualDataTitle ."
+        ". dualData1 dualData2 dualChart1 ."
+        ". dualData3 . dualChart2 ."
+        ". . . . .";
+}
+
+@media only screen and (max-width: 810px) {
+    #container {
+        grid-template-columns: 10px 1fr 1fr 10px;
+        grid-template-rows: 50px repeat(12, auto);
+        grid-template-areas:
+            "header header header header"
+            ". monoChart monoChart ."
+            ". dualChart1 dualChart1 ."
+            ". dualChart2 dualChart2 ."
+            ". monoDataTitle dualDataTitle ."
+            ". monoTitle monoTitle ."
+            ". monoData1 monoData1 ."
+            ". monoData2 monoData2 ."
+            ". dualTitle dualTitle ."
+            ". dualData1 dualData1 ."
+            ". dualData2 dualData2 ."
+            ". dualData3 dualData3 .";
+    }
+}
+
+.header {
+    grid-area: header;
+}
+
+.monoTitle {
+    grid-area: monoTitle;
+}
+
+.monoDataTitle {
+    grid-area: monoDataTitle;
+}
+
+.monoData1 {
+    grid-area: monoData1;
+}
+
+.monoData2 {
+    grid-area: monoData2;
+}
+
+.monoChart {
+    grid-area: monoChart;
+
+    place-self: center;
+}
+
+.dualTitle {
+    grid-area: dualTitle;
+}
+
+.dualDataTitle {
+    grid-area: dualDataTitle;
+}
+
+.dualData1 {
+    grid-area: dualData1;
+}
+
+.dualData2 {
+    grid-area: dualData2;
+}
+
+.dualChart1 {
+    grid-area: dualChart1;
+
+    place-self: center;
+}
+
+.dualData3 {
+    grid-area: dualData3;
+}
+
+.dualChart2 {
+    grid-area: dualChart2;
+
+    place-self: center;
 }
