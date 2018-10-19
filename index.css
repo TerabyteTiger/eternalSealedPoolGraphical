@@ -16,12 +16,20 @@ input::-webkit-inner-spin-button {
     width: 400px;
     height: 200px;
 }
+body {
+    margin: 0;
+}
 
+h1,
+h2 {
+    margin: auto;
+    padding: 5px auto;
+}
 /*Grid*/
 #container {
     display: grid;
     grid-template-columns: 20px 1fr 1fr 1fr 20px;
-    grid-template-rows: 80px 50px 400px 50px 400px 400px 20px;
+    grid-template-rows: 50px 40px auto 50px auto auto 20px;
     grid-template-areas:
         "header header header header header"
         ". monoTitle monoTitle monoDataTitle ."
@@ -34,52 +42,65 @@ input::-webkit-inner-spin-button {
 
 .header {
     grid-area: header;
+    background-color: red;
 }
 
 .monoTitle {
     grid-area: monoTitle;
+    background-color: green;
 }
 
 .monoDataTitle {
     grid-area: monoDataTitle;
+    background-color: blueviolet;
 }
 
 .monoData1 {
     grid-area: monoData1;
+    background-color: blue;
 }
 
 .monoData2 {
     grid-area: monoData2;
+    background-color: orange;
 }
 
 .monoChart {
     grid-area: monoChart;
+    background-color: yellow;
 }
 
 .dualTitle {
     grid-area: dualTitle;
+    background-color: firebrick;
 }
 
 .dualDataTitle {
     grid-area: dualDataTitle;
+    background-color: lightsalmon;
 }
 
 .dualData1 {
     grid-area: dualData1;
+    background-color: deepskyblue;
 }
 
 .dualData2 {
     grid-area: dualData2;
+    background-color: rebeccapurple;
 }
 
 .dualChart1 {
     grid-area: dualChart1;
+    background-color: greenyellow;
 }
 
 .dualData3 {
     grid-area: dualData3;
+    background-color: pink;
 }
 
 .dualChart2 {
     grid-area: dualChart2;
+    background-color: deeppink;
 }

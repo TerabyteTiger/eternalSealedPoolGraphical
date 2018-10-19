@@ -14,6 +14,10 @@
 
 <body>
     <div id="container">
+        <!-- Header -->
+        <div class="header">
+            Header go here, i guess
+        </div>
         <!-- Mono Chart -->
         <div class="chart-size-m monoChart">
             <canvas id="myChart"></canvas>
@@ -37,6 +41,11 @@
         <div class="dualTitle">
             <h1>Dual Color</h1>
         </div>
+
+        <!-- Recommendations -->
+        <div id="bestMono" class="monoDataTitle"></div>
+
+        <div id="bestDual" class="dualDataTitle"></div>
 
         <!-- Mono Color Playable -->
         <table class="monoData1">
@@ -123,11 +132,6 @@
                             +
                         </button>
                     </div>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <div id="bestMono"></div>
                 </td>
             </tr>
         </table>
@@ -393,11 +397,6 @@
                     </div>
                 </td>
             </tr>
-            <tr>
-                <td colspan="2">
-                    <div id="bestDual"></div>
-                </td>
-            </tr>
         </table>
 
         <!-- Dual Color Removal -->
@@ -565,11 +564,6 @@
                             +
                         </button>
                     </div>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <div id="bestDual"></div>
                 </td>
             </tr>
         </table>

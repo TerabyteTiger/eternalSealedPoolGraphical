@@ -721,7 +721,8 @@ function monoRec() {
             bestMono = chartdata[i].name;
         }
     }
-    document.getElementById("bestMono").innerHTML = "<b>Best: </b>" + bestMono;
+    document.getElementById("bestMono").innerHTML =
+        "<h2>Recommended: " + bestMono + "</h2>";
     return bestMono;
 }
 
@@ -821,7 +822,8 @@ function dualRec() {
             bestDual = chartdata[i].name;
         }
     }
-    document.getElementById("bestDual").innerHTML = "<b>Best: </b>" + bestDual;
+    document.getElementById("bestDual").innerHTML =
+        "<h2>Recommended: " + bestDual + "</h2>";
     return bestDual;
 }
 
