@@ -722,7 +722,7 @@ function monoRec() {
         }
     }
     document.getElementById("bestMono").innerHTML =
-        "<h2>Recommended: " + bestMono + "</h2>";
+        "<h2>Recommended: </br>" + bestMono + "</h2>";
     return bestMono;
 }
 
@@ -823,7 +823,7 @@ function dualRec() {
         }
     }
     document.getElementById("bestDual").innerHTML =
-        "<h2>Recommended: " + bestDual + "</h2>";
+        "<h2>Recommended: </br>" + bestDual + "</h2>";
     return bestDual;
 }
 
