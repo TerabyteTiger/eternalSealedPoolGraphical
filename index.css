@@ -40,6 +40,26 @@ h2 {
         ". . . . .";
 }
 
+@media only screen and (max-width: 810px) {
+    #container {
+        grid-template-columns: 10px 1fr 1fr 10px;
+        grid-template-rows: 50px repeat(12, auto);
+        grid-template-areas:
+            "header header header header"
+            ". monoChart monoChart ."
+            ". dualChart1 dualChart1 ."
+            ". dualChart2 dualChart2 ."
+            ". monoDataTitle dualDataTitle ."
+            ". monoTitle monoTitle ."
+            ". monoData1 monoData1 ."
+            ". monoData2 monoData2 ."
+            ". dualTitle dualTitle ."
+            ". dualData1 dualData1 ."
+            ". dualData2 dualData2 ."
+            ". dualData3 dualData3 .";
+    }
+}
+
 .header {
     grid-area: header;
     background-color: red;
@@ -68,6 +88,7 @@ h2 {
 .monoChart {
     grid-area: monoChart;
     background-color: yellow;
+    place-self: center;
 }
 
 .dualTitle {
@@ -93,6 +114,7 @@ h2 {
 .dualChart1 {
     grid-area: dualChart1;
     background-color: greenyellow;
+    place-self: center;
 }
 
 .dualData3 {
@@ -103,4 +125,5 @@ h2 {
 .dualChart2 {
     grid-area: dualChart2;
     background-color: deeppink;
+    place-self: center;
 }
