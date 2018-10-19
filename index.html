@@ -15,22 +15,31 @@
 <body>
     <div id="container">
         <!-- Mono Chart -->
-        <div class="chart-size-m">
+        <div class="chart-size-m monoChart">
             <canvas id="myChart"></canvas>
         </div>
 
         <!-- Dual Chart -->
-        <div class="chart-size-m">
+        <div class="chart-size-m dualChart1">
             <canvas id="dualChart"></canvas>
         </div>
 
-        <!-- Mono Chart -->
-        <div class="chart-size-m">
+        <!-- Dual Fixing Chart -->
+        <div class="chart-size-m dualChart2">
             <canvas id="fixChart"></canvas>
         </div>
 
+        <!-- Data Titles -->
+        <div class="monoTitle">
+            <h1>Mono Color</h1>
+        </div>
+
+        <div class="dualTitle">
+            <h1>Dual Color</h1>
+        </div>
+
         <!-- Mono Color Playable -->
-        <table>
+        <table class="monoData1">
             <tr>
                 <td colspan="2">
                     <h1>Playables</h1>
@@ -124,7 +133,7 @@
         </table>
 
         <!-- Mono Color Removal -->
-        <table>
+        <table class="monoData2">
             <tr>
                 <td colspan="2">
                     <h1>Removal</h1>
@@ -218,10 +227,10 @@
         </table>
 
         <!-- Dual Color Playables -->
-        <table>
+        <table class="dualData1">
             <tr>
                 <td colspan="2">
-                    <h1>Dual Playables</h1>
+                    <h1>Playables</h1>
                 </td>
             </tr>
             <tr>
@@ -392,10 +401,10 @@
         </table>
 
         <!-- Dual Color Removal -->
-        <table>
+        <table class="dualData2">
             <tr>
                 <td colspan="2">
-                    <h1>Dual Removal</h1>
+                    <h1>Removal</h1>
                 </td>
             </tr>
             <tr>
@@ -566,7 +575,7 @@
         </table>
 
         <!-- Dual Color Fixing -->
-        <table>
+        <table class="dualData3">
             <tr>
                 <td colspan="2">
                     <h1>Fixing</h1>

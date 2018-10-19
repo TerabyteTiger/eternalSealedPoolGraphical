@@ -16,3 +16,70 @@ input::-webkit-inner-spin-button {
     width: 400px;
     height: 200px;
 }
+
+/*Grid*/
+#container {
+    display: grid;
+    grid-template-columns: 20px 1fr 1fr 1fr 20px;
+    grid-template-rows: 80px 50px 400px 50px 400px 400px 20px;
+    grid-template-areas:
+        "header header header header header"
+        ". monoTitle monoTitle monoDataTitle ."
+        ". monoData1 monoData2 monoChart ."
+        ". dualTitle dualTitle dualDataTitle ."
+        ". dualData1 dualData2 dualChart1 ."
+        ". dualData3 . dualChart2 ."
+        ". . . . .";
+}
+
+.header {
+    grid-area: header;
+}
+
+.monoTitle {
+    grid-area: monoTitle;
+}
+
+.monoDataTitle {
+    grid-area: monoDataTitle;
+}
+
+.monoData1 {
+    grid-area: monoData1;
+}
+
+.monoData2 {
+    grid-area: monoData2;
+}
+
+.monoChart {
+    grid-area: monoChart;
+}
+
+.dualTitle {
+    grid-area: dualTitle;
+}
+
+.dualDataTitle {
+    grid-area: dualDataTitle;
+}
+
+.dualData1 {
+    grid-area: dualData1;
+}
+
+.dualData2 {
+    grid-area: dualData2;
+}
+
+.dualChart1 {
+    grid-area: dualChart1;
+}
+
+.dualData3 {
+    grid-area: dualData3;
+}
+
+.dualChart2 {
+    grid-area: dualChart2;
+}
