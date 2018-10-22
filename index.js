@@ -104,7 +104,8 @@ monoRec();
 dualRec();
 initialize();
 
-// Chart.js Test
+// Chart.js
+Chart.defaults.global.defaultFontFamily = "'Roboto', sans-serif";
 function initialize() {
     /********** MONO TABLE ************************/
     myChart = new Chart(ctx, {
