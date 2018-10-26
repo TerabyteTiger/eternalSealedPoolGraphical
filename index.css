@@ -96,7 +96,7 @@ header {
 
 .header {
     text-align: left;
-    padding-left: 50px;
+    padding: 10px 50px;
 }
 
 .header > ul {
@@ -137,7 +137,7 @@ header > ul > li:last-child > .headerLink {
 #container {
     display: grid;
     grid-template-columns: 20px 1fr 1fr 0.5fr 0.5fr 20px;
-    grid-template-rows: 50px 15px repeat(5, auto) 20px;
+    grid-template-rows: auto 15px repeat(5, auto) 20px;
     grid-template-areas:
         "header header header header header header"
         ". . . . . ."
@@ -157,7 +157,7 @@ header > ul > li:last-child > .headerLink {
 @media only screen and (max-width: 1000px) {
     #container {
         grid-template-columns: 10px 1fr 1fr 10px;
-        grid-template-rows: 100px 15px repeat(13, auto);
+        grid-template-rows: auto 15px repeat(13, auto);
         grid-template-areas:
             "header header header header"
             ". . . ."
