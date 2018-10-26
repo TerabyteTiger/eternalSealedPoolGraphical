@@ -104,7 +104,8 @@ monoRec();
 dualRec();
 initialize();
 
-// Chart.js Test
+// Chart.js
+Chart.defaults.global.defaultFontFamily = "'Roboto', sans-serif";
 function initialize() {
     /********** MONO TABLE ************************/
     myChart = new Chart(ctx, {
@@ -722,7 +723,7 @@ function monoRec() {
         }
     }
     document.getElementById("bestMono").innerHTML =
-        "<h2>Recommended: </br>" + bestMono + "</h2>";
+        "<h2>Mono Color: </br>" + bestMono + "</h2>";
     return bestMono;
 }
 
@@ -823,7 +824,7 @@ function dualRec() {
         }
     }
     document.getElementById("bestDual").innerHTML =
-        "<h2>Recommended: </br>" + bestDual + "</h2>";
+        "<h2>Dual Color: </br>" + bestDual + "</h2>";
     return bestDual;
 }
 

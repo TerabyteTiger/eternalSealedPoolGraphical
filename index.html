@@ -7,17 +7,31 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sealed Analysis</title>
     <!-- Chart.js CDN-->
+    <!--
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    -->
+    <!-- Chart.js Local-->
+    <script src="./Chart.js"></script>
+    <!-- Roboto Font - Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- Berkshire Swash Font - Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
+
 
     <link rel="stylesheet" href="./index.css">
 </head>
 
-<body>
+<body id="top">
     <div id="container">
         <!-- Header -->
-        <div class="header">
-            Header go here, i guess
-        </div>
+        <header class="header">
+            <h1>Eternal Sealed Analyzer</h1>
+            <ul>
+                <li><a href="#top" class="headerLink">Graph</a></li>
+                <li><a href="./about.html" class="headerLink">About</a></li>
+                <li><a href="./help.html" class="headerLink">Help</a></li>
+            </ul>
+        </header>
         <!-- Mono Chart -->
         <div class="chart-size-m monoChart">
             <canvas id="myChart"></canvas>
@@ -33,13 +47,9 @@
             <canvas id="fixChart"></canvas>
         </div>
 
-        <!-- Data Titles -->
+        <!-- Mono Title -->
         <div class="monoTitle">
             <h1>Mono Color</h1>
-        </div>
-
-        <div class="dualTitle">
-            <h1>Dual Color</h1>
         </div>
 
         <!-- Recommendations -->
@@ -229,6 +239,11 @@
                 </td>
             </tr>
         </table>
+
+        <!-- Dual Title-->
+        <div class="dualTitle">
+            <h1>Dual Color</h1>
+        </div>
 
         <!-- Dual Color Playables -->
         <table class="dualData1">
@@ -736,6 +751,11 @@
                 </td>
             </tr>
         </table>
+        <footer class="toTop">
+            <a href="#top">
+                <img class="toTopIcon" src="./fontawesome-free-5.4.1-web/svgs/solid/chevron-circle-up.svg">
+            </a>
+        </footer>
     </div>
 
 

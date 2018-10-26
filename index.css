@@ -16,8 +16,18 @@ input::-webkit-inner-spin-button {
     width: 400px;
     height: 200px;
 }
+
 body {
     margin: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Berkshire Swash", cursive;
 }
 
 h1,
@@ -25,27 +35,86 @@ h2 {
     margin: auto;
     padding: 5px auto;
 }
+
+/*Header*/
+header {
+    padding-right: 50px;
+    background-color: darkslateblue;
+    color: snow;
+}
+
+header {
+    position: sticky;
+    top: 0;
+}
+
+.header {
+    text-align: left;
+    padding-left: 50px;
+}
+
+.header > ul {
+    list-style: none;
+    float: right;
+    margin: auto;
+    height: 100%;
+}
+
+.header > ul > li,
+.header > ul > li > a {
+    display: inline;
+    vertical-align: baseline;
+    vertical-align: -webkit-baseline-middle;
+    vertical-align: -moz-middle-with-baseline;
+}
+
+.header > h1 {
+    display: inline;
+}
+
+.headerLink {
+    border-right: 1px solid orange;
+    padding: 0 15px;
+    text-decoration: none;
+    background-image: none;
+    color: snow;
+    font-weight: 500;
+    font-size: 18pt;
+}
+
+header > ul > li:last-child > .headerLink {
+    /*Remove trailing border-right*/
+    border-right: none;
+}
+
 /*Grid*/
 #container {
     display: grid;
-    grid-template-columns: 20px 1fr 1fr 1fr 20px;
-    grid-template-rows: 50px repeat(5, auto) 20px;
+    grid-template-columns: 20px 1fr 1fr 0.5fr 0.5fr 20px;
+    grid-template-rows: 50px 15px repeat(5, auto) 20px;
     grid-template-areas:
-        "header header header header header"
-        ". monoTitle monoTitle monoDataTitle ."
-        ". monoData1 monoData2 monoChart ."
-        ". dualTitle dualTitle dualDataTitle ."
-        ". dualData1 dualData2 dualChart1 ."
-        ". dualData3 . dualChart2 ."
-        ". . . . .";
+        "header header header header header header"
+        ". . . . . ."
+        ". monoTitle monoTitle monoDataTitle dualDataTitle ."
+        ". monoData1 monoData2 monoChart monoChart ."
+        ". dualTitle dualTitle . . ."
+        ". dualData1 dualData2 dualChart1 dualChart1 ."
+        ". dualData3 . dualChart2 dualChart2 ."
+        ". . . . . .";
 }
-
-@media only screen and (max-width: 810px) {
+@media only screen and (min-width: 1000px) {
+    .toTop {
+        display: none;
+    }
+}
+/*Mobile*/
+@media only screen and (max-width: 1000px) {
     #container {
         grid-template-columns: 10px 1fr 1fr 10px;
-        grid-template-rows: 50px repeat(12, auto);
+        grid-template-rows: 100px 15px repeat(13, auto);
         grid-template-areas:
             "header header header header"
+            ". . . ."
             ". monoChart monoChart ."
             ". dualChart1 dualChart1 ."
             ". dualChart2 dualChart2 ."
@@ -57,6 +126,52 @@ h2 {
             ". dualData1 dualData1 ."
             ". dualData2 dualData2 ."
             ". dualData3 dualData3 .";
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        right: 15px;
+        padding: 10px;
+    }
+
+    .toTopIcon {
+        height: 50px;
+    }
+
+    /*Mobile Header*/
+    header {
+        padding: auto;
+    }
+    .header {
+        text-align: center;
+    }
+
+    .header > ul {
+        list-style: none;
+        float: none;
+    }
+
+    .header > ul > li {
+        display: inline;
+    }
+
+    .header > h1 {
+        display: block;
+    }
+
+    .header > ul {
+        margin: auto;
+        height: auto;
+        padding: 0;
+    }
+
+    .header > ul > li,
+    .header > ul > li > a {
+        display: inline;
+        vertical-align: baseline;
+        vertical-align: -webkit-baseline-middle;
+        vertical-align: -moz-middle-with-baseline;
     }
 }
 
