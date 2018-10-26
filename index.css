@@ -1,33 +1,23 @@
 /**********Beta Ribbon*********/
-.ribbon {
-    background-color: #a70808;
-    overflow: hidden;
-    white-space: nowrap;
-    /* top left corner */
-    position: absolute;
-    right: -50px;
-    /* 45 deg ccw rotation */
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
-    /* shadow */
-    -webkit-box-shadow: 0 0 10px #888;
-    -moz-box-shadow: 0 0 10px #888;
-    box-shadow: 0 0 10px #888;
-}
-.ribbon a {
-    border: 1px solid #faa;
-    color: #fff;
-    display: block;
-    font: bold 81.25% "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin: 1px 0;
-    padding: 7px 50px;
+/*Shoutout to https://codepen.io/davidlazar/pen/dcxou*/
+body:after {
+    content: "beta";
+    position: fixed;
+    width: 80px;
+    height: 25px;
+    background: #ee8e4a;
+    top: 7px;
+    left: -20px;
     text-align: center;
-    text-decoration: none;
-    /* shadow */
-    text-shadow: 0 0 5px #444;
+    font-size: 13px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+    line-height: 27px;
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
 }
 /******************************/
 
