@@ -12,6 +12,15 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- Berkshire Swash Font - Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128495753-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-128495753-1');
+    </script>
 
     <link rel="stylesheet" href="./index.css">
 
@@ -21,11 +30,18 @@
             grid-template-areas:
                 "header header header"
                 ". . ."
+                "notice notice notice"
                 ". monoTitle ."
                 ". monoData1 ."
                 ". dualTitle ."
                 ". dualData1 ."
             ;
+        }
+
+        .notice {
+            grid-area: notice;
+            background-color: #EAC100;
+            text-align: center;
         }
     </style>
 </head>
@@ -34,7 +50,6 @@
     <div id="container">
         <!-- Header -->
         <header class="header">
-
             <h1>Eternal Sealed Analyzer</h1>
             <ul>
                 <li><a href="./index.html" class="headerLink">Graph</a></li>
@@ -42,6 +57,11 @@
                 <li><a href="./help.html" class="headerLink">Help</a></li>
             </ul>
         </header>
+        <div class="notice">
+            <p>
+                This page is a work in progress. Please pardon our current appearance
+            </p>
+        </div>
         <div class="monoTitle">
             <h1>About</h1>
         </div>
