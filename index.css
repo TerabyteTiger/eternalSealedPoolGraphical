@@ -1,61 +1,71 @@
 /**********Beta Ribbon*********/
 /*Shoutout to https://codepen.io/davidlazar/pen/dcxou*/
 body:after {
-	content: "beta";
-	position: fixed;
-	width: 80px;
-	height: 25px;
-	background: #ee8e4a;
-	top: 7px;
-	left: -20px;
-	text-align: center;
-	font-size: 13px;
-	font-family: sans-serif;
-	text-transform: uppercase;
-	font-weight: bold;
-	color: #fff;
-	line-height: 27px;
-	-ms-transform: rotate(-45deg);
-	-webkit-transform: rotate(-45deg);
-	transform: rotate(-45deg);
+    content: "beta";
+    position: fixed;
+    width: 80px;
+    height: 25px;
+    background: #ee8e4a;
+    top: 7px;
+    left: -20px;
+    text-align: center;
+    font-size: 13px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+    line-height: 27px;
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
 }
 /******************************/
 
+/*Text Alignments*/
+.center {
+    text-align: center;
+}
+
+.left {
+    text-align: left;
+}
+
+/*****************/
 td:nth-child(1) {
-	text-align: right;
-	padding-right: 10px;
+    text-align: right;
+    padding-right: 10px;
 }
 
 td:nth-child(1) > h1 {
-	text-align: center;
+    text-align: center;
 }
 
 td:nth-child(2) {
-	text-align: left;
+    text-align: left;
 }
 
 input {
-	width: 30px;
-	text-align: center;
+    width: 30px;
+    text-align: center;
 }
 
 input::-webkit-inner-spin-button {
-	display: none;
+    display: none;
 }
 
 #container {
-	margin: auto;
-	text-align: center;
+    margin: auto;
+    text-align: center;
 }
 
 .chart-size-m {
-	width: 400px;
-	height: 200px;
+    width: 400px;
+    height: 200px;
 }
 
 body {
-	margin: 0;
-	font-family: "Roboto", sans-serif;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
 }
 
 h1,
@@ -63,214 +73,227 @@ h2,
 h3,
 h4,
 h5 {
-	font-family: "Berkshire Swash", cursive;
+    font-family: "Berkshire Swash", cursive;
 }
 
 h1,
 h2 {
-	margin: auto;
-	padding: 5px auto;
+    margin: auto;
+    padding: 5px auto;
 }
 
 /*Header*/
 header {
-	padding-right: 50px;
-	background-color: #483d8b;
-	color: snow;
+    padding-right: 50px;
+    background-color: #483d8b;
+    color: snow;
 }
 
 header {
-	position: sticky;
-	top: 0;
+    position: sticky;
+    top: 0;
 }
 
 .header {
-	text-align: left;
-	padding: 10px 50px;
+    text-align: left;
+    padding: 10px 50px;
 }
 
 .header > ul {
-	list-style: none;
-	float: right;
-	margin: auto;
-	height: 100%;
+    list-style: none;
+    float: right;
+    margin: auto;
+    height: 100%;
 }
 
 .header > ul > li,
 .header > ul > li > a {
-	display: inline;
-	vertical-align: baseline;
-	vertical-align: -webkit-baseline-middle;
-	vertical-align: -moz-middle-with-baseline;
+    display: inline;
+    vertical-align: baseline;
+    vertical-align: -webkit-baseline-middle;
+    vertical-align: -moz-middle-with-baseline;
 }
 
 .header > h1 {
-	display: inline;
+    display: inline;
 }
 
 .headerLink {
-	border-right: 1px solid orange;
-	padding: 0 15px;
-	text-decoration: none;
-	background-image: none;
-	color: snow;
-	font-weight: 500;
-	font-size: 18pt;
+    border-right: 1px solid orange;
+    padding: 0 15px;
+    text-decoration: none;
+    background-image: none;
+    color: snow;
+    font-weight: 500;
+    font-size: 18pt;
 }
 
 header > ul > li:last-child > .headerLink {
-	/*Remove trailing border-right*/
-	border-right: none;
+    /*Remove trailing border-right*/
+    border-right: none;
+}
+
+.logo-link,
+.logo-link:hover {
+    color: white;
+    text-decoration: none;
 }
 
 /*Grid*/
 #container {
-	display: grid;
-	grid-template-columns: 20px 1fr 1fr 0.5fr 0.5fr 20px;
-	grid-template-rows: auto 15px repeat(6, auto) 20px;
-	grid-template-areas:
-		"header header header header header header"
-		". . . . . ."
-		". monoTitle monoTitle monoDataTitle dualDataTitle ."
-		". monoData1 monoData2 monoChart monoChart ."
-		". dualTitle dualTitle . . ."
-		". dualData1 dualData2 dualChart1 dualChart1 ."
-		". dualData3 . dualChart2 dualChart2 ."
-		". discl discl discl discl . "
-		". . . . . .";
+    display: grid;
+    grid-template-columns: 20px 1fr 1fr 0.5fr 0.5fr 20px;
+    grid-template-rows: auto 15px repeat(6, auto) 20px;
+    grid-template-areas:
+        "header header header header header header"
+        ". . . . . ."
+        ". monoTitle monoTitle monoDataTitle dualDataTitle ."
+        ". monoData1 monoData2 monoChart monoChart ."
+        ". dualTitle dualTitle . . ."
+        ". dualData1 dualData2 dualChart1 dualChart1 ."
+        ". dualData3 . dualChart2 dualChart2 ."
+        ". discl discl discl discl . "
+        ". . . . . .";
 }
 @media only screen and (min-width: 1000px) {
-	.toTop {
-		display: none;
-	}
+    .toTop {
+        display: none;
+    }
 }
 /*Mobile*/
 @media only screen and (max-width: 1000px) {
-	#container {
-		grid-template-columns: 10px 1fr 1fr 10px;
-		grid-template-rows: auto 15px repeat(13, auto);
-		grid-template-areas:
-			"header header header header"
-			". . . ."
-			". monoChart monoChart ."
-			". dualChart1 dualChart1 ."
-			". dualChart2 dualChart2 ."
-			". monoDataTitle dualDataTitle ."
-			". monoTitle monoTitle ."
-			". monoData1 monoData1 ."
-			". monoData2 monoData2 ."
-			". dualTitle dualTitle ."
-			". dualData1 dualData1 ."
-			". dualData2 dualData2 ."
-			". dualData3 dualData3 ."
-			". discl discl .";
-	}
+    #container {
+        grid-template-columns: 10px 1fr 1fr 10px;
+        grid-template-rows: auto 15px repeat(13, auto);
+        grid-template-areas:
+            "header header header header"
+            ". . . ."
+            ". monoChart monoChart ."
+            ". dualChart1 dualChart1 ."
+            ". dualChart2 dualChart2 ."
+            ". monoDataTitle dualDataTitle ."
+            ". monoTitle monoTitle ."
+            ". monoData1 monoData1 ."
+            ". monoData2 monoData2 ."
+            ". dualTitle dualTitle ."
+            ". dualData1 dualData1 ."
+            ". dualData2 dualData2 ."
+            ". dualData3 dualData3 ."
+            ". discl discl .";
+    }
 
-	footer {
-		position: fixed;
-		bottom: 0;
-		right: 15px;
-		padding: 10px;
-	}
+    footer {
+        position: fixed;
+        bottom: 0;
+        right: 15px;
+        padding: 10px;
+    }
 
-	.toTopIcon {
-		height: 50px;
-	}
+    .toTopIcon {
+        height: 50px;
+    }
 
-	/*Mobile Header*/
-	header {
-		padding: auto;
-	}
-	.header {
-		text-align: center;
-	}
+    .mobile-left {
+        text-align: left;
+    }
 
-	.header > ul {
-		list-style: none;
-		float: none;
-	}
+    .mobile-pad-bottom {
+        padding-bottom: 15px;
+    }
+    /*Mobile Header*/
+    header {
+        padding: auto;
+    }
+    .header {
+        text-align: center;
+    }
 
-	.header > ul > li {
-		display: inline;
-	}
+    .header > ul {
+        list-style: none;
+        float: none;
+    }
 
-	.header > h1 {
-		display: block;
-	}
+    .header > ul > li {
+        display: inline;
+    }
 
-	.header > ul {
-		margin: auto;
-		height: auto;
-		padding: 0;
-	}
+    .header > h1 {
+        display: block;
+    }
 
-	.header > ul > li,
-	.header > ul > li > a {
-		display: inline;
-		vertical-align: baseline;
-		vertical-align: -webkit-baseline-middle;
-		vertical-align: -moz-middle-with-baseline;
-	}
+    .header > ul {
+        margin: auto;
+        height: auto;
+        padding: 0;
+    }
+
+    .header > ul > li,
+    .header > ul > li > a {
+        display: inline;
+        vertical-align: baseline;
+        vertical-align: -webkit-baseline-middle;
+        vertical-align: -moz-middle-with-baseline;
+    }
 }
 
 .header {
-	grid-area: header;
+    grid-area: header;
 }
 
 .monoTitle {
-	grid-area: monoTitle;
+    grid-area: monoTitle;
 }
 
 .monoDataTitle {
-	grid-area: monoDataTitle;
+    grid-area: monoDataTitle;
 }
 
 .monoData1 {
-	grid-area: monoData1;
+    grid-area: monoData1;
 }
 
 .monoData2 {
-	grid-area: monoData2;
+    grid-area: monoData2;
 }
 
 .monoChart {
-	grid-area: monoChart;
+    grid-area: monoChart;
 
-	place-self: center;
+    place-self: center;
 }
 
 .dualTitle {
-	grid-area: dualTitle;
+    grid-area: dualTitle;
 }
 
 .dualDataTitle {
-	grid-area: dualDataTitle;
+    grid-area: dualDataTitle;
 }
 
 .dualData1 {
-	grid-area: dualData1;
+    grid-area: dualData1;
 }
 
 .dualData2 {
-	grid-area: dualData2;
+    grid-area: dualData2;
 }
 
 .dualChart1 {
-	grid-area: dualChart1;
+    grid-area: dualChart1;
 
-	place-self: center;
+    place-self: center;
 }
 
 .dualData3 {
-	grid-area: dualData3;
+    grid-area: dualData3;
 }
 
 .dualChart2 {
-	grid-area: dualChart2;
+    grid-area: dualChart2;
 
-	place-self: center;
+    place-self: center;
 }
 
 .disclaimer {
-	grid-area: discl;
+    grid-area: discl;
 }

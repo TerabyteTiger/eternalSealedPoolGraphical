@@ -31,18 +31,31 @@
             grid-template-areas:
                 "header header header"
                 ". . ."
-                "notice notice notice"
                 ". monoTitle ."
                 ". monoData1 ."
                 ". dualTitle ."
                 ". dualData1 ."
+                ". . ."
+                ". contribs ."
+                ". discl ."
             ;
         }
 
-        .notice {
-            grid-area: notice;
-            background-color: #EAC100;
-            text-align: center;
+        a {
+            text-decoration: none;
+            color: #483D8B;
+            font-weight: 800;
+
+        }
+
+        a:hover {
+            text-decoration: underline
+        }
+
+
+        .contribs {
+            grid-area: contribs;
+
         }
     </style>
 </head>
@@ -51,18 +64,13 @@
     <div id="container">
         <!-- Header -->
         <header class="header">
-            <h1>Eternal Sealed Analyzer</h1>
+            <h1><a class="logo-link" href="./index.html">Eternal Sealed Analyzer</a></h1>
             <ul>
                 <li><a href="./index.html" class="headerLink">Graph</a></li>
                 <li><a href="#top" class="headerLink">About</a></li>
                 <li><a href="./help.html" class="headerLink">Help</a></li>
             </ul>
         </header>
-        <div class="notice">
-            <p>
-                This page is a work in progress. Please pardon our current appearance
-            </p>
-        </div>
         <div class="monoTitle">
             <h1>About</h1>
         </div>
@@ -93,6 +101,19 @@
                 added, please submit it <a href=" bit.ly/espIssues">here</a> with as much detail
                 as possible so it can be addressed properly and quickly.
             </p>
+
+        </div>
+        <!-- Keep commented out until contributors are added. 
+        <div class="contribs">
+            <hr style="width: 75%;">
+            <h1>Contributors:</h1>
+            <p> Extra thanks to the following that took time to help this project! Check them out and let them know you
+                appreciate their efforts!</p>
+        </div>
+        -->
+        <div class="disclaimer">
+            This fan site is not affiliated with <a href="https://www.direwolfdigital.com/">Dire Wolf Digital</a>
+            or <a href="https://www.direwolfdigital.com/eternal/">Eternal. </a>
 
         </div>
     </div>
