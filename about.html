@@ -12,16 +12,36 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- Berkshire Swash Font - Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128495753-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-128495753-1');
+    </script>
 
     <link rel="stylesheet" href="./index.css">
 
     <style>
         #container {
+            grid-template-columns: .5fr 1fr .5fr;
             grid-template-areas:
-                "header header header header header header"
-                ". . . . . ."
-                ". monoTitle monoTitle monoTitle monoTitle ."
+                "header header header"
+                ". . ."
+                "notice notice notice"
+                ". monoTitle ."
+                ". monoData1 ."
+                ". dualTitle ."
+                ". dualData1 ."
             ;
+        }
+
+        .notice {
+            grid-area: notice;
+            background-color: #EAC100;
+            text-align: center;
         }
     </style>
 </head>
@@ -30,7 +50,6 @@
     <div id="container">
         <!-- Header -->
         <header class="header">
-
             <h1>Eternal Sealed Analyzer</h1>
             <ul>
                 <li><a href="./index.html" class="headerLink">Graph</a></li>
@@ -38,20 +57,45 @@
                 <li><a href="./help.html" class="headerLink">Help</a></li>
             </ul>
         </header>
-        <div class="monoTitle">
-            <h1>Coming Soon!</h1>
+        <div class="notice">
+            <p>
+                This page is a work in progress. Please pardon our current appearance
+            </p>
         </div>
-        <!--
-            Eternal Sealed Analyzer is a free to use site for helping to 
-            visualize your sealed pool. If you appreciate the site and would like to let me know,
-            you can find me on twitter @PichuPlayer. 
+        <div class="monoTitle">
+            <h1>About</h1>
+        </div>
+        <div class="monoData1">
+            <p>
+                Eternal Sealed Analyzer is a free and
+                <a href="https://github.com/12vanblart/eternalSealedPoolGraphical">
+                    open source </a>
+                site for helping to visualize your sealed pool. As someone that likes to look
+                at the numbers/charts, it really resonated with me watching
+                <a href="https://www.twitch.tv/kaelosthereckoning">
+                    Kaelos
+                </a>
+                running the numbers on stream to determine the best sealed pool colors.
+                </br>
+                </br>
+                If you appreciate the site and would like to let me know,
+                you can find me on <a href="https://twitter.com/PichuPlayer">twitter</a>.
+            </p>
+        </div>
+        <div class="dualTitle">
+            <h2>Bugs/Issues</h2>
+        </div>
+        <div class="dualData1">
 
-            If you encounter a bug with the site or have a feature you would like to see
-            added, please submit it to bit.ly/espIssues with as much detail as possible. 
-            
-            
-        -->
+            <p>
+                If you encounter a bug with the site or have a feature you would like to see
+                added, please submit it <a href=" bit.ly/espIssues">here</a> with as much detail
+                as possible so it can be addressed properly and quickly.
+            </p>
+
+        </div>
     </div>
+
 </body>
 
 </html>
