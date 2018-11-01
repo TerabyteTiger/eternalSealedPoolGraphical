@@ -2,6 +2,15 @@
 <html lang="en">
 
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128495753-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-128495753-1');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -12,36 +21,23 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- Berkshire Swash Font - Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128495753-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
 
-        gtag('config', 'UA-128495753-1');
-    </script>
 
     <link rel="stylesheet" href="./index.css">
 
     <style>
         #container {
+            grid-template-columns: .5fr 1fr .5fr;
             grid-template-areas:
-                "header header header header header header"
-                ". . . . . ."
-                ". monoTitle monoTitle monoTitle monoTitle ."
+                "header header header"
+                ". . ."
+                ". monoTitle ."
+                ". monoData1."
+                ". monoData2."
+                ". discl ."
             ;
         }
     </style>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128495753-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-128495753-1');
-    </script>
 
 </head>
 
@@ -49,30 +45,54 @@
     <div id="container">
         <!-- Header -->
         <header class="header">
-            <h1>Eternal Sealed Analyzer</h1>
+            <h1><a class="logo-link" href="./index.html">Eternal Sealed Analyzer</a></h1>
             <ul>
                 <li><a href="./index.html" class="headerLink">Graph</a></li>
                 <li><a href="./about.html" class="headerLink">About</a></li>
                 <li><a href="#top" class="headerLink">Help</a></li>
             </ul>
         </header>
-        <div class="monoTitle">
-            <h1>Coming Soon!</h1>
+
+        <div class="monoTitle mobile-left mobile-pad-bottom">
+            <h1>Need help understanding how to use the tool? Look no further!</h1>
+            <hr style="width: 75%;">
         </div>
-        <!--
-            Playables
-            - Add +1 for each non-removal card you want to be playing
-            Removal
-            - Add +1 for each removal spell (That you want to play)
-            Fixing
-            - Add +1 for each fixing power you have, and +1 for each of the influence generating
-                strangers 
-            Dual Colors
-            - Add only for cards that meet that alignment's colors, Mono-color cards are
-                automatically added to the graph for the corresponding dual color factions
-            Disclaimer
-            - Recommendations are strictly based on your input, not the individual cards :) 
-        -->
+        <div class="monoData1 left">
+            <h1>Playables</h1>
+            <p>
+                Add +1 for each non-removal card you <em>want</em> to be playing
+            </p>
+            <h1>Removal</h1>
+            <p>
+                Add +1 for each removal spell that you <em>want</em> to be playing
+            </p>
+            <h1>Fixing</h1>
+            <p>
+                Add +1 for each fixing power you have, and +1 for each of the influence generating strangers
+            </p>
+            <h1>Dual Colors</h1>
+            <p>
+                Add only for cards that meet the alignment's colors. Mono-color cards are automatically added to the
+                graph for the corresponding dual color factions!
+            </p>
+        </div>
+
+        <div class="monoData2 ">
+            <hr style="width: 75%;">
+            <h1>Disclaimer</h1>
+            <p>
+                Recommendations are strictly based on your input and not the individual cards. Remember to consider
+                colors more strongly if you have a
+                bomb in that color/color combo (and maybe give a couple extra +1's to the corresponding category to
+                remind
+                yourself).
+            </p>
+        </div>
+        <div class="disclaimer">
+            This fan site is not affiliated with <a href="https://www.direwolfdigital.com/">Dire Wolf Digital</a>
+            or <a href="https://www.direwolfdigital.com/eternal/">Eternal. </a>
+
+        </div>
 
     </div>
 </body>
