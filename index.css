@@ -42,6 +42,11 @@ h2 {
     padding: 5px auto;
 }
 
+hr {
+    border-color: #483d8b;
+    margin: 25px auto;
+}
+
 /** Text Alignments **/
 .center {
     text-align: center;
@@ -173,20 +178,21 @@ a:hover {
         ". dualTitle dualTitle . . ."
         ". dualData1 dualData2 dualChart1 dualChart1 ."
         ". dualData3 . dualChart2 dualChart2 ."
-        ". discl discl discl discl . "
-        ". . . . . .";
+        "discl discl discl discl discl discl "
+        "discl discl discl discl discl discl ";
 }
 
 #container-help {
     grid-template-columns: 0.5fr 1fr 0.5fr;
-    grid-template-rows: auto 15px repeat(6, auto) 20px;
+    grid-template-rows: auto 15px repeat(3, auto) 20px;
     grid-template-areas:
         "header header header"
         ". . ."
         ". monoTitle ."
         ". monoData1."
         ". monoData2."
-        ". discl .";
+        "discl discl discl"
+        "discl discl discl";
 }
 
 #container-about {
@@ -198,8 +204,11 @@ a:hover {
         ". monoData1 ."
         ". . ."
         ". contribs ."
+        "discl discl discl"
+        "discl discl discl";
+    /*
         ". discl ."
-        ". . .";
+        ". . .";*/
 }
 
 /** Hide To top arrow on larger screens **/
@@ -228,7 +237,8 @@ a:hover {
             ". dualData1 dualData1 ."
             ". dualData2 dualData2 ."
             ". dualData3 dualData3 ."
-            ". discl discl .";
+            "discl discl discl discl"
+            "discl discl discl discl";
     }
 
     footer {
@@ -343,6 +353,7 @@ a:hover {
 
 .disclaimer {
     grid-area: discl;
+    padding: 15px;
 }
 
 .contribs {
