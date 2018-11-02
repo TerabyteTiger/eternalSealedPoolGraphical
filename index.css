@@ -191,22 +191,25 @@ a:hover {
 
 #container-about {
     grid-template-columns: 0.5fr 1fr 0.5fr;
-    grid-template-rows: auto 15px 1fr 15px auto 20px;
+    grid-template-rows: auto 15px 1fr 15px auto auto 20px;
     grid-template-areas:
         "header header header"
         ". . ."
         ". monoData1 ."
         ". . ."
         ". contribs ."
-        ". discl .";
+        ". discl ."
+        ". . .";
 }
 
+/** Hide To top arrow on larger screens **/
 @media only screen and (min-width: 1000px) {
     .toTop {
         display: none;
     }
 }
-/*Mobile*/
+
+/** Mobile **/
 @media only screen and (max-width: 1000px) {
     #container-main {
         grid-template-columns: 10px 1fr 1fr 10px;
