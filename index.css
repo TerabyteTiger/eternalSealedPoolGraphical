@@ -21,47 +21,7 @@ body:after {
 }
 /******************************/
 
-/*Text Alignments*/
-.center {
-    text-align: center;
-}
-
-.left {
-    text-align: left;
-}
-
-/*****************/
-td:nth-child(1) {
-    text-align: right;
-    padding-right: 10px;
-}
-
-td:nth-child(1) > h1 {
-    text-align: center;
-}
-
-td:nth-child(2) {
-    text-align: left;
-}
-
-input {
-    width: 30px;
-    text-align: center;
-}
-
-input::-webkit-inner-spin-button {
-    display: none;
-}
-
-#container {
-    margin: auto;
-    text-align: center;
-}
-
-.chart-size-m {
-    width: 400px;
-    height: 200px;
-}
+/** Fonts & h formatting **/
 
 body {
     margin: 0;
@@ -82,7 +42,52 @@ h2 {
     padding: 5px auto;
 }
 
-/*Header*/
+/** Text Alignments **/
+.center {
+    text-align: center;
+}
+
+.left {
+    text-align: left;
+}
+
+/** Table Formatting **/
+td:nth-child(1) {
+    text-align: right;
+    padding-right: 10px;
+}
+
+td:nth-child(1) > h1 {
+    text-align: center;
+}
+
+td:nth-child(2) {
+    text-align: left;
+}
+
+/** Input Formatting **/
+input {
+    width: 30px;
+    text-align: center;
+}
+
+input::-webkit-inner-spin-button {
+    display: none;
+}
+
+/** Container Spacing **/
+#container {
+    margin: auto;
+    text-align: center;
+}
+
+/** Chart Sizing **/
+.chart-size-m {
+    width: 400px;
+    height: 200px;
+}
+
+/** Header **/
 header {
     padding-right: 50px;
     background-color: #483d8b;
@@ -139,7 +144,7 @@ header > ul > li:last-child > .headerLink {
     text-decoration: none;
 }
 
-/*Grid*/
+/** Grid **/
 #container {
     display: grid;
     grid-template-columns: 20px 1fr 1fr 0.5fr 0.5fr 20px;
@@ -236,6 +241,7 @@ header > ul > li:last-child > .headerLink {
     }
 }
 
+/** Grid Assignment Classes **/
 .header {
     grid-area: header;
 }
