@@ -15,53 +15,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="theme-color" content="#483d8b">
-    <title>About Sealed Analysis</title>
-
-    <!-- Roboto Font - Google Fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <!-- Berkshire Swash Font - Google Fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
-
-
+    <title>About</title>
+    <!-- Berkshire Swash + Roboto Fonts - Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Roboto" rel="stylesheet">
     <link rel="stylesheet" href="./index.css">
 
     <style>
-        #container {
-            grid-template-columns: .5fr 1fr .5fr;
-            grid-template-areas:
-                "header header header"
-                ". . ."
-                ". monoTitle ."
-                ". monoData1 ."
-                ". dualTitle ."
-                ". dualData1 ."
-                ". . ."
-                ". contribs ."
-                ". discl ."
-            ;
-        }
-
         a {
             text-decoration: none;
             color: #483D8B;
             font-weight: 800;
-
         }
 
         a:hover {
             text-decoration: underline
         }
-
-
-        .contribs {
-            grid-area: contribs;
-
-        }
     </style>
 </head>
 
 <body id="top">
-    <div id="container">
+    <div id="container-about" class="container grid">
         <!-- Header -->
         <header class="header">
             <h1><a class="logo-link" href="./index.html">Eternal Sealed Analyzer</a></h1>
