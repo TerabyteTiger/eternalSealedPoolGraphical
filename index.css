@@ -148,6 +148,17 @@ header > ul > li:last-child > .headerLink {
     text-decoration: none;
 }
 
+/** a tag Links **/
+a {
+    text-decoration: none;
+    color: #483d8b;
+    font-weight: 800;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 /** Grid **/
 #container-main {
     display: grid;
@@ -296,7 +307,6 @@ header > ul > li:last-child > .headerLink {
 
 .monoChart {
     grid-area: monoChart;
-
     place-self: center;
 }
 
@@ -318,7 +328,6 @@ header > ul > li:last-child > .headerLink {
 
 .dualChart1 {
     grid-area: dualChart1;
-
     place-self: center;
 }
 
@@ -328,7 +337,6 @@ header > ul > li:last-child > .headerLink {
 
 .dualChart2 {
     grid-area: dualChart2;
-
     place-self: center;
 }
 
