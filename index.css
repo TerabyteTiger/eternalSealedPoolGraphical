@@ -42,6 +42,11 @@ h2 {
     padding: 5px auto;
 }
 
+hr {
+    border-color: #483d8b;
+    margin: 25px auto;
+}
+
 /** Text Alignments **/
 .center {
     text-align: center;
