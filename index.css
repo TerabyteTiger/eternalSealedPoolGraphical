@@ -76,9 +76,14 @@ input::-webkit-inner-spin-button {
 }
 
 /** Container Spacing **/
-#container {
+.container {
     margin: auto;
     text-align: center;
+    min-height: 100vh;
+}
+
+.grid {
+    display: grid;
 }
 
 /** Chart Sizing **/
@@ -144,8 +149,19 @@ header > ul > li:last-child > .headerLink {
     text-decoration: none;
 }
 
+/** a tag Links **/
+a {
+    text-decoration: none;
+    color: #483d8b;
+    font-weight: 800;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 /** Grid **/
-#container {
+#container-main {
     display: grid;
     grid-template-columns: 20px 1fr 1fr 0.5fr 0.5fr 20px;
     grid-template-rows: auto 15px repeat(6, auto) 20px;
@@ -160,14 +176,42 @@ header > ul > li:last-child > .headerLink {
         ". discl discl discl discl . "
         ". . . . . .";
 }
+
+#container-help {
+    grid-template-columns: 0.5fr 1fr 0.5fr;
+    grid-template-rows: auto 15px repeat(6, auto) 20px;
+    grid-template-areas:
+        "header header header"
+        ". . ."
+        ". monoTitle ."
+        ". monoData1."
+        ". monoData2."
+        ". discl .";
+}
+
+#container-about {
+    grid-template-columns: 0.5fr 1fr 0.5fr;
+    grid-template-rows: auto 15px 1fr 15px auto auto 20px;
+    grid-template-areas:
+        "header header header"
+        ". . ."
+        ". monoData1 ."
+        ". . ."
+        ". contribs ."
+        ". discl ."
+        ". . .";
+}
+
+/** Hide To top arrow on larger screens **/
 @media only screen and (min-width: 1000px) {
     .toTop {
         display: none;
     }
 }
-/*Mobile*/
+
+/** Mobile **/
 @media only screen and (max-width: 1000px) {
-    #container {
+    #container-main {
         grid-template-columns: 10px 1fr 1fr 10px;
         grid-template-rows: auto 15px repeat(13, auto);
         grid-template-areas:
@@ -264,7 +308,6 @@ header > ul > li:last-child > .headerLink {
 
 .monoChart {
     grid-area: monoChart;
-
     place-self: center;
 }
 
@@ -286,7 +329,6 @@ header > ul > li:last-child > .headerLink {
 
 .dualChart1 {
     grid-area: dualChart1;
-
     place-self: center;
 }
 
@@ -296,10 +338,13 @@ header > ul > li:last-child > .headerLink {
 
 .dualChart2 {
     grid-area: dualChart2;
-
     place-self: center;
 }
 
 .disclaimer {
     grid-area: discl;
+}
+
+.contribs {
+    grid-area: contribs;
 }
