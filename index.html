@@ -69,54 +69,6 @@
             </tr>
             <tr>
                 <td>
-                    Primal:
-                </td>
-                <td>
-                    <div>
-                        <button onclick="monoDecrement(`P`, 1)">
-                            -
-                        </button>
-                        <input id="P" type="number" value="0" min="0" onchange="monoPlayables(`P`, 1)">
-                        <button onclick="monoIncrement(`P`, 1)">
-                            +
-                        </button>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Justice:
-                </td>
-                <td>
-                    <div>
-                        <button onclick="monoDecrement(`J`, 3)">
-                            -
-                        </button>
-                        <input id="J" type="number" value="0" min="0" onchange="monoPlayables(`J`, 3)">
-                        <button onclick="monoIncrement(`J`, 3)">
-                            +
-                        </button>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Shadow:
-                </td>
-                <td>
-                    <div>
-                        <button onclick="monoDecrement(`S`, 4)">
-                            -
-                        </button>
-                        <input id="S" type="number" value="0" min="0" onchange="monoPlayables(`S`, 4)">
-                        <button onclick="monoIncrement(`S`, 4)">
-                            +
-                        </button>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
                     Fire:
                 </td>
                 <td>
@@ -147,13 +99,20 @@
                     </div>
                 </td>
             </tr>
-        </table>
-
-        <!-- Mono Color Removal -->
-        <table class="monoData2">
             <tr>
-                <td colspan="2">
-                    <h1>Removal</h1>
+                <td>
+                    Justice:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="monoDecrement(`J`, 3)">
+                            -
+                        </button>
+                        <input id="J" type="number" value="0" min="0" onchange="monoPlayables(`J`, 3)">
+                        <button onclick="monoIncrement(`J`, 3)">
+                            +
+                        </button>
+                    </div>
                 </td>
             </tr>
             <tr>
@@ -162,27 +121,11 @@
                 </td>
                 <td>
                     <div>
-                        <button onclick="removalDecrement(`Pr`, 1)">
+                        <button onclick="monoDecrement(`P`, 1)">
                             -
                         </button>
-                        <input id="Pr" type="number" value="0" min="0" onchange="removalPlayables()">
-                        <button onclick="removalIncrement(`Pr`, 1)">
-                            +
-                        </button>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Justice:
-                </td>
-                <td>
-                    <div>
-                        <button onclick="removalDecrement(`Jr`, 3)">
-                            -
-                        </button>
-                        <input id="Jr" type="number" value="0" min="0" onchange="removalPlayables()">
-                        <button onclick="removalIncrement(`Jr`, 3)">
+                        <input id="P" type="number" value="0" min="0" onchange="monoPlayables(`P`, 1)">
+                        <button onclick="monoIncrement(`P`, 1)">
                             +
                         </button>
                     </div>
@@ -194,14 +137,23 @@
                 </td>
                 <td>
                     <div>
-                        <button onclick="removalDecrement(`Sr`, 4)">
+                        <button onclick="monoDecrement(`S`, 4)">
                             -
                         </button>
-                        <input id="Sr" type="number" value="0" min="0" onchange="removalPlayables()">
-                        <button onclick="removalIncrement(`Sr`, 4)">
+                        <input id="S" type="number" value="0" min="0" onchange="monoPlayables(`S`, 4)">
+                        <button onclick="monoIncrement(`S`, 4)">
                             +
                         </button>
                     </div>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Mono Color Removal -->
+        <table class="monoData2">
+            <tr>
+                <td colspan="2">
+                    <h1>Removal</h1>
                 </td>
             </tr>
             <tr>
@@ -237,6 +189,54 @@
                 </td>
             </tr>
             <tr>
+                <td>
+                    Justice:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="removalDecrement(`Jr`, 3)">
+                            -
+                        </button>
+                        <input id="Jr" type="number" value="0" min="0" onchange="removalPlayables()">
+                        <button onclick="removalIncrement(`Jr`, 3)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Primal:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="removalDecrement(`Pr`, 1)">
+                            -
+                        </button>
+                        <input id="Pr" type="number" value="0" min="0" onchange="removalPlayables()">
+                        <button onclick="removalIncrement(`Pr`, 1)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Shadow:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="removalDecrement(`Sr`, 4)">
+                            -
+                        </button>
+                        <input id="Sr" type="number" value="0" min="0" onchange="removalPlayables()">
+                        <button onclick="removalIncrement(`Sr`, 4)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
                 <td colspan="2">
                     <div id="bestRemoval"></div>
                 </td>
@@ -257,6 +257,22 @@
             </tr>
             <tr>
                 <td>
+                    Praxis:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="dualDecrement(`FT`, 6)">
+                            -
+                        </button>
+                        <input id="FT" type="number" value="0" min="0" onchange="dualPlayables(`FT`, 6)">
+                        <button onclick="dualIncrement(`FT`, 6)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     Rakano:
                 </td>
                 <td>
@@ -266,38 +282,6 @@
                         </button>
                         <input id="FJ" type="number" value="0" min="0" onchange="dualPlayables(`FJ`, 0)">
                         <button onclick="dualIncrement(`FJ`, 0)">
-                            +
-                        </button>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Argenport:
-                </td>
-                <td>
-                    <div>
-                        <button onclick="dualDecrement(`JS`, 1)">
-                            -
-                        </button>
-                        <input id="JS" type="number" value="0" min="0" onchange="dualPlayables(`JS`, 1)">
-                        <button onclick="dualIncrement(`JS`, 1)">
-                            +
-                        </button>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Hooru:
-                </td>
-                <td>
-                    <div>
-                        <button onclick="dualDecrement(`JP`, 2)">
-                            -
-                        </button>
-                        <input id="JP" type="number" value="0" min="0" onchange="dualPlayables(`JP`, 2)">
-                        <button onclick="dualIncrement(`JP`, 2)">
                             +
                         </button>
                     </div>
@@ -321,15 +305,47 @@
             </tr>
             <tr>
                 <td>
-                    Stonescar:
+                    Elysian:
                 </td>
                 <td>
                     <div>
-                        <button onclick="dualDecrement(`FS`, 4)">
+                        <button onclick="dualDecrement(`PT`, 9)">
                             -
                         </button>
-                        <input id="FS" type="number" value="0" min="0" onchange="dualPlayables(`FS`, 4)">
-                        <button onclick="dualIncrement(`FS`, 4)">
+                        <input id="PT" type="number" value="0" min="0" onchange="dualPlayables(`PT`, 9)">
+                        <button onclick="dualIncrement(`PT`, 9)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Hooru:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="dualDecrement(`JP`, 2)">
+                            -
+                        </button>
+                        <input id="JP" type="number" value="0" min="0" onchange="dualPlayables(`JP`, 2)">
+                        <button onclick="dualIncrement(`JP`, 2)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Argenport:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="dualDecrement(`JS`, 1)">
+                            -
+                        </button>
+                        <input id="JS" type="number" value="0" min="0" onchange="dualPlayables(`JS`, 1)">
+                        <button onclick="dualIncrement(`JS`, 1)">
                             +
                         </button>
                     </div>
@@ -353,22 +369,6 @@
             </tr>
             <tr>
                 <td>
-                    Praxis:
-                </td>
-                <td>
-                    <div>
-                        <button onclick="dualDecrement(`FT`, 6)">
-                            -
-                        </button>
-                        <input id="FT" type="number" value="0" min="0" onchange="dualPlayables(`FT`, 6)">
-                        <button onclick="dualIncrement(`FT`, 6)">
-                            +
-                        </button>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
                     Feln:
                 </td>
                 <td>
@@ -378,6 +378,22 @@
                         </button>
                         <input id="PS" type="number" value="0" min="0" onchange="dualPlayables(`PS`, 7)">
                         <button onclick="dualIncrement(`PS`, 7)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Stonescar:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="dualDecrement(`FS`, 4)">
+                            -
+                        </button>
+                        <input id="FS" type="number" value="0" min="0" onchange="dualPlayables(`FS`, 4)">
+                        <button onclick="dualIncrement(`FS`, 4)">
                             +
                         </button>
                     </div>
@@ -399,22 +415,6 @@
                     </div>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    Elysian:
-                </td>
-                <td>
-                    <div>
-                        <button onclick="dualDecrement(`PT`, 9)">
-                            -
-                        </button>
-                        <input id="PT" type="number" value="0" min="0" onchange="dualPlayables(`PT`, 9)">
-                        <button onclick="dualIncrement(`PT`, 9)">
-                            +
-                        </button>
-                    </div>
-                </td>
-            </tr>
         </table>
 
         <!-- Dual Color Removal -->
@@ -422,6 +422,22 @@
             <tr>
                 <td colspan="2">
                     <h1>Removal</h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Praxis:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="dualRemovalDecrement(`FTr`, 6)">
+                            -
+                        </button>
+                        <input id="FTr" type="number" value="0" min="0" onchange="dualRemovalPlayables(`FTr`, 6)">
+                        <button onclick="dualRemovalIncrement(`FTr`, 6)">
+                            +
+                        </button>
+                    </div>
                 </td>
             </tr>
             <tr>
@@ -435,38 +451,6 @@
                         </button>
                         <input id="FJr" type="number" value="0" min="0" onchange="dualRemovalPlayables(`FJr`, 0)">
                         <button onclick="dualRemovalIncrement(`FJr`, 0)">
-                            +
-                        </button>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Argenport:
-                </td>
-                <td>
-                    <div>
-                        <button onclick="dualRemovalDecrement(`JSr`, 1)">
-                            -
-                        </button>
-                        <input id="JSr" type="number" value="0" min="0" onchange="dualRemovalPlayables(`JSr`, 1)">
-                        <button onclick="dualRemovalIncrement(`JSr`, 1)">
-                            +
-                        </button>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Hooru:
-                </td>
-                <td>
-                    <div>
-                        <button onclick="dualRemovalDecrement(`JPr`, 2)">
-                            -
-                        </button>
-                        <input id="JPr" type="number" value="0" min="0" onchange="dualRemovalPlayables(`JPr`, 2)">
-                        <button onclick="dualRemovalIncrement(`JPr`, 2)">
                             +
                         </button>
                     </div>
@@ -490,15 +474,47 @@
             </tr>
             <tr>
                 <td>
-                    Stonescar:
+                    Elysian:
                 </td>
                 <td>
                     <div>
-                        <button onclick="dualRemovalDecrement(`FSr`, 4)">
+                        <button onclick="dualRemovalDecrement(`PTr`, 9)">
                             -
                         </button>
-                        <input id="FSr" type="number" value="0" min="0" onchange="dualRemovalPlayables(`FSr`, 4)">
-                        <button onclick="dualRemovalIncrement(`FSr`, 4)">
+                        <input id="PTr" type="number" value="0" min="0" onchange="dualRemovalPlayables(`PTr`, 9)">
+                        <button onclick="dualRemovalIncrement(`PTr`, 9)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Hooru:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="dualRemovalDecrement(`JPr`, 2)">
+                            -
+                        </button>
+                        <input id="JPr" type="number" value="0" min="0" onchange="dualRemovalPlayables(`JPr`, 2)">
+                        <button onclick="dualRemovalIncrement(`JPr`, 2)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Argenport:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="dualRemovalDecrement(`JSr`, 1)">
+                            -
+                        </button>
+                        <input id="JSr" type="number" value="0" min="0" onchange="dualRemovalPlayables(`JSr`, 1)">
+                        <button onclick="dualRemovalIncrement(`JSr`, 1)">
                             +
                         </button>
                     </div>
@@ -522,22 +538,6 @@
             </tr>
             <tr>
                 <td>
-                    Praxis:
-                </td>
-                <td>
-                    <div>
-                        <button onclick="dualRemovalDecrement(`FTr`, 6)">
-                            -
-                        </button>
-                        <input id="FTr" type="number" value="0" min="0" onchange="dualRemovalPlayables(`FTr`, 6)">
-                        <button onclick="dualRemovalIncrement(`FTr`, 6)">
-                            +
-                        </button>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
                     Feln:
                 </td>
                 <td>
@@ -547,6 +547,22 @@
                         </button>
                         <input id="PSr" type="number" value="0" min="0" onchange="dualRemovalPlayables(`PSr`, 7)">
                         <button onclick="dualRemovalIncrement(`PSr`, 7)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Stonescar:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="dualRemovalDecrement(`FSr`, 4)">
+                            -
+                        </button>
+                        <input id="FSr" type="number" value="0" min="0" onchange="dualRemovalPlayables(`FSr`, 4)">
+                        <button onclick="dualRemovalIncrement(`FSr`, 4)">
                             +
                         </button>
                     </div>
@@ -568,22 +584,6 @@
                     </div>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    Elysian:
-                </td>
-                <td>
-                    <div>
-                        <button onclick="dualRemovalDecrement(`PTr`, 9)">
-                            -
-                        </button>
-                        <input id="PTr" type="number" value="0" min="0" onchange="dualRemovalPlayables(`PTr`, 9)">
-                        <button onclick="dualRemovalIncrement(`PTr`, 9)">
-                            +
-                        </button>
-                    </div>
-                </td>
-            </tr>
         </table>
 
         <!-- Dual Color Fixing -->
@@ -591,6 +591,22 @@
             <tr>
                 <td colspan="2">
                     <h1>Fixing</h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Praxis:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="fixRemovalDecrement(`FTf`, 6)">
+                            -
+                        </button>
+                        <input id="FTf" type="number" value="0" min="0" onchange="fixRemovalPlayables(`FTf`, 6)">
+                        <button onclick="fixRemovalIncrement(`FTf`, 6)">
+                            +
+                        </button>
+                    </div>
                 </td>
             </tr>
             <tr>
@@ -604,38 +620,6 @@
                         </button>
                         <input id="FJf" type="number" value="0" min="0" onchange="fixRemovalPlayables(`FJf`, 0)">
                         <button onclick="fixRemovalIncrement(`FJf`, 0)">
-                            +
-                        </button>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Argenport:
-                </td>
-                <td>
-                    <div>
-                        <button onclick="fixRemovalDecrement(`JSf`, 1)">
-                            -
-                        </button>
-                        <input id="JSf" type="number" value="0" min="0" onchange="fixRemovalPlayables(`JSf`, 1)">
-                        <button onclick="fixRemovalIncrement(`JSf`, 1)">
-                            +
-                        </button>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Hooru:
-                </td>
-                <td>
-                    <div>
-                        <button onclick="fixRemovalDecrement(`JPf`, 2)">
-                            -
-                        </button>
-                        <input id="JPf" type="number" value="0" min="0" onchange="fixRemovalPlayables(`JPf`, 2)">
-                        <button onclick="fixRemovalIncrement(`JPf`, 2)">
                             +
                         </button>
                     </div>
@@ -659,15 +643,47 @@
             </tr>
             <tr>
                 <td>
-                    Stonescar:
+                    Elysian:
                 </td>
                 <td>
                     <div>
-                        <button onclick="fixRemovalDecrement(`FSf`, 4)">
+                        <button onclick="fixRemovalDecrement(`PTf`, 9)">
                             -
                         </button>
-                        <input id="FSf" type="number" value="0" min="0" onchange="fixRemovalPlayables(`FSf`, 4)">
-                        <button onclick="fixRemovalIncrement(`FSf`, 4)">
+                        <input id="PTf" type="number" value="0" min="0" onchange="fixRemovalPlayables(`PTf`, 9)">
+                        <button onclick="fixRemovalIncrement(`PTf`, 9)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Hooru:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="fixRemovalDecrement(`JPf`, 2)">
+                            -
+                        </button>
+                        <input id="JPf" type="number" value="0" min="0" onchange="fixRemovalPlayables(`JPf`, 2)">
+                        <button onclick="fixRemovalIncrement(`JPf`, 2)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Argenport:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="fixRemovalDecrement(`JSf`, 1)">
+                            -
+                        </button>
+                        <input id="JSf" type="number" value="0" min="0" onchange="fixRemovalPlayables(`JSf`, 1)">
+                        <button onclick="fixRemovalIncrement(`JSf`, 1)">
                             +
                         </button>
                     </div>
@@ -691,22 +707,6 @@
             </tr>
             <tr>
                 <td>
-                    Praxis:
-                </td>
-                <td>
-                    <div>
-                        <button onclick="fixRemovalDecrement(`FTf`, 6)">
-                            -
-                        </button>
-                        <input id="FTf" type="number" value="0" min="0" onchange="fixRemovalPlayables(`FTf`, 6)">
-                        <button onclick="fixRemovalIncrement(`FTf`, 6)">
-                            +
-                        </button>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
                     Feln:
                 </td>
                 <td>
@@ -716,6 +716,22 @@
                         </button>
                         <input id="PSf" type="number" value="0" min="0" onchange="fixRemovalPlayables(`PSf`, 7)">
                         <button onclick="fixRemovalIncrement(`PSf`, 7)">
+                            +
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Stonescar:
+                </td>
+                <td>
+                    <div>
+                        <button onclick="fixRemovalDecrement(`FSf`, 4)">
+                            -
+                        </button>
+                        <input id="FSf" type="number" value="0" min="0" onchange="fixRemovalPlayables(`FSf`, 4)">
+                        <button onclick="fixRemovalIncrement(`FSf`, 4)">
                             +
                         </button>
                     </div>
@@ -737,22 +753,7 @@
                     </div>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    Elysian:
-                </td>
-                <td>
-                    <div>
-                        <button onclick="fixRemovalDecrement(`PTf`, 9)">
-                            -
-                        </button>
-                        <input id="PTf" type="number" value="0" min="0" onchange="fixRemovalPlayables(`PTf`, 9)">
-                        <button onclick="fixRemovalIncrement(`PTf`, 9)">
-                            +
-                        </button>
-                    </div>
-                </td>
-            </tr>
+
         </table>
         <footer>
 
