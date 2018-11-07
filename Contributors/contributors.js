@@ -1,5 +1,5 @@
 console.log("Loading");
-/* !!!!!!!! No 's allowed in contrib list (at this time) */
+/* !!!!!!!! No {'}s allowed in contrib list (at this time) */
 
 const contributors = [
     {
