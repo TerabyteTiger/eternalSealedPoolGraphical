@@ -11,3 +11,7 @@ This tool is a way to help visualize your sealed pool in a meaningful way and ca
 ## Testimonials
 
 -   "The Magic 8-Ball of Eternal Sealed" - [Kaelos](https://www.twitch.tv/kaelosthereckoning)
+
+## Disclaimer
+
+Utilizing this tool requires your judgement about what cards fit in which categories. As such, there is no guarantee of results. Eternal is a game of variance at it's core, which is part of what makes it fun.
