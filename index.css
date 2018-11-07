@@ -203,7 +203,7 @@ a:hover {
         ". . ."
         ". monoData1 ."
         ". . ."
-        ". contribs ."
+        ". contributors ."
         "discl discl discl"
         "discl discl discl";
     /*
@@ -356,6 +356,6 @@ a:hover {
     padding: 15px;
 }
 
-.contribs {
-    grid-area: contribs;
+.contributors {
+    grid-area: contributors;
 }

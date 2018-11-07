@@ -1,16 +1,19 @@
 console.log("Loading");
-/* No 's allowed in contrib list (at this time) */
+/* !!!!!!!! No 's allowed in contrib list (at this time) */
+
 const contributors = [
     {
         name: "12vanblart",
         picture: "https://github.com/12vanblart.png",
-        caption: "12vanblart, Maintainer",
+        caption: "12vanblart, Creator",
         link: "https://github.com/12vanblart"
     }
 ];
-var outputHTML = "";
+
+var outputHTML =
+    "<hr style='width: 75%; '><h1>Contributors:</h1><p> Extra thanks to the following that took time to help this project! \
+    Check them out and let them know you appreciate their efforts!</p >";
 for (i = 0; i < contributors.length; i++) {
-    console.log(contributors[i].caption);
     outputHTML +=
         "<a style='text-decoration: none' href='" +
         contributors[i].link +
@@ -26,4 +29,4 @@ for (i = 0; i < contributors.length; i++) {
 }
 
 console.log(outputHTML);
-document.getElementById("cont").innerHTML = outputHTML;
+document.getElementById("contributors").innerHTML = outputHTML;
