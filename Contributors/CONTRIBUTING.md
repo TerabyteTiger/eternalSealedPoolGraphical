@@ -22,9 +22,12 @@ The primary goal for the site is to keep the UI clean and functional. Changes ar
 
 ## Pull Requests
 
-### Branch
+### Branches
 
-Submit PR's to the `development` branch
+#### Pull Requests (PR's) should be submitted to branches as follows:
+
+-   `development` is for changes to .html, .css, or .js files where new functionality is added.
+-   `docs` is for any changes to the documentation of this repository.
 
 ### Other Details
 
