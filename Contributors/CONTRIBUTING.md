@@ -35,3 +35,12 @@ The primary goal for the site is to keep the UI clean and functional. Changes ar
 -   No PR is too small! I'd rather 5 small PR's than 1 large PR to help isolate any issues.
 -   Try to keep your branch up to date over time
 -   If you're having problems with understanding or implementing something, let me know and we can work through the issue! Everyone needs help now and then!
+
+### Adding yourself to the contributors list
+
+Once a PR has been accepted, you can submit a PR for adding yourself to the contributors variable in `contributors.js`. The values should be as follow:
+
+-   `name` : Your github username. Currently not used.
+-   `picture` : Link to a profile picture to display. Sizing is `50px` x `50px`
+-   `caption` : Caption that appears when a user hovers over your image.
+-   `link` : Link to send users to when they click your picture. Can be anything from personal blog to github to buy me a coffee page.
