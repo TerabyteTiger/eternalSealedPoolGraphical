@@ -514,16 +514,16 @@ function initialize() {
         type: "bar",
         data: {
             labels: [
-                "un-Rakano",
-                "un-Argenport",
-                "un-Hooru",
-                "un-Combrei",
-                "un-Stonescar",
-                "un-Skycrag",
-                "un-Praxis",
-                "un-Feln",
-                "un-Xenan",
-                "un-Elysian"
+                "unRakano",
+                "unArgenport",
+                "unHooru",
+                "unCombrei",
+                "unStonescar",
+                "unSkycrag",
+                "unPraxis",
+                "unFeln",
+                "unXenan",
+                "unElysian"
             ],
             datasets: [
                 {
@@ -735,7 +735,10 @@ function initialize() {
             scales: {
                 xAxes: [
                     {
-                        stacked: true
+                        stacked: true,
+                        ticks: {
+                            autoSkip: false
+                        }
                     }
                 ],
                 yAxes: [
@@ -759,6 +762,7 @@ function monoIncrement(selector, indicator) {
     myChart.update();
     monoRec();
     monoUpdateDual(selector);
+    monoUpdateTri(selector);
 }
 
 function monoDecrement(selector, indicator) {
@@ -768,6 +772,7 @@ function monoDecrement(selector, indicator) {
     myChart.update();
     monoRec();
     monoUpdateDual(selector);
+    monoUpdateTri(selector);
 }
 
 function monoPlayables(selector, indicator) {
@@ -776,6 +781,7 @@ function monoPlayables(selector, indicator) {
     myChart.update();
     monoRec();
     monoUpdateDual(selector);
+    monoUpdateTri(selector);
 }
 
 // Mono Removal Functions
@@ -786,6 +792,7 @@ function removalIncrement(selector, indicator) {
     myChart.update();
     monoRec();
     monoUpdateDual(selector);
+    monoUpdateTri(selector);
 }
 
 function removalDecrement(selector, indicator) {
@@ -795,6 +802,7 @@ function removalDecrement(selector, indicator) {
     myChart.update();
     monoRec();
     monoUpdateDual(selector);
+    monoUpdateTri(selector);
 }
 
 function removalPlayables(selector, indicator) {
@@ -803,6 +811,7 @@ function removalPlayables(selector, indicator) {
     myChart.update();
     monoRec();
     monoUpdateDual(selector);
+    monoUpdateTri(selector);
 }
 
 // Dual Playable Functions
@@ -821,6 +830,7 @@ function dualIncrement(selector, indicator) {
         eval(inTwo.value) + eval(inTwoR.value);
     dualChart.update();
     dualRec();
+    dualUpdateTri();
 }
 
 function dualDecrement(selector, indicator) {
@@ -837,6 +847,7 @@ function dualDecrement(selector, indicator) {
         eval(inTwo.value) + eval(inTwoR.value);
     dualChart.update();
     dualRec();
+    dualUpdateTri();
 }
 
 function dualPlayables(selector, indicator) {
@@ -852,6 +863,7 @@ function dualPlayables(selector, indicator) {
         eval(inTwo.value) + eval(inTwoR.value);
     dualChart.update();
     dualRec();
+    dualUpdateTri();
 }
 
 // Dual Removal Functions
@@ -870,6 +882,7 @@ function dualRemovalIncrement(selector, indicator) {
 
     dualChart.update();
     dualRec();
+    dualUpdateTri();
 }
 
 function dualRemovalDecrement(selector, indicator) {
@@ -887,6 +900,7 @@ function dualRemovalDecrement(selector, indicator) {
 
     dualChart.update();
     dualRec();
+    dualUpdateTri();
 }
 
 function dualRemovalPlayables(selector, indicator) {
@@ -903,6 +917,7 @@ function dualRemovalPlayables(selector, indicator) {
 
     dualChart.update();
     dualRec();
+    dualUpdateTri();
 }
 
 // Dual Fixing Functions
@@ -913,6 +928,7 @@ function fixRemovalIncrement(selector, indicator) {
     fixChart.data.datasets[1].data[indicator] = inputField.value * 0.5;
     fixChart.update();
     fixRec();
+    fixUpdateTri();
 }
 
 function fixRemovalDecrement(selector, indicator) {
@@ -922,6 +938,7 @@ function fixRemovalDecrement(selector, indicator) {
     fixChart.data.datasets[1].data[indicator] = inputField.value * 0.5;
     fixChart.update();
     fixRec();
+    fixUpdateTri();
 }
 
 function fixRemovalPlayables(selector, indicator) {
@@ -930,6 +947,7 @@ function fixRemovalPlayables(selector, indicator) {
     fixChart.data.datasets[1].data[indicator] = inputField.value * 0.5;
     fixChart.update();
     fixRec();
+    fixUpdateTri();
 }
 
 // Recommended Functions
