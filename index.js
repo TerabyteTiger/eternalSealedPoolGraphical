@@ -97,7 +97,8 @@ var primal = {
 var ctx = document.getElementById("myChart");
 var ctx2 = document.getElementById("dualChart");
 var ctx3 = document.getElementById("fixChart");
-var myChart, dualChart, bestCount, bestMono, bestRemoval, bestDual, fixingChart;
+var ctx4 = document.getElementById("triChart");
+var myChart, dualChart, triChart, bestCount, bestMono, bestDual;
 
 // Init
 monoRec();
@@ -1121,4 +1122,62 @@ function monoUpdateDual(selector) {
         console.log("ERROR UPDATING DUAL CHART");
     }
     dualChart.update();
+}
+
+/** Tri Chart Functions **/
+function monoUpdateTri(selector) {
+    if (selector[0] == "F") {
+        var inOne = document.getElementById(selector[0]);
+        var inOneR = document.getElementById(selector[0] + "r");
+        var total = eval(inOne.value) + eval(inOneR.value);
+        triChart.data.datasets[0].data[1] = total;
+        triChart.data.datasets[0].data[2] = total;
+        triChart.data.datasets[0].data[3] = total;
+        triChart.data.datasets[0].data[7] = total;
+        triChart.data.datasets[0].data[8] = total;
+        triChart.data.datasets[0].data[9] = total;
+    } else if (selector[0] == "J") {
+        var inOne = document.getElementById(selector[0]);
+        var inOneR = document.getElementById(selector[0] + "r");
+        var total = eval(inOne.value) + eval(inOneR.value);
+        triChart.data.datasets[0].data[4] = total;
+        triChart.data.datasets[0].data[5] = total;
+        triChart.data.datasets[0].data[6] = total;
+        triChart.data.datasets[1].data[7] = total;
+        triChart.data.datasets[1].data[8] = total;
+        triChart.data.datasets[1].data[9] = total;
+    } else if (selector[0] == "T") {
+        var inOne = document.getElementById(selector[0]);
+        var inOneR = document.getElementById(selector[0] + "r");
+        var total = eval(inOne.value) + eval(inOneR.value);
+        triChart.data.datasets[2].data[0] = total;
+        triChart.data.datasets[2].data[1] = total;
+        triChart.data.datasets[2].data[2] = total;
+        triChart.data.datasets[2].data[4] = total;
+        triChart.data.datasets[2].data[5] = total;
+        triChart.data.datasets[2].data[7] = total;
+    } else if (selector[0] == "S") {
+        var inOne = document.getElementById(selector[0]);
+        var inOneR = document.getElementById(selector[0] + "r");
+        var total = eval(inOne.value) + eval(inOneR.value);
+        triChart.data.datasets[1].data[0] = total;
+        triChart.data.datasets[1].data[2] = total;
+        triChart.data.datasets[2].data[3] = total;
+        triChart.data.datasets[1].data[5] = total;
+        triChart.data.datasets[2].data[6] = total;
+        triChart.data.datasets[2].data[9] = total;
+    } else if (selector[0] == "P") {
+        var inOne = document.getElementById(selector[0]);
+        var inOneR = document.getElementById(selector[0] + "r");
+        var total = eval(inOne.value) + eval(inOneR.value);
+        triChart.data.datasets[0].data[0] = total;
+        triChart.data.datasets[1].data[1] = total;
+        triChart.data.datasets[1].data[3] = total;
+        triChart.data.datasets[1].data[4] = total;
+        triChart.data.datasets[1].data[6] = total;
+        triChart.data.datasets[2].data[8] = total;
+    } else {
+        console.log("ERROR UPDATING TRI CHART");
+    }
+    triChart.update();
 }
