@@ -219,15 +219,15 @@ function initialize() {
                         primal.count
                     ],
                     backgroundColor: [
-                        "rgba(255,99,132,0.4)",
+                        "rgba(255,99,132,0.4)", //Fire
+                        "rgba(75, 192, 192, 0.4)", //Justice
                         "rgba(75, 192, 192, 0.4)",
                         "rgba(75, 192, 192, 0.4)",
-                        "rgba(75, 192, 192, 0.4)",
                         "rgba(255,99,132,0.4)",
                         "rgba(255,99,132,0.4)",
                         "rgba(255,99,132,0.4)",
-                        "rgba(54, 162, 235, 0.4)", //u (153, 102, 255, 0.4) -- Shadow
-                        "rgba(153, 102, 255, 0.4)",
+                        "rgba(54, 162, 235, 0.4)", //Primal
+                        "rgba(153, 102, 255, 0.4)", //Shadow
                         "rgba(54, 162, 235, 0.4)"
                     ],
                     borderColor: [
@@ -238,7 +238,7 @@ function initialize() {
                         "rgba(255,99,132,1)",
                         "rgba(255,99,132,1)",
                         "rgba(255,99,132,1)",
-                        "rgba(54, 162, 235,14)", //u (153, 102, 255, 1) -- Shadow
+                        "rgba(54, 162, 235,14)",
                         "rgba(153, 102, 255, 1)",
                         "rgba(54, 162, 235,14)"
                     ],
@@ -508,251 +508,248 @@ function initialize() {
             }
         }
     });
-}
 
-/********** TRI-COLOR TABLE ************************/
-triChart = new Chart(ctx4, {
-    type: "bar",
-    data: {
-        labels: [
-            "un-Rakano",
-            "un-Argenport",
-            "un-Hooru",
-            "un-Combrei",
-            "un-Stonescar",
-            "un-Skycrag",
-            "un-Praxis",
-            "un-Feln",
-            "un-Xenan",
-            "un-Elysian"
-        ],
-        datasets: [
-            {
-                label: "Playables - Mono 1", //[0]
-                data: [
-                    //done
-                    primal.count,
-                    fire.count,
-                    fire.count,
-                    fire.count,
-                    justice.count,
-                    justice.count,
-                    justice.count,
-                    fire.count,
-                    fire.count,
-                    fire.count //
-                ],
-                backgroundColor: [
-                    "rgba(255,99,132,0.4)",
-                    "rgba(75, 192, 192, 0.4)",
-                    "rgba(75, 192, 192, 0.4)",
-                    "rgba(75, 192, 192, 0.4)",
-                    "rgba(255,99,132,0.4)",
-                    "rgba(255,99,132,0.4)",
-                    "rgba(255,99,132,0.4)",
-                    "rgba(54, 162, 235, 0.4)", //u (153, 102, 255, 0.4) -- Shadow
-                    "rgba(153, 102, 255, 0.4)",
-                    "rgba(54, 162, 235, 0.4)"
-                ],
-                borderColor: [
-                    "rgba(255,99,132,1)",
-                    "rgba(75, 192, 192, 1)",
-                    "rgba(75, 192, 192, 1)",
-                    "rgba(75, 192, 192, 1)",
-                    "rgba(255,99,132,1)",
-                    "rgba(255,99,132,1)",
-                    "rgba(255,99,132,1)",
-                    "rgba(54, 162, 235,14)", //u (153, 102, 255, 1) -- Shadow
-                    "rgba(153, 102, 255, 1)",
-                    "rgba(54, 162, 235,14)"
-                ],
-                borderWidth: 1
-            },
-            {
-                label: "Playable - Mono 2", //[1]
-                data: [
-                    //done
-                    shadow.count,
-                    primal.count,
-                    shadow.count,
-                    primal.count,
-                    primal.count,
-                    shadow.count,
-                    primal.count,
-                    justice.count,
-                    justice.count,
-                    justice.count //
-                ],
-                backgroundColor: [
-                    "rgba(75, 192, 192, 0.4)" /*G*/,
-                    "rgba(153, 102, 255,0.4)" /*B*/,
-                    "rgba(54, 162, 235, 0.4)" /*U*/,
-                    "rgba(255, 206, 86, 0.4)" /*W*/,
-                    "rgba(153, 102, 255,0.4)" /*B*/,
-                    "rgba(54, 162, 235, 0.4)" /*U*/,
-                    "rgba(255, 206, 86, 0.4)" /*W*/,
-                    "rgba(153, 102, 255,0.4)" /*B*/,
-                    "rgba(255, 206, 86, 0.4)" /*W*/,
-                    "rgba(255, 206, 86, 0.4)" /*W*/
-                ],
-                borderColor: [
-                    "rgba(75, 192, 192, 1)" /*G*/,
-                    "rgba(153, 102, 255, 1)" /*B*/,
-                    "rgba(54, 162, 235, 1)" /*U*/,
-                    "rgba(255, 206, 86, 1)" /*W*/,
-                    "rgba(153, 102, 255, 1)" /*B*/,
-                    "rgba(54, 162, 235, 1)" /*U*/,
-                    "rgba(255, 206, 86, 1)" /*W*/,
-                    "rgba(153, 102, 255, 1)" /*B*/,
-                    "rgba(255, 206, 86, 1)" /*W*/,
-                    "rgba(255, 206, 86,12)" /*W*/
-                ],
-                borderWidth: 1
-            },
-            {
-                label: "Playable - Mono 3", //[2]
-                data: [
-                    //done
-                    time.count,
-                    time.count,
-                    time.count,
-                    shadow.count,
-                    time.count,
-                    time.count,
-                    shadow.count,
-                    time.count,
-                    primal.count,
-                    shadow.count //
-                ],
-                backgroundColor: [
-                    "rgba(75, 192, 192, 0.4)" /*G*/,
-                    "rgba(153, 102, 255,0.4)" /*B*/,
-                    "rgba(54, 162, 235, 0.4)" /*U*/,
-                    "rgba(255, 206, 86, 0.4)" /*W*/,
-                    "rgba(153, 102, 255,0.4)" /*B*/,
-                    "rgba(54, 162, 235, 0.4)" /*U*/,
-                    "rgba(255, 206, 86, 0.4)" /*W*/,
-                    "rgba(153, 102, 255,0.4)" /*B*/,
-                    "rgba(255, 206, 86, 0.4)" /*W*/,
-                    "rgba(255, 206, 86, 0.4)" /*W*/
-                ],
-                borderColor: [
-                    "rgba(75, 192, 192, 1)" /*G*/,
-                    "rgba(153, 102, 255, 1)" /*B*/,
-                    "rgba(54, 162, 235, 1)" /*U*/,
-                    "rgba(255, 206, 86, 1)" /*W*/,
-                    "rgba(153, 102, 255, 1)" /*B*/,
-                    "rgba(54, 162, 235, 1)" /*U*/,
-                    "rgba(255, 206, 86, 1)" /*W*/,
-                    "rgba(153, 102, 255, 1)" /*B*/,
-                    "rgba(255, 206, 86, 1)" /*W*/,
-                    "rgba(255, 206, 86,12)" /*W*/
-                ],
-                borderWidth: 1
-            },
-            {
-                label: "Duals", //[3]
-                data: [
-                    rakano.count,
-                    argenport.count,
-                    hooru.count,
-                    combrei.count,
-                    stonescar.count,
-                    skycrag.count,
-                    praxis.count,
-                    feln.count,
-                    xenan.count,
-                    elysian.count
-                ],
-                backgroundColor: [
-                    "rgba(75, 75, 75, 0.4)" /*Gray*/,
-                    "rgba(75, 75, 75, 0.4)" /*Gray*/,
-                    "rgba(75, 75, 75, 0.4)" /*Gray*/,
-                    "rgba(75, 75, 75, 0.4)" /*Gray*/,
-                    "rgba(75, 75, 75, 0.4)" /*Gray*/,
-                    "rgba(75, 75, 75, 0.4)" /*Gray*/,
-                    "rgba(75, 75, 75, 0.4)" /*Gray*/,
-                    "rgba(75, 75, 75, 0.4)" /*Gray*/,
-                    "rgba(75, 75, 75, 0.4)" /*Gray*/,
-                    "rgba(75, 75, 75, 0.4)" /*Gray*/
-                ],
-                borderColor: [
-                    "rgba(75, 75, 75, 1)" /*Gray*/,
-                    "rgba(75, 75, 75, 1)" /*Gray*/,
-                    "rgba(75, 75, 75, 1)" /*Gray*/,
-                    "rgba(75, 75, 75, 1)" /*Gray*/,
-                    "rgba(75, 75, 75, 1)" /*Gray*/,
-                    "rgba(75, 75, 75, 1)" /*Gray*/,
-                    "rgba(75, 75, 75, 1)" /*Gray*/,
-                    "rgba(75, 75, 75, 1)" /*Gray*/,
-                    "rgba(75, 75, 75, 1)" /*Gray*/,
-                    "rgba(75, 75, 75, 1)" /*Gray*/
-                ],
-                borderWidth: 1
-            },
-            {
-                label: "Fixing", //[4]
-                data: [
-                    rakano.removal,
-                    argenport.removal,
-                    hooru.removal,
-                    combrei.removal,
-                    stonescar.removal,
-                    skycrag.removal,
-                    praxis.removal,
-                    feln.removal,
-                    xenan.removal,
-                    elysian.removal
-                ],
-                backgroundColor: [
-                    "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                    "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                    "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                    "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                    "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                    "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                    "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                    "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                    "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                    "rgba(75, 75, 75, 0.2)" /*Gray*/
-                ],
-                borderColor: [
-                    "rgba(75, 75, 75, 1)" /*Gray*/,
-                    "rgba(75, 75, 75, 1)" /*Gray*/,
-                    "rgba(75, 75, 75, 1)" /*Gray*/,
-                    "rgba(75, 75, 75, 1)" /*Gray*/,
-                    "rgba(75, 75, 75, 1)" /*Gray*/,
-                    "rgba(75, 75, 75, 1)" /*Gray*/,
-                    "rgba(75, 75, 75, 1)" /*Gray*/,
-                    "rgba(75, 75, 75, 1)" /*Gray*/,
-                    "rgba(75, 75, 75, 1)" /*Gray*/,
-                    "rgba(75, 75, 75, 1)" /*Gray*/
-                ],
-                borderWidth: 1
-            }
-        ]
-    },
-    options: {
-        legend: {
-            display: false
-        },
-        scales: {
-            xAxes: [
-                {
-                    stacked: true
-                }
+    /********** TRI-COLOR TABLE ************************/
+    triChart = new Chart(ctx4, {
+        type: "bar",
+        data: {
+            labels: [
+                "un-Rakano",
+                "un-Argenport",
+                "un-Hooru",
+                "un-Combrei",
+                "un-Stonescar",
+                "un-Skycrag",
+                "un-Praxis",
+                "un-Feln",
+                "un-Xenan",
+                "un-Elysian"
             ],
-            yAxes: [
+            datasets: [
                 {
-                    stacked: true,
-                    ticks: {
-                        beginAtZero: true
-                    }
+                    label: "Playables - Mono 1", //[0]
+                    data: [
+                        primal.count,
+                        fire.count,
+                        fire.count,
+                        fire.count,
+                        justice.count,
+                        justice.count,
+                        justice.count,
+                        fire.count,
+                        fire.count,
+                        fire.count
+                    ],
+                    backgroundColor: [
+                        "rgba(54, 162, 235, 0.4)", //Primal
+                        "rgba(255,99,132,0.4)", //Fire
+                        "rgba(255,99,132,0.4)", //Fire
+                        "rgba(255,99,132,0.4)", //Fire
+                        "rgba(75, 192, 192, 0.4)", //Justice
+                        "rgba(75, 192, 192, 0.4)", //Justice
+                        "rgba(75, 192, 192, 0.4)", //Justice
+                        "rgba(255,99,132,0.4)", //Fire
+                        "rgba(255,99,132,0.4)", //Fire
+                        "rgba(255,99,132,0.4)" //Fire
+                    ],
+                    borderColor: [
+                        "rgba(54, 162, 235, 1)", //Primal
+                        "rgba(255,99,132,1)", //Fire
+                        "rgba(255,99,132,1)", //Fire
+                        "rgba(255,99,132,1)", //Fire
+                        "rgba(75, 192, 192, 1)", //Justice
+                        "rgba(75, 192, 192, 1)", //Justice
+                        "rgba(75, 192, 192, 1)", //Justice
+                        "rgba(255,99,132,1)", //Fire
+                        "rgba(255,99,132,1)", //Fire
+                        "rgba(255,99,132,1)" //Fire
+                    ],
+                    borderWidth: 1
+                },
+                {
+                    label: "Playable - Mono 2", //[1]
+                    data: [
+                        shadow.count,
+                        primal.count,
+                        shadow.count,
+                        primal.count,
+                        primal.count,
+                        shadow.count,
+                        primal.count,
+                        justice.count,
+                        justice.count,
+                        justice.count
+                    ],
+                    backgroundColor: [
+                        "rgba(153, 102, 255, 0.4)", //Shadow
+                        "rgba(54, 162, 235, 0.4)", //Primal
+                        "rgba(153, 102, 255, 0.4)", //Shadow
+                        "rgba(54, 162, 235, 0.4)", //Primal
+                        "rgba(54, 162, 235, 0.4)", //Primal
+                        "rgba(153, 102, 255, 0.4)", //Shadow
+                        "rgba(54, 162, 235, 0.4)", //Primal
+                        "rgba(75, 192, 192, 0.4)", //Justice
+                        "rgba(75, 192, 192, 0.4)", //Justice
+                        "rgba(75, 192, 192, 0.4)" //Justice
+                    ],
+                    borderColor: [
+                        "rgba(153, 102, 255, 1)", //Shadow
+                        "rgba(54, 162, 235, 1)", //Primal
+                        "rgba(153, 102, 255, 1)", //Shadow
+                        "rgba(54, 162, 235, 1)", //Primal
+                        "rgba(54, 162, 235, 1)", //Primal
+                        "rgba(153, 102, 255, 1)", //Shadow
+                        "rgba(54, 162, 235, 1)", //Primal
+                        "rgba(75, 192, 192, 1)", //Justice
+                        "rgba(75, 192, 192, 1)", //Justice
+                        "rgba(75, 192, 192, 1)" //Justice
+                    ],
+                    borderWidth: 1
+                },
+                {
+                    label: "Playable - Mono 3", //[2]
+                    data: [
+                        time.count,
+                        time.count,
+                        time.count,
+                        shadow.count,
+                        time.count,
+                        time.count,
+                        shadow.count,
+                        time.count,
+                        primal.count,
+                        shadow.count
+                    ],
+                    backgroundColor: [
+                        "rgba(255, 206, 86, 0.4)", //Time
+                        "rgba(255, 206, 86, 0.4)", //Time
+                        "rgba(255, 206, 86, 0.4)", //Time
+                        "rgba(153, 102, 255, 0.4)", //Shadow
+                        "rgba(255, 206, 86, 0.4)", //Time
+                        "rgba(255, 206, 86, 0.4)", //Time
+                        "rgba(153, 102, 255, 0.4)", //Shadow
+                        "rgba(255, 206, 86, 0.4)", //Time
+                        "rgba(54, 162, 235, 0.4)", //Primal
+                        "rgba(153, 102, 255, 0.4)" //Shadow
+                    ],
+                    borderColor: [
+                        "rgba(255, 206, 86, 1)", //Time
+                        "rgba(255, 206, 86, 1)", //Time
+                        "rgba(255, 206, 86, 1)", //Time
+                        "rgba(153, 102, 255, 1)", //Shadow
+                        "rgba(255, 206, 86, 1)", //Time
+                        "rgba(255, 206, 86, 1)", //Time
+                        "rgba(153, 102, 255, 1)", //Shadow
+                        "rgba(255, 206, 86, 1)", //Time
+                        "rgba(54, 162, 235, 1)", //Primal
+                        "rgba(153, 102, 255, 1)" //Shadow
+                    ],
+                    borderWidth: 1
+                },
+                {
+                    label: "Duals", //[3]
+                    data: [
+                        rakano.count,
+                        argenport.count,
+                        hooru.count,
+                        combrei.count,
+                        stonescar.count,
+                        skycrag.count,
+                        praxis.count,
+                        feln.count,
+                        xenan.count,
+                        elysian.count
+                    ],
+                    backgroundColor: [
+                        "rgba(75, 75, 75, 0.4)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.4)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.4)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.4)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.4)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.4)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.4)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.4)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.4)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.4)" /*Gray*/
+                    ],
+                    borderColor: [
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/
+                    ],
+                    borderWidth: 1
+                },
+                {
+                    label: "Fixing", //[4]
+                    data: [
+                        rakano.removal,
+                        argenport.removal,
+                        hooru.removal,
+                        combrei.removal,
+                        stonescar.removal,
+                        skycrag.removal,
+                        praxis.removal,
+                        feln.removal,
+                        xenan.removal,
+                        elysian.removal
+                    ],
+                    backgroundColor: [
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/
+                    ],
+                    borderColor: [
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/
+                    ],
+                    borderWidth: 1
                 }
             ]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            scales: {
+                xAxes: [
+                    {
+                        stacked: true
+                    }
+                ],
+                yAxes: [
+                    {
+                        stacked: true,
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }
+                ]
+            }
         }
-    }
-});
+    });
+}
 
 // Mono Playable Functions
 function monoIncrement(selector, indicator) {
@@ -1157,7 +1154,7 @@ function monoUpdateDual(selector) {
     dualChart.update();
 }
 
-/** Tri Chart Functions **/
+// Tri Chart Functions
 function monoUpdateTri(selector) {
     if (selector[0] == "F") {
         var inOne = document.getElementById(selector[0]);
