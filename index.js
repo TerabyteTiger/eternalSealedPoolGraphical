@@ -528,7 +528,7 @@ triChart = new Chart(ctx4, {
         ],
         datasets: [
             {
-                label: "Playables - Mono 1",
+                label: "Playables - Mono 1", //[0]
                 data: [
                     //done
                     primal.count,
@@ -569,7 +569,7 @@ triChart = new Chart(ctx4, {
                 borderWidth: 1
             },
             {
-                label: "Playable - Mono 2",
+                label: "Playable - Mono 2", //[1]
                 data: [
                     //done
                     shadow.count,
@@ -610,7 +610,7 @@ triChart = new Chart(ctx4, {
                 borderWidth: 1
             },
             {
-                label: "Playable - Mono 3",
+                label: "Playable - Mono 3", //[2]
                 data: [
                     //done
                     time.count,
@@ -651,7 +651,7 @@ triChart = new Chart(ctx4, {
                 borderWidth: 1
             },
             {
-                label: "Duals",
+                label: "Duals", //[3]
                 data: [
                     rakano.count,
                     argenport.count,
@@ -691,7 +691,7 @@ triChart = new Chart(ctx4, {
                 borderWidth: 1
             },
             {
-                label: "Fixing",
+                label: "Fixing", //[4]
                 data: [
                     rakano.removal,
                     argenport.removal,
@@ -1045,7 +1045,29 @@ function dualRec() {
         eval(document.getElementById("Pr").value) +
         eval(document.getElementById("Tr").value);
 
-    //  the data that powers the chart (legacy for D3; May not need? )
+    /** Update counts for tri colors**/
+    rakano.count = document.getElementById("FJ").value;
+    argenport.count = document.getElementById("JS").value;
+    hooru.count = document.getElementById("JP").value;
+    combrei.count = document.getElementById("JT").value;
+    stonescar.count = document.getElementById("FS").value;
+    skycrag.count = document.getElementById("FP").value;
+    praxis.count = document.getElementById("FT").value;
+    feln.count = document.getElementById("PS").value;
+    xenan.count = document.getElementById("ST").value;
+    elysian.count = document.getElementById("PT").value;
+    /** Removal for tri colors **/
+    rakano.removal = document.getElementById("FJr").value;
+    argenport.removal = document.getElementById("JSr").value;
+    hooru.removal = document.getElementById("JPr").value;
+    combrei.removal = document.getElementById("JTr").value;
+    stonescar.removal = document.getElementById("FSr").value;
+    skycrag.removal = document.getElementById("FPr").value;
+    praxis.removal = document.getElementById("FTr").value;
+    feln.removal = document.getElementById("PSr").value;
+    xenan.removal = document.getElementById("STr").value;
+    elysian.removal = document.getElementById("PTr").value;
+
     chartdata = [
         rakano,
         argenport,
@@ -1074,6 +1096,17 @@ function dualRec() {
 }
 
 function fixRec() {
+    rakano.fix = document.getElementById("FJf").value;
+    argenport.fix = document.getElementById("JSf").value;
+    hooru.fix = document.getElementById("JPf").value;
+    combrei.fix = document.getElementById("JTf").value;
+    stonescar.fix = document.getElementById("FSf").value;
+    skycrag.fix = document.getElementById("FPf").value;
+    praxis.fix = document.getElementById("FTf").value;
+    feln.fix = document.getElementById("PSf").value;
+    xenan.fix = document.getElementById("STf").value;
+    elysian.fix = document.getElementById("PTf").value;
+
     return "to be continued";
 }
 
@@ -1179,5 +1212,53 @@ function monoUpdateTri(selector) {
     } else {
         console.log("ERROR UPDATING TRI CHART");
     }
+    triChart.update();
+}
+
+function dualUpdateTri() {
+    triChart.data.datasets[3].data[0] =
+        eval(feln.count) + eval(xenan.count) + eval(elysian.count);
+    triChart.data.datasets[3].data[1] =
+        eval(skycrag.count) + eval(elysian.count) + eval(praxis.count);
+    triChart.data.datasets[3].data[2] =
+        eval(stonescar.count) + eval(xenan.count) + eval(praxis.count);
+    triChart.data.datasets[3].data[3] =
+        eval(skycrag.count) + eval(feln.count) + eval(stonescar.count);
+    triChart.data.datasets[3].data[4] =
+        eval(hooru.count) + eval(elysian.count) + eval(combrei.count);
+    triChart.data.datasets[3].data[5] =
+        eval(argenport.count) + eval(xenan.count) + eval(combrei.count);
+    triChart.data.datasets[3].data[6] =
+        eval(hooru.count) + eval(feln.count) + eval(argenport.count);
+    triChart.data.datasets[3].data[7] =
+        eval(rakano.count) + eval(combrei.count) + eval(praxis.count);
+    triChart.data.datasets[3].data[8] =
+        eval(rakano.count) + eval(hooru.count) + eval(skycrag.count);
+    triChart.data.datasets[3].data[9] =
+        eval(rakano.count) + eval(argenport.count) + eval(stonescar.count);
+    triChart.update();
+}
+
+function fixUpdateTri() {
+    triChart.data.datasets[4].data[0] =
+        eval(feln.fix) + eval(xenan.fix) + eval(elysian.fix);
+    triChart.data.datasets[4].data[1] =
+        eval(skycrag.fix) + eval(elysian.fix) + eval(praxis.fix);
+    triChart.data.datasets[4].data[2] =
+        eval(stonescar.fix) + eval(xenan.fix) + eval(praxis.fix);
+    triChart.data.datasets[4].data[3] =
+        eval(skycrag.fix) + eval(feln.fix) + eval(stonescar.fix);
+    triChart.data.datasets[4].data[4] =
+        eval(hooru.fix) + eval(elysian.fix) + eval(combrei.fix);
+    triChart.data.datasets[4].data[5] =
+        eval(argenport.fix) + eval(xenan.fix) + eval(combrei.fix);
+    triChart.data.datasets[4].data[6] =
+        eval(hooru.fix) + eval(feln.fix) + eval(argenport.fix);
+    triChart.data.datasets[4].data[7] =
+        eval(rakano.fix) + eval(combrei.fix) + eval(praxis.fix);
+    triChart.data.datasets[4].data[8] =
+        eval(rakano.fix) + eval(hooru.fix) + eval(skycrag.fix);
+    triChart.data.datasets[4].data[9] =
+        eval(rakano.fix) + eval(argenport.fix) + eval(stonescar.fix);
     triChart.update();
 }
