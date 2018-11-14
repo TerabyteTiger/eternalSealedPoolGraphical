@@ -221,7 +221,7 @@ a:hover {
 
 /** Hide To top arrow on larger screens **/
 @media only screen and (min-width: 1000px) {
-    .toTop {
+    .to-Top {
         display: none;
     }
 }
@@ -256,7 +256,7 @@ a:hover {
         padding: 10px;
     }
 
-    .toTopIcon {
+    .to-top-icon {
         height: 50px;
     }
 
@@ -308,53 +308,53 @@ a:hover {
     grid-area: header;
 }
 
-.monoTitle {
+.mono-title {
     grid-area: monoTitle;
 }
 
-.monoDataTitle {
+.mono-data-title {
     grid-area: monoDataTitle;
 }
 
-.monoData1 {
+.mono-data-1 {
     grid-area: monoData1;
 }
 
-.monoData2 {
+.mono-data-2 {
     grid-area: monoData2;
 }
 
-.monoChart {
+.mono-chart {
     grid-area: monoChart;
     place-self: center;
 }
 
-.dualTitle {
+.dual-title {
     grid-area: dualTitle;
 }
 
-.dualDataTitle {
+.dual-data-title {
     grid-area: dualDataTitle;
 }
 
-.dualData1 {
+.dual-data-1 {
     grid-area: dualData1;
 }
 
-.dualData2 {
+.dual-data-2 {
     grid-area: dualData2;
 }
 
-.dualChart1 {
+.dual-chart-1 {
     grid-area: dualChart1;
     place-self: center;
 }
 
-.dualData3 {
+.dual-data-3 {
     grid-area: dualData3;
 }
 
-.dualChart2 {
+.dual-chart-2 {
     grid-area: dualChart2;
     place-self: center;
     /* Used to ensure no overlap between "unArgenport" and Color Recs */
