@@ -96,7 +96,9 @@ var primal = {
     };
 var ctx = document.getElementById("myChart");
 var ctx2 = document.getElementById("dualChart");
-var ctx3 = document.getElementById("fixChart");
+//Soft Remove
+/*var ctx3 = document.getElementById("fixChart");*/
+
 var ctx4 = document.getElementById("triChart");
 var myChart, dualChart, triChart, bestCount, bestMono, bestDual;
 
@@ -214,7 +216,7 @@ function initialize() {
                         fire.count,
                         fire.count,
                         fire.count,
-                        primal.count, //u
+                        primal.count,
                         shadow.count,
                         primal.count
                     ],
@@ -429,7 +431,7 @@ function initialize() {
     });
 
     /********** FIXING TABLE **********************/
-    fixChart = new Chart(ctx3, {
+    /*fixChart = new Chart(ctx3, {
         type: "bar",
         data: {
             labels: [
@@ -500,28 +502,28 @@ function initialize() {
                         elysian.fix * 0.5
                     ],
                     backgroundColor: [
-                        "rgba(75, 192, 192, 0.4)" /*G*/,
-                        "rgba(153, 102, 255,0.4)" /*B*/,
-                        "rgba(54, 162, 235, 0.4)" /*U*/,
-                        "rgba(255, 206, 86, 0.4)" /*W*/,
-                        "rgba(153, 102, 255,0.4)" /*B*/,
-                        "rgba(54, 162, 235, 0.4)" /*U*/,
-                        "rgba(255, 206, 86, 0.4)" /*W*/,
-                        "rgba(54, 162, 235, 0.4)" /*U*/,
-                        "rgba(255, 206, 86, 0.4)" /*W*/,
-                        "rgba(255, 206, 86, 0.4)" /*W*/
+                        "rgba(75, 192, 192, 0.4)" ,
+                        "rgba(153, 102, 255,0.4)" ,
+                        "rgba(54, 162, 235, 0.4)" ,
+                        "rgba(255, 206, 86, 0.4)" ,
+                        "rgba(153, 102, 255,0.4)" ,
+                        "rgba(54, 162, 235, 0.4)" ,
+                        "rgba(255, 206, 86, 0.4)" ,
+                        "rgba(54, 162, 235, 0.4)" ,
+                        "rgba(255, 206, 86, 0.4)" ,
+                        "rgba(255, 206, 86, 0.4)" 
                     ],
                     borderColor: [
-                        "rgba(75, 192, 192, 1)" /*G*/,
-                        "rgba(153, 102, 255, 1)" /*B*/,
-                        "rgba(54, 162, 235, 1)" /*U*/,
-                        "rgba(255, 206, 86, 1)" /*W*/,
-                        "rgba(153, 102, 255, 1)" /*B*/,
-                        "rgba(54, 162, 235, 1)" /*U*/,
-                        "rgba(255, 206, 86, 1)" /*W*/,
-                        "rgba(54, 162, 235, 1)" /*U*/,
-                        "rgba(255, 206, 86, 1)" /*W*/,
-                        "rgba(255, 206, 86,12)" /*W*/
+                        "rgba(75, 192, 192, 1)" ,
+                        "rgba(153, 102, 255, 1)",
+                        "rgba(54, 162, 235, 1)" ,
+                        "rgba(255, 206, 86, 1)" ,
+                        "rgba(153, 102, 255, 1)",
+                        "rgba(54, 162, 235, 1)" ,
+                        "rgba(255, 206, 86, 1)" ,
+                        "rgba(54, 162, 235, 1)" ,
+                        "rgba(255, 206, 86, 1)" ,
+                        "rgba(255, 206, 86,12)" 
                     ],
                     borderWidth: 1
                 }
@@ -547,8 +549,8 @@ function initialize() {
                 ]
             }
         }
-    });
-
+    });*/
+    //Soft remove fix chart
     /********** TRI-COLOR TABLE ************************/
     triChart = new Chart(ctx4, {
         type: "bar",
@@ -729,16 +731,16 @@ function initialize() {
                 {
                     label: "Fixing", //[4]
                     data: [
-                        rakano.removal,
-                        argenport.removal,
-                        hooru.removal,
-                        combrei.removal,
-                        stonescar.removal,
-                        skycrag.removal,
-                        praxis.removal,
-                        feln.removal,
-                        xenan.removal,
-                        elysian.removal
+                        rakano.fix,
+                        argenport.fix,
+                        hooru.fix,
+                        combrei.fix,
+                        stonescar.fix,
+                        skycrag.fix,
+                        praxis.fix,
+                        feln.fix,
+                        xenan.fix,
+                        elysian.fix
                     ],
                     backgroundColor: [
                         "rgba(75, 75, 75, 0.2)" /*Gray*/,
