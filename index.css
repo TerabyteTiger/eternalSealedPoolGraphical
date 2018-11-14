@@ -74,6 +74,7 @@ td:nth-child(2) {
 input {
     width: 30px;
     text-align: center;
+    -moz-appearance: textfield;
 }
 
 input::-webkit-inner-spin-button {
