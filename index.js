@@ -975,7 +975,6 @@ function fixRemovalIncrement(selector, indicator) {
     dualChart.data.datasets[4].data[indicator] = inputField.value;
     dualChart.update();
     fixRec();
-    dualRec();
     fixUpdateTri();
 }
 
@@ -985,7 +984,6 @@ function fixRemovalDecrement(selector, indicator) {
     dualChart.data.datasets[4].data[indicator] = inputField.value;
     dualChart.update();
     fixRec();
-    dualRec();
     fixUpdateTri();
 }
 
@@ -994,7 +992,6 @@ function fixRemovalPlayables(selector, indicator) {
     dualChart.data.datasets[4].data[indicator] = inputField.value;
     dualChart.update();
     fixRec();
-    dualRec();
     fixUpdateTri();
 }
 
@@ -1014,7 +1011,6 @@ function monoRec() {
     shadow.removal = document.getElementById("Sr").value;
     fire.removal = document.getElementById("Fr").value;
 
-    //  the data that powers the chart (legacy for D3; May not need? )
     chartdata = [primal, justice, time, shadow, fire];
     bestCount = chartdata.reduce(
         (max, objectIn) =>
@@ -1032,6 +1028,8 @@ function monoRec() {
     }
     document.getElementById("bestMono").innerHTML =
         "<h2>Mono Color: </br>" + bestMono + "</h2>";
+    /* Call dualRec()*/
+    dualRec();
     return bestMono;
 }
 
@@ -1170,8 +1168,9 @@ function fixRec() {
     feln.fix = document.getElementById("PSf").value;
     xenan.fix = document.getElementById("STf").value;
     elysian.fix = document.getElementById("PTf").value;
-
-    return "to be continued";
+    /* Call dualRec() */
+    dualRec();
+    return "";
 }
 
 function monoUpdateDual(selector) {
