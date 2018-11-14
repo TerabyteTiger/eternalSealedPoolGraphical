@@ -97,6 +97,13 @@ input::-webkit-inner-spin-button {
     height: 200px;
 }
 
+/*General Styling Classes*/
+.chart-title {
+    font-style: italic;
+    font-size: 0.8rem;
+    margin: 15px 0 0;
+}
+
 /** Header **/
 header {
     padding-right: 50px;

@@ -175,7 +175,10 @@ function initialize() {
             scales: {
                 xAxes: [
                     {
-                        stacked: true
+                        stacked: true,
+                        ticks: {
+                            autoSkip: false
+                        }
                     }
                 ],
                 yAxes: [
@@ -415,7 +418,10 @@ function initialize() {
             scales: {
                 xAxes: [
                     {
-                        stacked: true
+                        stacked: true,
+                        ticks: {
+                            autoSkip: false
+                        }
                     }
                 ],
                 yAxes: [
