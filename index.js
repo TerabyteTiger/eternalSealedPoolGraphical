@@ -967,6 +967,7 @@ function fixRemovalIncrement(selector, indicator) {
     dualChart.data.datasets[4].data[indicator] = inputField.value;
     dualChart.update();
     fixRec();
+    dualRec();
     fixUpdateTri();
 }
 
@@ -976,6 +977,7 @@ function fixRemovalDecrement(selector, indicator) {
     dualChart.data.datasets[4].data[indicator] = inputField.value;
     dualChart.update();
     fixRec();
+    dualRec();
     fixUpdateTri();
 }
 
@@ -984,6 +986,7 @@ function fixRemovalPlayables(selector, indicator) {
     dualChart.data.datasets[4].data[indicator] = inputField.value;
     dualChart.update();
     fixRec();
+    dualRec();
     fixUpdateTri();
 }
 
