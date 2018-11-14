@@ -363,6 +363,46 @@ function initialize() {
                         "rgba(75, 75, 75, 1)" /*Gray*/
                     ],
                     borderWidth: 1
+                },
+                {
+                    label: "Fixing",
+                    data: [
+                        rakano.fix,
+                        argenport.fix,
+                        hooru.fix,
+                        combrei.fix,
+                        stonescar.fix,
+                        skycrag.fix,
+                        praxis.fix,
+                        feln.fix,
+                        xenan.fix,
+                        elysian.fix
+                    ],
+                    backgroundColor: [
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.2)" /*Gray*/
+                    ],
+                    borderColor: [
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/,
+                        "rgba(75, 75, 75, 1)" /*Gray*/
+                    ],
+                    borderWidth: 1
                 }
             ]
         },
@@ -924,9 +964,8 @@ function dualRemovalPlayables(selector, indicator) {
 function fixRemovalIncrement(selector, indicator) {
     var inputField = document.getElementById(selector);
     inputField.stepUp();
-    fixChart.data.datasets[0].data[indicator] = inputField.value * 0.5;
-    fixChart.data.datasets[1].data[indicator] = inputField.value * 0.5;
-    fixChart.update();
+    dualChart.data.datasets[4].data[indicator] = inputField.value;
+    dualChart.update();
     fixRec();
     fixUpdateTri();
 }
@@ -934,18 +973,16 @@ function fixRemovalIncrement(selector, indicator) {
 function fixRemovalDecrement(selector, indicator) {
     var inputField = document.getElementById(selector);
     inputField.stepDown();
-    fixChart.data.datasets[0].data[indicator] = inputField.value * 0.5;
-    fixChart.data.datasets[1].data[indicator] = inputField.value * 0.5;
-    fixChart.update();
+    dualChart.data.datasets[4].data[indicator] = inputField.value;
+    dualChart.update();
     fixRec();
     fixUpdateTri();
 }
 
 function fixRemovalPlayables(selector, indicator) {
     var inputField = document.getElementById(selector);
-    fixChart.data.datasets[0].data[indicator] = inputField.value * 0.5;
-    fixChart.data.datasets[1].data[indicator] = inputField.value * 0.5;
-    fixChart.update();
+    dualChart.data.datasets[4].data[indicator] = inputField.value;
+    dualChart.update();
     fixRec();
     fixUpdateTri();
 }
@@ -1096,12 +1133,13 @@ function dualRec() {
         elysian
     ];
     bestCount = chartdata.reduce(
-        (max, objectIn) => Math.max(eval(objectIn.rec), max),
+        (max, objectIn) =>
+            Math.max(eval(objectIn.rec) + eval(objectIn.fix), max),
         0
     );
     bestDual = "";
     for (var i = 0; i < chartdata.length; i++) {
-        if (eval(chartdata[i].rec) == bestCount) {
+        if (eval(chartdata[i].rec) + eval(chartdata[i].fix) == bestCount) {
             bestDual = chartdata[i].name;
         }
     }
@@ -1232,25 +1270,25 @@ function monoUpdateTri(selector) {
 
 function dualUpdateTri() {
     triChart.data.datasets[3].data[0] =
-        eval(feln.count) + eval(xenan.count) + eval(elysian.count);
+        eval(feln.rec) + eval(xenan.rec) + eval(elysian.rec);
     triChart.data.datasets[3].data[1] =
-        eval(skycrag.count) + eval(elysian.count) + eval(praxis.count);
+        eval(skycrag.rec) + eval(elysian.rec) + eval(praxis.rec);
     triChart.data.datasets[3].data[2] =
-        eval(stonescar.count) + eval(xenan.count) + eval(praxis.count);
+        eval(stonescar.rec) + eval(xenan.rec) + eval(praxis.rec);
     triChart.data.datasets[3].data[3] =
-        eval(skycrag.count) + eval(feln.count) + eval(stonescar.count);
+        eval(skycrag.rec) + eval(feln.rec) + eval(stonescar.rec);
     triChart.data.datasets[3].data[4] =
-        eval(hooru.count) + eval(elysian.count) + eval(combrei.count);
+        eval(hooru.rec) + eval(elysian.rec) + eval(combrei.rec);
     triChart.data.datasets[3].data[5] =
-        eval(argenport.count) + eval(xenan.count) + eval(combrei.count);
+        eval(argenport.rec) + eval(xenan.rec) + eval(combrei.rec);
     triChart.data.datasets[3].data[6] =
-        eval(hooru.count) + eval(feln.count) + eval(argenport.count);
+        eval(hooru.rec) + eval(feln.rec) + eval(argenport.rec);
     triChart.data.datasets[3].data[7] =
-        eval(rakano.count) + eval(combrei.count) + eval(praxis.count);
+        eval(rakano.rec) + eval(combrei.rec) + eval(praxis.rec);
     triChart.data.datasets[3].data[8] =
-        eval(rakano.count) + eval(hooru.count) + eval(skycrag.count);
+        eval(rakano.rec) + eval(hooru.rec) + eval(skycrag.rec);
     triChart.data.datasets[3].data[9] =
-        eval(rakano.count) + eval(argenport.count) + eval(stonescar.count);
+        eval(rakano.rec) + eval(argenport.rec) + eval(stonescar.rec);
     triChart.update();
 }
 
