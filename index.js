@@ -384,16 +384,16 @@ function initialize() {
                         elysian.fix
                     ],
                     backgroundColor: [
-                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                        "rgba(75, 75, 75, 0.2)" /*Gray*/
+                        "rgba(75, 75, 75, 0.7)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.7)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.7)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.7)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.7)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.7)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.7)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.7)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.7)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.7)" /*Gray*/
                     ],
                     borderColor: [
                         "rgba(75, 75, 75, 1)" /*Gray*/,
@@ -749,16 +749,16 @@ function initialize() {
                         elysian.fix
                     ],
                     backgroundColor: [
-                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                        "rgba(75, 75, 75, 0.2)" /*Gray*/,
-                        "rgba(75, 75, 75, 0.2)" /*Gray*/
+                        "rgba(75, 75, 75, 0.7)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.7)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.7)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.7)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.7)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.7)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.7)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.7)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.7)" /*Gray*/,
+                        "rgba(75, 75, 75, 0.7)" /*Gray*/
                     ],
                     borderColor: [
                         "rgba(75, 75, 75, 1)" /*Gray*/,
