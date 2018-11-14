@@ -357,6 +357,8 @@ a:hover {
 .dualChart2 {
     grid-area: dualChart2;
     place-self: center;
+    /* Used to ensure no overlap between "unArgenport" and Color Recs */
+    padding-bottom: 20px;
 }
 
 .disclaimer {
