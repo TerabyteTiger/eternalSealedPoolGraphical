@@ -74,6 +74,7 @@ td:nth-child(2) {
 input {
     width: 30px;
     text-align: center;
+    -moz-appearance: textfield;
 }
 
 input::-webkit-inner-spin-button {
@@ -95,6 +96,13 @@ input::-webkit-inner-spin-button {
 .chart-size-m {
     width: 400px;
     height: 200px;
+}
+
+/*General Styling Classes*/
+.chart-title {
+    font-style: italic;
+    font-size: 0.8rem;
+    margin: 15px 0 0;
 }
 
 /** Header **/
@@ -349,6 +357,8 @@ a:hover {
 .dualChart2 {
     grid-area: dualChart2;
     place-self: center;
+    /* Used to ensure no overlap between "unArgenport" and Color Recs */
+    padding-bottom: 20px;
 }
 
 .disclaimer {
