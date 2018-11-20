@@ -64,6 +64,7 @@ var primal = {
 		count: document.getElementById("FJ").value,
 		removal: document.getElementById("FJr").value,
 		name: "Rakano",
+		mono: 0,
 		rec: 0,
 		fix: document.getElementById("FJf").value,
 	},
@@ -71,6 +72,7 @@ var primal = {
 		count: document.getElementById("JS").value,
 		removal: document.getElementById("JSr").value,
 		name: "Argenport",
+		mono: 0,
 		rec: 0,
 		fix: document.getElementById("JSf").value,
 	},
@@ -78,6 +80,7 @@ var primal = {
 		count: document.getElementById("JP").value,
 		removal: document.getElementById("JPr").value,
 		name: "Hooru",
+		mono: 0,
 		rec: 0,
 		fix: document.getElementById("JPf").value,
 	},
@@ -85,6 +88,7 @@ var primal = {
 		count: document.getElementById("JT").value,
 		removal: document.getElementById("JTr").value,
 		name: "Combrei",
+		mono: 0,
 		rec: 0,
 		fix: document.getElementById("JTf").value,
 	},
@@ -92,6 +96,7 @@ var primal = {
 		count: document.getElementById("FS").value,
 		removal: document.getElementById("FSr").value,
 		name: "Stonescar",
+		mono: 0,
 		rec: 0,
 		fix: document.getElementById("FSf").value,
 	},
@@ -99,6 +104,7 @@ var primal = {
 		count: document.getElementById("FP").value,
 		removal: document.getElementById("FPr").value,
 		name: "Skycrag",
+		mono: 0,
 		rec: 0,
 		fix: document.getElementById("FPf").value,
 	},
@@ -106,6 +112,7 @@ var primal = {
 		count: document.getElementById("FT").value,
 		removal: document.getElementById("FTr").value,
 		name: "Praxis",
+		mono: 0,
 		rec: 0,
 		fix: document.getElementById("FTf").value,
 	},
@@ -113,6 +120,7 @@ var primal = {
 		count: document.getElementById("PS").value,
 		removal: document.getElementById("PSr").value,
 		name: "Feln",
+		mono: 0,
 		rec: 0,
 		fix: document.getElementById("PSf").value,
 	},
@@ -120,6 +128,7 @@ var primal = {
 		count: document.getElementById("ST").value,
 		removal: document.getElementById("STr").value,
 		name: "Xenan",
+		mono: 0,
 		rec: 0,
 		fix: document.getElementById("STf").value,
 	},
@@ -127,6 +136,7 @@ var primal = {
 		count: document.getElementById("PT").value,
 		removal: document.getElementById("PTr").value,
 		name: "Elysian",
+		mono: 0,
 		rec: 0,
 		fix: document.getElementById("PTf").value,
 	};
@@ -733,16 +743,16 @@ function initialize() {
 				{
 					label: "Duals", //[3]
 					data: [
-						rakano.count,
-						argenport.count,
-						hooru.count,
-						combrei.count,
-						stonescar.count,
-						skycrag.count,
-						praxis.count,
-						feln.count,
-						xenan.count,
-						elysian.count,
+						eval(rakano.count) + eval(rakano.removal),
+						eval(argenport.count) + eval(argenport.removal),
+						eval(hooru.count) + eval(hooru.removal),
+						eval(combrei.count) + eval(combrei.removal),
+						eval(stonescar.count) + eval(stonescar.removal),
+						eval(skycrag.count) + eval(skycrag.removal),
+						eval(praxis.count) + eval(praxis.removal),
+						eval(feln.count) + eval(feln.removal),
+						eval(xenan.count) + eval(xenan.removal),
+						eval(elysian.count) + eval(elysian.removal),
 					],
 					backgroundColor: [
 						"rgba(75, 75, 75, 0.4)" /*Gray*/,
@@ -1073,72 +1083,82 @@ function dualRec() {
 	// Set Recs
 	rakano.rec =
 		eval(document.getElementById("FJ").value) +
+		eval(document.getElementById("FJr").value);
+	rakano.mono =
 		eval(document.getElementById("J").value) +
 		eval(document.getElementById("F").value) +
-		eval(document.getElementById("FJr").value) +
 		eval(document.getElementById("Jr").value) +
 		eval(document.getElementById("Fr").value);
 	argenport.rec =
 		eval(document.getElementById("JS").value) +
+		eval(document.getElementById("JSr").value);
+	argenport.mono =
 		eval(document.getElementById("J").value) +
 		eval(document.getElementById("S").value) +
-		eval(document.getElementById("JSr").value) +
 		eval(document.getElementById("Jr").value) +
 		eval(document.getElementById("Sr").value);
 	hooru.rec =
 		eval(document.getElementById("JP").value) +
+		eval(document.getElementById("JPr").value);
+	hooru.mono =
 		eval(document.getElementById("J").value) +
 		eval(document.getElementById("P").value) +
-		eval(document.getElementById("JPr").value) +
 		eval(document.getElementById("Jr").value) +
 		eval(document.getElementById("Pr").value);
 	combrei.rec =
 		eval(document.getElementById("JT").value) +
+		eval(document.getElementById("JTr").value);
+	combrei.mono =
 		eval(document.getElementById("J").value) +
 		eval(document.getElementById("T").value) +
-		eval(document.getElementById("JTr").value) +
 		eval(document.getElementById("Jr").value) +
 		eval(document.getElementById("Tr").value);
 	stonescar.rec =
 		eval(document.getElementById("FS").value) +
+		eval(document.getElementById("FSr").value);
+	stonescar.mono =
 		eval(document.getElementById("F").value) +
 		eval(document.getElementById("S").value) +
-		eval(document.getElementById("FSr").value) +
 		eval(document.getElementById("Fr").value) +
 		eval(document.getElementById("Sr").value);
 	skycrag.rec =
 		eval(document.getElementById("FP").value) +
+		eval(document.getElementById("FPr").value);
+	skycrag.mono =
 		eval(document.getElementById("F").value) +
 		eval(document.getElementById("P").value) +
-		eval(document.getElementById("FPr").value) +
 		eval(document.getElementById("Fr").value) +
 		eval(document.getElementById("Pr").value);
 	praxis.rec =
 		eval(document.getElementById("FT").value) +
+		eval(document.getElementById("FTr").value);
+	praxis.mono =
 		eval(document.getElementById("F").value) +
 		eval(document.getElementById("T").value) +
-		eval(document.getElementById("FTr").value) +
 		eval(document.getElementById("Fr").value) +
 		eval(document.getElementById("Tr").value);
 	feln.rec =
 		eval(document.getElementById("PS").value) +
+		eval(document.getElementById("PSr").value);
+	feln.mono =
 		eval(document.getElementById("S").value) +
 		eval(document.getElementById("P").value) +
-		eval(document.getElementById("PSr").value) +
 		eval(document.getElementById("Sr").value) +
 		eval(document.getElementById("Pr").value);
 	xenan.rec =
 		eval(document.getElementById("ST").value) +
+		eval(document.getElementById("STr").value);
+	xenan.mono =
 		eval(document.getElementById("S").value) +
 		eval(document.getElementById("T").value) +
-		eval(document.getElementById("STr").value) +
 		eval(document.getElementById("Sr").value) +
 		eval(document.getElementById("Tr").value);
 	elysian.rec =
 		eval(document.getElementById("PT").value) +
+		eval(document.getElementById("PTr").value);
+	elysian.mono =
 		eval(document.getElementById("P").value) +
 		eval(document.getElementById("T").value) +
-		eval(document.getElementById("PTr").value) +
 		eval(document.getElementById("Pr").value) +
 		eval(document.getElementById("Tr").value);
 
@@ -1179,12 +1199,20 @@ function dualRec() {
 	];
 	bestCount = chartdata.reduce(
 		(max, objectIn) =>
-			Math.max(eval(objectIn.rec) + eval(objectIn.fix), max),
+			Math.max(
+				eval(objectIn.rec) + eval(objectIn.mono) + eval(objectIn.fix),
+				max
+			),
 		0
 	);
 	bestDual = "";
 	for (var i = 0; i < chartdata.length; i++) {
-		if (eval(chartdata[i].rec) + eval(chartdata[i].fix) == bestCount) {
+		if (
+			eval(chartdata[i].rec) +
+				eval(chartdata[i].fix) +
+				eval(chartdata[i].mono) ==
+			bestCount
+		) {
 			bestDual = chartdata[i].name;
 		}
 	}
