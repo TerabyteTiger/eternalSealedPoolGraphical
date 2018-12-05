@@ -364,7 +364,8 @@ a:hover {
     grid-area: dual-chart-2;
     place-self: center;
     /* Used to ensure no overlap between "unArgenport" and Color Recs */
-    padding-bottom: 20px;
+    /*Updated to 60px from 20px to account for Toggle button. This should be swapped back to 20px when all 10 tri-faction names are known*/
+    padding-bottom: 60px;
 }
 
 .disclaimer {
