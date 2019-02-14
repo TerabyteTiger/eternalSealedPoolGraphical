@@ -28,13 +28,15 @@
 		<script src="./Chart.js"></script>
 		<!-- Berkshire Swash + Roboto Fonts - Google Fonts -->
 		<link
-			href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Roboto"
-			rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Roboto"
+		rel="stylesheet"
 		/>
 		<!-- Stylesheet -->
 		<link rel="stylesheet" href="./index.css" />
+		<!-- Manifest -->
+		<link rel="manifest" href="./manifest.json" />
 	</head>
-
+	
 	<body id="top">
 		<div id="container-main" class="container">
 			<!-- Header -->
@@ -64,7 +66,9 @@
 			<div class="chart-size-m dual-chart-2">
 				<p class="chart-title">Tri Color</p>
 				<canvas id="triChart"></canvas>
-				<button class="btn" onCLick="toggleTriLabels()">Toggle Labels</button>
+				<button class="btn" onCLick="toggleTriLabels()">
+					Toggle Labels
+				</button>
 			</div>
 
 			<!-- Mono Title -->
@@ -855,6 +859,92 @@
 					</td>
 				</tr>
 			</table>
+
+			<!-- Tri Faction -->
+			<!-- 
+				TODO
+				Redo #s of second argument 
+				Setup 3f equations
+				Implement 3f into charts
+			-->
+			<table class="dual-data-4">
+				<tr>
+					<td colspan="2">
+						<h1>Tri-Faction</h1>
+					</td>
+				</tr>
+				<tr>
+					<td>Jennev:</td>
+					<td>
+						<div>
+							<button onclick="triDataDecrement(`FTP`, 1)">
+								-
+							</button>
+							<input id="FTP" type="number" value="0" min="0" onchange="triData(`FTP`, 1)" />
+							<button onclick="triDataIncrement(`FTP`, 1)">
+								+
+							</button>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>Ixtun:</td>
+					<td>
+						<div>
+							<button onclick="triDataDecrement(`FJP`, 8)">
+								-
+							</button>
+							<input id="FJP" type="number" value="0" min="0" onchange="triData(`FJP`, 8)" />
+							<button onclick="triDataIncrement(`FJP`, 8)">
+								+
+							</button>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>Winchest:</td>
+					<td>
+						<div>
+							<button onclick="triDataDecrement(`FJS`, 9)">
+								-
+							</button>
+							<input id="FJS" type="number" value="0" min="0" onchange="triData(`FJS`, 9)" />
+							<button onclick="triDataIncrement(`FJS`, 9)">
+								+
+							</button>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>Kerendon:</td>
+					<td>
+						<div>
+							<button onclick="triDataDecrement(`JST`, 5)">
+								-
+							</button>
+							<input id="JST" type="number" value="0" min="0" onchange="triData(`JST`, 5)" />
+							<button onclick="triDataIncrement(`JST`, 5)">
+								+
+							</button>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>Auralian:</td>
+					<td>
+						<div>
+							<button onclick="triDataDecrement(`PST`, 0)">
+								-
+							</button>
+							<input id="PST" type="number" value="0" min="0" onchange="triData(`PST`, 0)" />
+							<button onclick="triDataIncrement(`PST`, 0)">
+								+
+							</button>
+						</div>
+					</td>
+				</tr>
+			</table>
+			
 
 			<footer>
 				<a href="#top" class="to-top">
