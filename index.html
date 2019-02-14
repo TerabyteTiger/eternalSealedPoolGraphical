@@ -860,6 +860,92 @@
 				</tr>
 			</table>
 
+			<!-- Tri Faction -->
+			<!-- 
+				TODO
+				Redo #s of second argument 
+				Setup 3f equations
+				Implement 3f into charts
+			-->
+			<table class="dual-data-3">
+				<tr>
+					<td colspan="2">
+						<h1>Tri-Faction</h1>
+					</td>
+				</tr>
+				<tr>
+					<td>Jennev:</td>
+					<td>
+						<div>
+							<button onclick="fixRemovalDecrement(`FTP`, 6)">
+								-
+							</button>
+							<input id="FTP" type="number" value="0" min="0" onchange="fixRemovalPlayables(`FTP`, 6)" />
+							<button onclick="fixRemovalIncrement(`FTP`, 6)">
+								+
+							</button>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>Ixtun:</td>
+					<td>
+						<div>
+							<button onclick="fixRemovalDecrement(`FJP`, 0)">
+								-
+							</button>
+							<input id="FJP" type="number" value="0" min="0" onchange="fixRemovalPlayables(`FJP`, 0)" />
+							<button onclick="fixRemovalIncrement(`FJP`, 0)">
+								+
+							</button>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>Winchest:</td>
+					<td>
+						<div>
+							<button onclick="fixRemovalDecrement(`JTS`, 3)">
+								-
+							</button>
+							<input id="JTS" type="number" value="0" min="0" onchange="fixRemovalPlayables(`JTS`, 3)" />
+							<button onclick="fixRemovalIncrement(`JTS`, 3)">
+								+
+							</button>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>Kerendon:</td>
+					<td>
+						<div>
+							<button onclick="fixRemovalDecrement(`PTS`, 9)">
+								-
+							</button>
+							<input id="PTS" type="number" value="0" min="0" onchange="fixRemovalPlayables(`PTS`, 9)" />
+							<button onclick="fixRemovalIncrement(`PTS`, 9)">
+								+
+							</button>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>Auralian:</td>
+					<td>
+						<div>
+							<button onclick="fixRemovalDecrement(`JPS`, 2)">
+								-
+							</button>
+							<input id="JPf" type="number" value="0" min="0" onchange="fixRemovalPlayables(`JPS`, 2)" />
+							<button onclick="fixRemovalIncrement(`JPS`, 2)">
+								+
+							</button>
+						</div>
+					</td>
+				</tr>
+			</table>
+			
+
 			<footer>
 				<a href="#top" class="to-top">
 					<img

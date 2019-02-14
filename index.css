@@ -191,7 +191,7 @@ a:hover {
 		". mono-data-1 mono-data-2 mono-chart mono-chart ."
 		". dual-title dual-title . . ."
 		". dual-data-1 dual-data-2 dual-chart-1 dual-chart-1 ."
-		". dual-data-3 . dual-chart-2 dual-chart-2 ."
+		". dual-data-3 dual-data-4 dual-chart-2 dual-chart-2 ."
 		"discl discl discl discl discl discl "
 		"discl discl discl discl discl discl ";
 }
@@ -251,6 +251,7 @@ a:hover {
 			". dual-data-1 dual-data-1 ."
 			". dual-data-2 dual-data-2 ."
 			". dual-data-3 dual-data-3 ."
+			". dual-data-4 dual-data-4 ."
 			"discl discl discl discl"
 			"discl discl discl discl";
 	}
@@ -358,6 +359,10 @@ a:hover {
 
 .dual-data-3 {
 	grid-area: dual-data-3;
+}
+
+.dual-data-4 {
+	grid-area: dual-data-4;
 }
 
 .dual-chart-2 {
