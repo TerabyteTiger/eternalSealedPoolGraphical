@@ -10,7 +10,8 @@ self.addEventListener("install", function(e) {
                 "/help.html",
                 "/about.html",
                 "./fontawesome-free-5.4.1-web/svgs/solid/chevron-circle-up.svg",
-                "./functions.js"
+                "./functions.js",
+                "./auth.js"
             ]);
         })
     );
