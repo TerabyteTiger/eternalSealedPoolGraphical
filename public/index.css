@@ -403,14 +403,15 @@ a:hover {
     overflow: auto;
     background-color: #000000; /*Fallback Color*/
     background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 7px;
 }
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 12% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 60%;
 }
 
 .close {
