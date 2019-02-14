@@ -867,7 +867,7 @@
 				Setup 3f equations
 				Implement 3f into charts
 			-->
-			<table class="dual-data-3">
+			<table class="dual-data-4">
 				<tr>
 					<td colspan="2">
 						<h1>Tri-Faction</h1>
@@ -877,11 +877,11 @@
 					<td>Jennev:</td>
 					<td>
 						<div>
-							<button onclick="fixRemovalDecrement(`FTP`, 6)">
+							<button onclick="triDataDecrement(`FTP`, 1)">
 								-
 							</button>
-							<input id="FTP" type="number" value="0" min="0" onchange="fixRemovalPlayables(`FTP`, 6)" />
-							<button onclick="fixRemovalIncrement(`FTP`, 6)">
+							<input id="FTP" type="number" value="0" min="0" onchange="triData(`FTP`, 1)" />
+							<button onclick="triDataIncrement(`FTP`, 1)">
 								+
 							</button>
 						</div>
@@ -891,11 +891,11 @@
 					<td>Ixtun:</td>
 					<td>
 						<div>
-							<button onclick="fixRemovalDecrement(`FJP`, 0)">
+							<button onclick="triDataDecrement(`FJP`, 8)">
 								-
 							</button>
-							<input id="FJP" type="number" value="0" min="0" onchange="fixRemovalPlayables(`FJP`, 0)" />
-							<button onclick="fixRemovalIncrement(`FJP`, 0)">
+							<input id="FJP" type="number" value="0" min="0" onchange="triData(`FJP`, 8)" />
+							<button onclick="triDataIncrement(`FJP`, 8)">
 								+
 							</button>
 						</div>
@@ -905,11 +905,11 @@
 					<td>Winchest:</td>
 					<td>
 						<div>
-							<button onclick="fixRemovalDecrement(`JTS`, 3)">
+							<button onclick="triDataDecrement(`FJS`, 9)">
 								-
 							</button>
-							<input id="JTS" type="number" value="0" min="0" onchange="fixRemovalPlayables(`JTS`, 3)" />
-							<button onclick="fixRemovalIncrement(`JTS`, 3)">
+							<input id="FJS" type="number" value="0" min="0" onchange="triData(`FJS`, 9)" />
+							<button onclick="triDataIncrement(`FJS`, 9)">
 								+
 							</button>
 						</div>
@@ -919,11 +919,11 @@
 					<td>Kerendon:</td>
 					<td>
 						<div>
-							<button onclick="fixRemovalDecrement(`PTS`, 9)">
+							<button onclick="triDataDecrement(`JST`, 5)">
 								-
 							</button>
-							<input id="PTS" type="number" value="0" min="0" onchange="fixRemovalPlayables(`PTS`, 9)" />
-							<button onclick="fixRemovalIncrement(`PTS`, 9)">
+							<input id="JST" type="number" value="0" min="0" onchange="triData(`JST`, 5)" />
+							<button onclick="triDataIncrement(`JST`, 5)">
 								+
 							</button>
 						</div>
@@ -933,11 +933,11 @@
 					<td>Auralian:</td>
 					<td>
 						<div>
-							<button onclick="fixRemovalDecrement(`JPS`, 2)">
+							<button onclick="triDataDecrement(`PST`, 0)">
 								-
 							</button>
-							<input id="JPf" type="number" value="0" min="0" onchange="fixRemovalPlayables(`JPS`, 2)" />
-							<button onclick="fixRemovalIncrement(`JPS`, 2)">
+							<input id="PST" type="number" value="0" min="0" onchange="triData(`PST`, 0)" />
+							<button onclick="triDataIncrement(`PST`, 0)">
 								+
 							</button>
 						</div>
