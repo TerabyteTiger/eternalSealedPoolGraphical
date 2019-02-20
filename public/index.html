@@ -22,6 +22,10 @@
 
         <!-- Manifest -->
         <link rel="manifest" href="./manifest.json" />
+
+        <!-- Firebase UI-->
+        <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
     </head>
 
     <body id="top">
@@ -41,7 +45,11 @@
             <div id="loginModal" class="modal">
                 <div class="modal-content">
                     <span class="close">&times;</span>
-                    <p>Some text in the modal...</p>
+                    <div class="modal-content">
+                        <h1>Login</h1>
+                        <div id="firebaseui-auth-container"></div>
+                        <div id="loader">Loading...</div>
+                    </div>
                 </div>
             </div>
 
