@@ -1672,7 +1672,26 @@ firebase.auth().onAuthStateChanged(function(loggedUser) {
 					});
 			}
 		});
+		// Swap login for log out
+		openLoginModalTrigger.innerHTML = "Log Out";
+		openLoginModalTrigger.onclick = function() {
+			firebase
+				.auth()
+				.signOut()
+				.then(function() {
+					//sign out success
+					console.log("Sign Out successful");
+					window.location = "index.html";
+				})
+				.catch(function(error) {
+					console.log("There was an error logging out");
+				});
+		};
 	} else {
 		console.log("Not logged in");
+		openLoginModalTrigger.innerHTML = "Login";
+		openLoginModalTrigger.onclick = function() {
+			loginModal.style.display = "block";
+		};
 	}
 });
