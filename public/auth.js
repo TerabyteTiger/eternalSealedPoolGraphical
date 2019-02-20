@@ -12,7 +12,7 @@ var uiConfig = {
 		},
 	},
 	signInFlow: "popup",
-	signInSuccessUrl: "eternal-sealed-analysis.firebaseapp.com",
+	signInSuccessUrl: "signedIn",
 	signInOptions: [
 		firebase.auth.EmailAuthProvider.PROVIDER_ID,
 		firebase.auth.GoogleAuthProvider.PROVIDER_ID,

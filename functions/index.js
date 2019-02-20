@@ -14,7 +14,8 @@ exports.initUser = functions.auth.user().onCreate(user => {
 	// ...
 	const email = user.email;
 	db.collection("users")
-		.add({
+		.doc(email)
+		.set({
 			user: email,
 			mono: {
 				playables: {
@@ -39,7 +40,7 @@ exports.initUser = functions.auth.user().onCreate(user => {
 					combrei: 0,
 					elysian: 0,
 					hooru: 0,
-					argenprot: 0,
+					argenport: 0,
 					skycrag: 0,
 					feln: 0,
 					stonescar: 0,
@@ -51,7 +52,7 @@ exports.initUser = functions.auth.user().onCreate(user => {
 					combrei: 0,
 					elysian: 0,
 					hooru: 0,
-					argenprot: 0,
+					argenport: 0,
 					skycrag: 0,
 					feln: 0,
 					stonescar: 0,
@@ -63,7 +64,7 @@ exports.initUser = functions.auth.user().onCreate(user => {
 					combrei: 0,
 					elysian: 0,
 					hooru: 0,
-					argenprot: 0,
+					argenport: 0,
 					skycrag: 0,
 					feln: 0,
 					stonescar: 0,
