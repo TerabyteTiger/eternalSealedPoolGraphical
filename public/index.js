@@ -1,3 +1,7 @@
+//Firestore //
+
+const db = firebase.firestore();
+var user;
 //Toggle Labels - UN, F
 var triLabelMode = "UN";
 function toggleTriLabels() {
@@ -1007,6 +1011,24 @@ function updateTriVars() {
 	winchest.count = document.getElementById("FJS").value;
 	kerendon.count = document.getElementById("JST").value;
 	auralian.count = document.getElementById("PST").value;
+
+	//For logged in users//
+	user = firebase.auth().currentUser;
+	if (user) {
+		db.collection("users")
+			.doc(user.email)
+			.update({
+				tri: {
+					playables: {
+						jennev: jennev.count,
+						ixtun: ixtun.count,
+						winchest: winchest.count,
+						kerendon: kerendon.count,
+						auralian: auralian.count,
+					},
+				},
+			});
+	}
 }
 
 // Recommended Functions
@@ -1024,6 +1046,31 @@ function monoRec() {
 	time.removal = document.getElementById("Tr").value;
 	shadow.removal = document.getElementById("Sr").value;
 	fire.removal = document.getElementById("Fr").value;
+
+	//For logged in users//
+	user = firebase.auth().currentUser;
+	if (user) {
+		db.collection("users")
+			.doc(user.email)
+			.update({
+				mono: {
+					playables: {
+						fire: fire.count,
+						time: time.count,
+						justice: justice.count,
+						primal: primal.count,
+						shadow: shadow.count,
+					},
+					removal: {
+						fire: fire.removal,
+						time: time.removal,
+						justice: justice.removal,
+						primal: primal.removal,
+						shadow: shadow.removal,
+					},
+				},
+			});
+	}
 
 	chartdata = [primal, justice, time, shadow, fire];
 	bestCount = chartdata.reduce(
@@ -1127,6 +1174,7 @@ function dualRec() {
 		eval(document.getElementById("Pr").value) +
 		eval(document.getElementById("Tr").value);
 
+	/** TODO: MOVE TRI COLOR ABOVE AND USE getElement 1x**/
 	/** Update counts for tri colors**/
 	rakano.count = document.getElementById("FJ").value;
 	argenport.count = document.getElementById("JS").value;
@@ -1149,6 +1197,53 @@ function dualRec() {
 	feln.removal = document.getElementById("PSr").value;
 	xenan.removal = document.getElementById("STr").value;
 	elysian.removal = document.getElementById("PTr").value;
+
+	//For logged in users//
+	user = firebase.auth().currentUser;
+	if (user) {
+		db.collection("users")
+			.doc(user.email)
+			.update({
+				dual: {
+					playables: {
+						praxis: praxis.count,
+						rakano: rakano.count,
+						combrei: combrei.count,
+						elysian: elysian.count,
+						hooru: hooru.count,
+						argenport: argenport.count,
+						skycrag: skycrag.count,
+						feln: feln.count,
+						stonescar: stonescar.count,
+						xenan: xenan.count,
+					},
+					removal: {
+						praxis: praxis.removal,
+						rakano: rakano.removal,
+						combrei: combrei.removal,
+						elysian: elysian.removal,
+						hooru: hooru.removal,
+						argenport: argenport.removal,
+						skycrag: skycrag.removal,
+						feln: feln.removal,
+						stonescar: stonescar.removal,
+						xenan: xenan.removal,
+					},
+					fixing: {
+						praxis: praxis.fix,
+						rakano: rakano.fix,
+						combrei: combrei.fix,
+						elysian: elysian.fix,
+						hooru: hooru.fix,
+						argenport: argenport.fix,
+						skycrag: skycrag.fix,
+						feln: feln.fix,
+						stonescar: stonescar.fix,
+						xenan: xenan.fix,
+					},
+				},
+			});
+	}
 
 	chartdata = [
 		rakano,
@@ -1358,7 +1453,6 @@ function fixUpdateTri() {
 firebase.auth().onAuthStateChanged(function(loggedUser) {
 	if (loggedUser) {
 		// Get User Record
-		const db = firebase.firestore();
 		var docRef = db.collection("users").doc(loggedUser.email);
 		docRef.get().then(function(doc) {
 			if (doc.exists) {
@@ -1503,11 +1597,82 @@ firebase.auth().onAuthStateChanged(function(loggedUser) {
 				document.getElementById("PST").value = data.tri.playables.auralian;
 				document.getElementById("PST").dispatchEvent(new Event("change"));
 			} else {
-				console.log("No Document Found :( ");
+				console.log("Creating Document");
+				const email = loggedUser.email;
+				db.collection("users")
+					.doc(email)
+					.set({
+						user: email,
+						mono: {
+							playables: {
+								fire: 0,
+								time: 0,
+								justice: 0,
+								primal: 0,
+								shadow: 0,
+							},
+							removal: {
+								fire: 0,
+								time: 0,
+								justice: 0,
+								primal: 0,
+								shadow: 0,
+							},
+						},
+						dual: {
+							playables: {
+								praxis: 0,
+								rakano: 0,
+								combrei: 0,
+								elysian: 0,
+								hooru: 0,
+								argenport: 0,
+								skycrag: 0,
+								feln: 0,
+								stonescar: 0,
+								xenan: 0,
+							},
+							removal: {
+								praxis: 0,
+								rakano: 0,
+								combrei: 0,
+								elysian: 0,
+								hooru: 0,
+								argenport: 0,
+								skycrag: 0,
+								feln: 0,
+								stonescar: 0,
+								xenan: 0,
+							},
+							fixing: {
+								praxis: 0,
+								rakano: 0,
+								combrei: 0,
+								elysian: 0,
+								hooru: 0,
+								argenport: 0,
+								skycrag: 0,
+								feln: 0,
+								stonescar: 0,
+								xenan: 0,
+							},
+						},
+						tri: {
+							playables: {
+								jennev: 0,
+								ixtun: 0,
+								winchest: 0,
+								kerendon: 0,
+								auralian: 0,
+							},
+						},
+					})
+					.catch(function(error) {
+						console.error("Error adding document: ", error);
+					});
 			}
 		});
 	} else {
-		// ...
 		console.log("Not logged in");
 	}
 });
