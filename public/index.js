@@ -1,3 +1,7 @@
+//Firestore //
+
+const db = firebase.firestore();
+var user;
 //Toggle Labels - UN, F
 var triLabelMode = "UN";
 function toggleTriLabels() {
@@ -161,8 +165,6 @@ var primal = {
 
 var ctx = document.getElementById("myChart");
 var ctx2 = document.getElementById("dualChart");
-//Soft Remove
-/*var ctx3 = document.getElementById("fixChart");*/
 
 var ctx4 = document.getElementById("triChart");
 var myChart, dualChart, triChart, bestCount, bestMono, bestDual;
@@ -501,127 +503,6 @@ function initialize() {
 		},
 	});
 
-	/********** FIXING TABLE **********************/
-	/*fixChart = new Chart(ctx3, {
-        type: "bar",
-        data: {
-            labels: [
-                "Rakano",
-                "Argenport",
-                "Hooru",
-                "Combrei",
-                "Stonescar",
-                "Skycrag",
-                "Praxis",
-                "Feln",
-                "Xenan",
-                "Elysian"
-            ],
-            datasets: [
-                {
-                    label: "Fixing",
-                    data: [
-                        rakano.fix * 0.5,
-                        argenport.fix * 0.5,
-                        hooru.fix * 0.5,
-                        combrei.fix * 0.5,
-                        stonescar.fix * 0.5,
-                        skycrag.fix * 0.5,
-                        praxis.fix * 0.5,
-                        feln.fix * 0.5,
-                        xenan.fix * 0.5,
-                        elysian.fix * 0.5
-                    ],
-                    backgroundColor: [
-                        "rgba(255,99,132,0.4)",
-                        "rgba(75, 192, 192, 0.4)",
-                        "rgba(75, 192, 192, 0.4)",
-                        "rgba(75, 192, 192, 0.4)",
-                        "rgba(255,99,132,0.4)",
-                        "rgba(255,99,132,0.4)",
-                        "rgba(255,99,132,0.4)",
-                        "rgba(153, 102, 255, 0.4)",
-                        "rgba(153, 102, 255, 0.4)",
-                        "rgba(54, 162, 235, 0.4)"
-                    ],
-                    borderColor: [
-                        "rgba(255,99,132,1)",
-                        "rgba(75, 192, 192, 1)",
-                        "rgba(75, 192, 192, 1)",
-                        "rgba(75, 192, 192, 1)",
-                        "rgba(255,99,132,1)",
-                        "rgba(255,99,132,1)",
-                        "rgba(255,99,132,1)",
-                        "rgba(153, 102, 255, 1)",
-                        "rgba(153, 102, 255, 1)",
-                        "rgba(54, 162, 235,14)"
-                    ],
-                    borderWidth: 1
-                },
-                {
-                    label: "Fixing",
-                    data: [
-                        rakano.fix * 0.5,
-                        argenport.fix * 0.5,
-                        hooru.fix * 0.5,
-                        combrei.fix * 0.5,
-                        stonescar.fix * 0.5,
-                        skycrag.fix * 0.5,
-                        praxis.fix * 0.5,
-                        feln.fix * 0.5,
-                        xenan.fix * 0.5,
-                        elysian.fix * 0.5
-                    ],
-                    backgroundColor: [
-                        "rgba(75, 192, 192, 0.4)" ,
-                        "rgba(153, 102, 255,0.4)" ,
-                        "rgba(54, 162, 235, 0.4)" ,
-                        "rgba(255, 206, 86, 0.4)" ,
-                        "rgba(153, 102, 255,0.4)" ,
-                        "rgba(54, 162, 235, 0.4)" ,
-                        "rgba(255, 206, 86, 0.4)" ,
-                        "rgba(54, 162, 235, 0.4)" ,
-                        "rgba(255, 206, 86, 0.4)" ,
-                        "rgba(255, 206, 86, 0.4)" 
-                    ],
-                    borderColor: [
-                        "rgba(75, 192, 192, 1)" ,
-                        "rgba(153, 102, 255, 1)",
-                        "rgba(54, 162, 235, 1)" ,
-                        "rgba(255, 206, 86, 1)" ,
-                        "rgba(153, 102, 255, 1)",
-                        "rgba(54, 162, 235, 1)" ,
-                        "rgba(255, 206, 86, 1)" ,
-                        "rgba(54, 162, 235, 1)" ,
-                        "rgba(255, 206, 86, 1)" ,
-                        "rgba(255, 206, 86,12)" 
-                    ],
-                    borderWidth: 1
-                }
-            ]
-        },
-        options: {
-            legend: {
-                display: false
-            },
-            scales: {
-                xAxes: [
-                    {
-                        stacked: true
-                    }
-                ],
-                yAxes: [
-                    {
-                        stacked: true,
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }
-                ]
-            }
-        }
-    });*/
-	//Soft remove fix chart
 	/********** TRI-COLOR TABLE ************************/
 	triChart = new Chart(ctx4, {
 		type: "bar",
@@ -1130,6 +1011,24 @@ function updateTriVars() {
 	winchest.count = document.getElementById("FJS").value;
 	kerendon.count = document.getElementById("JST").value;
 	auralian.count = document.getElementById("PST").value;
+
+	//For logged in users//
+	user = firebase.auth().currentUser;
+	if (user) {
+		db.collection("users")
+			.doc(user.email)
+			.update({
+				tri: {
+					playables: {
+						jennev: jennev.count,
+						ixtun: ixtun.count,
+						winchest: winchest.count,
+						kerendon: kerendon.count,
+						auralian: auralian.count,
+					},
+				},
+			});
+	}
 }
 
 // Recommended Functions
@@ -1147,6 +1046,31 @@ function monoRec() {
 	time.removal = document.getElementById("Tr").value;
 	shadow.removal = document.getElementById("Sr").value;
 	fire.removal = document.getElementById("Fr").value;
+
+	//For logged in users//
+	user = firebase.auth().currentUser;
+	if (user) {
+		db.collection("users")
+			.doc(user.email)
+			.update({
+				mono: {
+					playables: {
+						fire: fire.count,
+						time: time.count,
+						justice: justice.count,
+						primal: primal.count,
+						shadow: shadow.count,
+					},
+					removal: {
+						fire: fire.removal,
+						time: time.removal,
+						justice: justice.removal,
+						primal: primal.removal,
+						shadow: shadow.removal,
+					},
+				},
+			});
+	}
 
 	chartdata = [primal, justice, time, shadow, fire];
 	bestCount = chartdata.reduce(
@@ -1250,6 +1174,7 @@ function dualRec() {
 		eval(document.getElementById("Pr").value) +
 		eval(document.getElementById("Tr").value);
 
+	/** TODO: MOVE TRI COLOR ABOVE AND USE getElement 1x**/
 	/** Update counts for tri colors**/
 	rakano.count = document.getElementById("FJ").value;
 	argenport.count = document.getElementById("JS").value;
@@ -1272,6 +1197,53 @@ function dualRec() {
 	feln.removal = document.getElementById("PSr").value;
 	xenan.removal = document.getElementById("STr").value;
 	elysian.removal = document.getElementById("PTr").value;
+
+	//For logged in users//
+	user = firebase.auth().currentUser;
+	if (user) {
+		db.collection("users")
+			.doc(user.email)
+			.update({
+				dual: {
+					playables: {
+						praxis: praxis.count,
+						rakano: rakano.count,
+						combrei: combrei.count,
+						elysian: elysian.count,
+						hooru: hooru.count,
+						argenport: argenport.count,
+						skycrag: skycrag.count,
+						feln: feln.count,
+						stonescar: stonescar.count,
+						xenan: xenan.count,
+					},
+					removal: {
+						praxis: praxis.removal,
+						rakano: rakano.removal,
+						combrei: combrei.removal,
+						elysian: elysian.removal,
+						hooru: hooru.removal,
+						argenport: argenport.removal,
+						skycrag: skycrag.removal,
+						feln: feln.removal,
+						stonescar: stonescar.removal,
+						xenan: xenan.removal,
+					},
+					fixing: {
+						praxis: praxis.fix,
+						rakano: rakano.fix,
+						combrei: combrei.fix,
+						elysian: elysian.fix,
+						hooru: hooru.fix,
+						argenport: argenport.fix,
+						skycrag: skycrag.fix,
+						feln: feln.fix,
+						stonescar: stonescar.fix,
+						xenan: xenan.fix,
+					},
+				},
+			});
+	}
 
 	chartdata = [
 		rakano,
@@ -1477,3 +1449,249 @@ function fixUpdateTri() {
 		eval(rakano.fix) + eval(argenport.fix) + eval(stonescar.fix);
 	triChart.update();
 }
+
+firebase.auth().onAuthStateChanged(function(loggedUser) {
+	if (loggedUser) {
+		// Get User Record
+		var docRef = db.collection("users").doc(loggedUser.email);
+		docRef.get().then(function(doc) {
+			if (doc.exists) {
+				data = doc.data();
+				// Pull in and refresh mono data & functions //
+				document.getElementById("F").value = data.mono.playables.fire;
+				document.getElementById("F").dispatchEvent(new Event("change"));
+
+				document.getElementById("J").value = data.mono.playables.justice;
+				document.getElementById("J").dispatchEvent(new Event("change"));
+
+				document.getElementById("S").value = data.mono.playables.shadow;
+				document.getElementById("S").dispatchEvent(new Event("change"));
+
+				document.getElementById("T").value = data.mono.playables.time;
+				document.getElementById("T").dispatchEvent(new Event("change"));
+
+				document.getElementById("P").value = data.mono.playables.primal;
+				document.getElementById("P").dispatchEvent(new Event("change"));
+
+				document.getElementById("Fr").value = data.mono.removal.fire;
+				document.getElementById("Fr").dispatchEvent(new Event("change"));
+
+				document.getElementById("Jr").value = data.mono.removal.justice;
+				document.getElementById("Jr").dispatchEvent(new Event("change"));
+
+				document.getElementById("Sr").value = data.mono.removal.shadow;
+				document.getElementById("Sr").dispatchEvent(new Event("change"));
+
+				document.getElementById("Tr").value = data.mono.removal.time;
+				document.getElementById("Tr").dispatchEvent(new Event("change"));
+
+				document.getElementById("Pr").value = data.mono.removal.primal;
+				document.getElementById("Pr").dispatchEvent(new Event("change"));
+
+				// Dual //
+				document.getElementById("FT").value = data.dual.playables.praxis;
+				document.getElementById("FT").dispatchEvent(new Event("change"));
+
+				document.getElementById("FJ").value = data.dual.playables.rakano;
+				document.getElementById("FJ").dispatchEvent(new Event("change"));
+
+				document.getElementById("JT").value = data.dual.playables.combrei;
+				document.getElementById("JT").dispatchEvent(new Event("change"));
+
+				document.getElementById("PT").value = data.dual.playables.elysian;
+				document.getElementById("PT").dispatchEvent(new Event("change"));
+
+				document.getElementById("JP").value = data.dual.playables.hooru;
+				document.getElementById("JP").dispatchEvent(new Event("change"));
+
+				document.getElementById("JS").value = data.dual.playables.argenport;
+				document.getElementById("JS").dispatchEvent(new Event("change"));
+
+				document.getElementById("FP").value = data.dual.playables.skycrag;
+				document.getElementById("FP").dispatchEvent(new Event("change"));
+
+				document.getElementById("PS").value = data.dual.playables.feln;
+				document.getElementById("PS").dispatchEvent(new Event("change"));
+
+				document.getElementById("FS").value = data.dual.playables.stonescar;
+				document.getElementById("FS").dispatchEvent(new Event("change"));
+
+				document.getElementById("ST").value = data.dual.playables.xenan;
+				document.getElementById("ST").dispatchEvent(new Event("change"));
+
+				//Dual Removal
+				document.getElementById("FTr").value = data.dual.removal.praxis;
+				document.getElementById("FTr").dispatchEvent(new Event("change"));
+
+				document.getElementById("FJr").value = data.dual.removal.rakano;
+				document.getElementById("FJr").dispatchEvent(new Event("change"));
+
+				document.getElementById("JTr").value = data.dual.removal.combrei;
+				document.getElementById("JTr").dispatchEvent(new Event("change"));
+
+				document.getElementById("PTr").value = data.dual.removal.elysian;
+				document.getElementById("PTr").dispatchEvent(new Event("change"));
+
+				document.getElementById("JPr").value = data.dual.removal.hooru;
+				document.getElementById("JPr").dispatchEvent(new Event("change"));
+
+				document.getElementById("JSr").value = data.dual.removal.argenport;
+				document.getElementById("JSr").dispatchEvent(new Event("change"));
+
+				document.getElementById("FPr").value = data.dual.removal.skycrag;
+				document.getElementById("FPr").dispatchEvent(new Event("change"));
+
+				document.getElementById("PSr").value = data.dual.removal.feln;
+				document.getElementById("PSr").dispatchEvent(new Event("change"));
+
+				document.getElementById("FSr").value = data.dual.removal.stonescar;
+				document.getElementById("FSr").dispatchEvent(new Event("change"));
+
+				document.getElementById("STr").value = data.dual.removal.xenan;
+				document.getElementById("STr").dispatchEvent(new Event("change"));
+
+				//Dual Fixing
+				document.getElementById("FTf").value = data.dual.fixing.praxis;
+				document.getElementById("FTf").dispatchEvent(new Event("change"));
+
+				document.getElementById("FJf").value = data.dual.fixing.rakano;
+				document.getElementById("FJf").dispatchEvent(new Event("change"));
+
+				document.getElementById("JTf").value = data.dual.fixing.combrei;
+				document.getElementById("JTf").dispatchEvent(new Event("change"));
+
+				document.getElementById("PTf").value = data.dual.fixing.elysian;
+				document.getElementById("PTf").dispatchEvent(new Event("change"));
+
+				document.getElementById("JPf").value = data.dual.fixing.hooru;
+				document.getElementById("JPf").dispatchEvent(new Event("change"));
+
+				document.getElementById("JSf").value = data.dual.fixing.argenport;
+				document.getElementById("JSf").dispatchEvent(new Event("change"));
+
+				document.getElementById("FPf").value = data.dual.fixing.skycrag;
+				document.getElementById("FPf").dispatchEvent(new Event("change"));
+
+				document.getElementById("PSf").value = data.dual.fixing.feln;
+				document.getElementById("PSf").dispatchEvent(new Event("change"));
+
+				document.getElementById("FSf").value = data.dual.fixing.stonescar;
+				document.getElementById("FSf").dispatchEvent(new Event("change"));
+
+				document.getElementById("STf").value = data.dual.fixing.xenan;
+				document.getElementById("STf").dispatchEvent(new Event("change"));
+
+				//Tri
+				document.getElementById("FTP").value = data.tri.playables.jennev;
+				document.getElementById("FTP").dispatchEvent(new Event("change"));
+
+				document.getElementById("FJP").value = data.tri.playables.ixtun;
+				document.getElementById("FJP").dispatchEvent(new Event("change"));
+
+				document.getElementById("FJS").value = data.tri.playables.winchest;
+				document.getElementById("FJS").dispatchEvent(new Event("change"));
+
+				document.getElementById("JST").value = data.tri.playables.kerendon;
+				document.getElementById("JST").dispatchEvent(new Event("change"));
+
+				document.getElementById("PST").value = data.tri.playables.auralian;
+				document.getElementById("PST").dispatchEvent(new Event("change"));
+			} else {
+				console.log("Creating Document");
+				const email = loggedUser.email;
+				db.collection("users")
+					.doc(email)
+					.set({
+						user: email,
+						mono: {
+							playables: {
+								fire: 0,
+								time: 0,
+								justice: 0,
+								primal: 0,
+								shadow: 0,
+							},
+							removal: {
+								fire: 0,
+								time: 0,
+								justice: 0,
+								primal: 0,
+								shadow: 0,
+							},
+						},
+						dual: {
+							playables: {
+								praxis: 0,
+								rakano: 0,
+								combrei: 0,
+								elysian: 0,
+								hooru: 0,
+								argenport: 0,
+								skycrag: 0,
+								feln: 0,
+								stonescar: 0,
+								xenan: 0,
+							},
+							removal: {
+								praxis: 0,
+								rakano: 0,
+								combrei: 0,
+								elysian: 0,
+								hooru: 0,
+								argenport: 0,
+								skycrag: 0,
+								feln: 0,
+								stonescar: 0,
+								xenan: 0,
+							},
+							fixing: {
+								praxis: 0,
+								rakano: 0,
+								combrei: 0,
+								elysian: 0,
+								hooru: 0,
+								argenport: 0,
+								skycrag: 0,
+								feln: 0,
+								stonescar: 0,
+								xenan: 0,
+							},
+						},
+						tri: {
+							playables: {
+								jennev: 0,
+								ixtun: 0,
+								winchest: 0,
+								kerendon: 0,
+								auralian: 0,
+							},
+						},
+					})
+					.catch(function(error) {
+						console.error("Error adding document: ", error);
+					});
+			}
+		});
+		// Swap login for log out
+		openLoginModalTrigger.innerHTML = "Log Out";
+		openLoginModalTrigger.onclick = function() {
+			firebase
+				.auth()
+				.signOut()
+				.then(function() {
+					//sign out success
+					console.log("Sign Out successful");
+					window.location = "index.html";
+				})
+				.catch(function(error) {
+					console.log("There was an error logging out");
+				});
+		};
+	} else {
+		console.log("Not logged in");
+		openLoginModalTrigger.innerHTML = "Login";
+		openLoginModalTrigger.onclick = function() {
+			loginModal.style.display = "block";
+		};
+	}
+});
