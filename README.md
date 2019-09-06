@@ -1,5 +1,7 @@
 # Eternal Sealed Pool Analysis Tool
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/531b0093-cf2e-42ec-987d-33ab55c60de5/deploy-status)](https://app.netlify.com/sites/clever-allen-278995/deploys)
+
 ## What is Eternal?
 
 Eternal is a digital card game from [Dire Wolf Digital](https://www.direwolfdigital.com/). This site is a fan-made and maintained tool, and is not associated with [DWD](https://www.direwolfdigital.com/) or [Eternal](https://www.direwolfdigital.com/eternal/).
