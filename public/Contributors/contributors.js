@@ -3,10 +3,10 @@ console.log("Loading");
 
 const contributors = [
     {
-        name: "12vanblart",
-        picture: "https://github.com/12vanblart.png",
-        caption: "12vanblart, Creator",
-        link: "https://github.com/12vanblart"
+        name: "TerabyteTiger",
+        picture: "https://github.com/TerabyteTiger.png",
+        caption: "TerabyteTiger, Creator",
+        link: "https://github.com/TerabyteTiger"
     }
 ];
 
